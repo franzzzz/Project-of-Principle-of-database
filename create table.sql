@@ -151,7 +151,7 @@ create table pledge (
     `username` varchar(36) not null,
     `amount` int not null default '0',
     `charge` bool not null default false,
-    primary key (pid, username),
+    primary key (pid, username, pledgetime),
     constraint `pledge_ibfk_1` foreign key (`pid`) references `project` (`pid`),
     constraint `pledge_ibfk_2` foreign key (`username`) references `user` (`username`),
     constraint `pledge_ibfk_3` foreign key (`cardnumber`) references `creditcard` (`cardnumber`)
