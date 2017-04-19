@@ -1,4 +1,4 @@
-drop table if exists `projgroup`;
+#drop table if exists `projgroup`;
 drop table if exists `statusrecord`;
 drop table if exists `follow`;
 drop table if exists `pledge`;
@@ -46,7 +46,7 @@ create table project (
     `minfund` int not null default '0',
     `maxfund` int not null default '0',
     `endtime` datetime NOT NULL,
-    `completiontime` datetime NOT NULL,
+    `completiontime` datetime NULL,
     `moneysum` int not null default '0',
     `status` varchar(10) not null default 'funding',
     primary key (pid),
@@ -66,20 +66,19 @@ insert into `project` values ('7', 'H', 'House Holding', 'HHHHHHHHHHH', '2017-03
 drop table if exists `statusrecord`;
 create table statusrecord (
 	`pid` int8 not null,
-    `failtime` date null,
     `worktime` date null,
     `completetime` date null,
 	primary key (pid),
     constraint `statusrecord_ibfk_1` foreign key (`pid`) references `project` (`pid`)
 );
 
-insert into `statusrecord` values ('1', null, '2018-01-04', '2019-01-03');
-insert into `statusrecord` values ('2', null, '2017-01-04', '2017-02-03');
-insert into `statusrecord` values ('3', null, '2019-04-05', '2019-06-03');
-insert into `statusrecord` values ('4', '2017-01-01', '2017-01-03', '2017-02-03');
-insert into `statusrecord` values ('5', null, '2018-01-03', '2019-01-03');
-insert into `statusrecord` values ('6', null, '2017-04-03', '2019-01-03');
-insert into `statusrecord` values ('7', '2017-04-10', '2017-04-03', '2019-01-03');
+insert into `statusrecord` values ('1', null, null);
+insert into `statusrecord` values ('2', '2017-01-04', '2017-02-03');
+insert into `statusrecord` values ('3', null, null);
+insert into `statusrecord` values ('4',  '2017-01-03', '2017-01-01');
+insert into `statusrecord` values ('5', null, null);
+insert into `statusrecord` values ('6', '2017-04-03', null);
+insert into `statusrecord` values ('7', '2017-04-03', '2017-04-04');
 
 DROP TABLE IF exists `follow`;
 create table follow (
@@ -110,18 +109,16 @@ drop table if exists `payhistory`;
 create table payhistory (
 	`username` varchar(36) not null,
     `pid` int8 not null,
-    `sumamount` int not null default '0',
+    `amount` int not null default '0',
     `chargetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `rate` int null default 0,
-	primary key (pid, username, chargetime),
+	primary key (pid, username),
     constraint `payhistory_ibfk_1` foreign key (`pid`) references `project` (`pid`),
     constraint `payhistory_ibfk_2` foreign key (`username`) references `user` (`username`)
 );
 
-insert into `payhistory` values ('A', '2', '5000', '2017-01-04 12:04:23', '3');
-insert into `payhistory` values ('A', '2', '5000', '2017-01-04 12:04:24', '3');
-insert into `payhistory` values ('B', '2', '1', '2017-01-04 12:04:24', '4');
-insert into `payhistory` values ('A', '3', '1', '2017-04-04 12:04:23', '3');
+insert into `payhistory` values ('A', '2', '10000', '2017-01-04 12:04:23', '3');
+insert into `payhistory` values ('B', '2', '1', '2017-01-04 12:04:23', '4');
 
 drop table if exists `creditcard`;
 create table creditcard (
@@ -160,9 +157,10 @@ create table pledge (
     constraint `pledge_ibfk_3` foreign key (`cardnumber`) references `creditcard` (`cardnumber`)
 );
 
-insert into `pledge` values ('2', '1234123412341234', '2016-04-04 12:04:24', 'A', '10000', true);
-insert into `pledge` values ('2', '1234123412341232', '2017-01-04 12:04:24', 'B', '1', false);
-insert into `pledge` values ('3', '1234123412341231', '2017-04-04 12:04:23', 'A', '1', true);
+insert into `pledge` values ('2', '1234123412341234', '2016-04-04 12:04:23', 'A', '4999', true);
+insert into `pledge` values ('2', '1234123412341231', '2016-04-05 12:04:23', 'A', '5001', true);
+insert into `pledge` values ('2', '1234123412341232', '2017-01-04 12:04:24', 'B', '1', true);
+insert into `pledge` values ('3', '1234123412341231', '2017-04-04 12:04:23', 'A', '1', false);
 
 
 drop table if exists `interests`;
@@ -272,6 +270,7 @@ insert into `sample` values ('1', '1', '2017-04-04 12:04:23', 'aad58c739888c366d
 insert into `sample` values ('2', '1', '2017-04-04 12:04:24', '1b374d74d60c82099a4e0501d09a0f56', 'Hello World again Proj1', 'Hi! again');
 insert into `sample` values ('3', '7', '2017-04-05 12:04:23', '838e0e72279f984f5182a721cb04bd04', 'Hello World proj7', 'Hi!');
 
+/*
 drop table if exists `projgroup`;
 create table projgroup (
 	`pid` int8 not null,
@@ -294,3 +293,5 @@ insert into `projgroup` values ('5', '1', 'C', 'C');
 insert into `projgroup` values ('6', '1', 'H', 'H');
 insert into `projgroup` values ('7', '2', 'H', 'H');
 insert into `projgroup` values ('7', '2', 'H', 'G');
+*/
+
