@@ -265,6 +265,7 @@ insert into `tags` values ('4', 'Banana');
 insert into `tags` values ('4', 'Kiwifruit');
 insert into `tags` values ('4', 'Jazz');
 insert into `tags` values ('5', 'Apple');
+insert into `tags` values ('5', 'Jazz');
 insert into `tags` values ('7', 'Apple');
 insert into `tags` values ('7', 'Banana');
 insert into `tags` values ('7', 'Cherry');
@@ -274,6 +275,9 @@ insert into `tags` values ('7', 'Grape');
 insert into `tags` values ('7', 'Haw');
 insert into `tags` values ('7', 'Juicy Peach');
 insert into `tags` values ('7', 'Kiwifruit');
+insert into `tags` values ('7', 'Jazz');
+insert into `tags` values ('8', 'Jazz');
+insert into `tags` values ('9', 'Jazz');
 
 drop table if exists `sample`;
 create table sample (
