@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<?php
+  session_start();
+  $loginUsername = $_SESSION["loginUsername"];
+  
+?>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
