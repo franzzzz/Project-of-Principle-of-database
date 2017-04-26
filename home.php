@@ -751,8 +751,8 @@ and to give over $250,000,000 to the causes they care about.</span>
 			</div>
 		</div>
 	</main>
-	<!--// Main Content //--> 
-	
+	<!--// Main Content //-->
+
 	<!--// Footer Widget //-->
 	<footer id="footer-sec">
 		<div class="container">
@@ -808,8 +808,8 @@ and to give over $250,000,000 to the causes they care about.</span>
 			</div>
 		</div>
 	</footer>
-	<!--// Footer Widget //--> 
-	
+	<!--// Footer Widget //-->
+
 	<!--// CopyRight //-->
 	<div id="copyright">
 		<div class="container">
@@ -845,16 +845,16 @@ and to give over $250,000,000 to the causes they care about.</span>
 			</div>
 		</div>
 	</div>
-	<!--// CopyRight //--> 
-	
+	<!--// CopyRight //-->
+
 </div>
 
-<!-- jQuery (necessary JavaScript) --> 
-<script src="assets/scripts/jquery.js"></script> 
-<script src="assets/scripts/bootstrap.min.js"></script> 
+<!-- jQuery (necessary JavaScript) -->
+<script src="assets/scripts/jquery.js"></script>
+<script src="assets/scripts/bootstrap.min.js"></script>
 <script src="assets/scripts/modernizr.js"></script>
-<script src="assets/scripts/menu.js"></script> 
-<script src="assets/scripts/jquery.flexslider-min.js"></script> 
+<script src="assets/scripts/menu.js"></script>
+<script src="assets/scripts/jquery.flexslider-min.js"></script>
 <script src="assets/scripts/functions.js"></script>
 <script >
 	jQuery(window).load(function(){
