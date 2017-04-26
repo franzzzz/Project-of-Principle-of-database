@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+<?php
+  session_start();
+  $loginUsername = $_SESSION["loginUsername"];
+  
+?>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -109,7 +116,7 @@
             </li>
           </ul>
         </div> 
-        <a href="sign.html" class="free-btn">Start for Free</a> 
+        <!-- <a href="sign.html" class="free-btn">Start for Free</a>  -->
       </div>
     </div>
     <div class="mob-nav"></div>
