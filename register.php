@@ -13,9 +13,9 @@ function registerUser($connection, $username, $email, $password, $hometown,
     if (!isset($username) || !isset($gender))
         return false;
 
-    //date_default_timezone_set(‘America/New_York’);
+    date_default_timezone_set(‘America/New_York’);
     //string date(string $format [, int $timestamp ]);
-    //$time = date('Y-m-d H:i:s');
+    $time = date('Y-m-d H:i:s');
 
     // if (!isset($hometown) && !isset(truename))
     //     $query = "INSERT INTO `user` VALUES ('{$username}', null, '{$password}', 
