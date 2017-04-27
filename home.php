@@ -123,7 +123,7 @@
     </div>
   </header>
   <!-- Header -->    
-	<div class="cs-banner">
+	<!-- <div class="cs-banner">
 		<div class="flexslider">
 			<ul class="slides">
 				<li>
@@ -156,11 +156,11 @@ and to give over $250,000,000 to the causes they care about.</span>
 				</li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 	<!-- Main Content -->
 	<main id="main-content">
 		<div class="main-section">
-			<div class="page-section">
+			<!-- <div class="page-section">
 				<div class="container">
 					<div class="row">
 						<div class="section-fullwidth col-lg-12">
@@ -204,7 +204,7 @@ and to give over $250,000,000 to the causes they care about.</span>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="page-section">
 				<div class="container">
 					<div class="row">
@@ -428,7 +428,7 @@ and to give over $250,000,000 to the causes they care about.</span>
 					</div>
 				</div>
 			</div>
-			<div class="page-section" style="background:url(assets/images/bg-partners.jpg) no-repeat 50% 50%; background-size:cover;">
+			<!-- <div class="page-section" style="background:url(assets/images/bg-partners.jpg) no-repeat 50% 50%; background-size:cover;">
 				<div class="container">
 					<div class="row">
 						<div class="section-fullwidth col-lg-12">
@@ -749,7 +749,7 @@ and to give over $250,000,000 to the causes they care about.</span>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</main>
 	<!--// Main Content //-->
 

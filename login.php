@@ -18,7 +18,7 @@ session_start();
 if (authenticateUser($connection, $loginUsername, $loginPassword)) {
     // Register the loginUsername
     $_SESSION["loginUsername"] = $loginUsername;
-
+    
     // // Register the IP address that started this session
     // $_SESSION["loginIP"] = $_SERVER["REMOTE_ADDR"];
 
