@@ -7,15 +7,13 @@
  * @return bool
  */
 function registerUser($connection, $username, $email, $password, $hometown, 
-        $truename, $gender)
+        $truename, $gender, $time)
 {
     // Test the username and password parameters
     if (!isset($username) || !isset($gender))
         return false;
 
-    date_default_timezone_set(‘America/New_York’);
-    //string date(string $format [, int $timestamp ]);
-    $time = date('Y-m-d H:i:s');
+    //echo date("Y-m-d H:i:s");
 
     // if (!isset($hometown) && !isset(truename))
     //     $query = "INSERT INTO `user` VALUES ('{$username}', null, '{$password}', 
@@ -29,7 +27,7 @@ function registerUser($connection, $username, $email, $password, $hometown,
 
     // Formulate the SQL find the user
     else $query = "INSERT INTO `user` VALUES ('{$username}', '{$truename}', '{$password}', 
-        '{$email}', '{$gender}', '{$hometown}', '2014-01-03 12:04:23')";
+        '{$email}', '{$gender}', '{$hometown}', '{$time}')";
 
     // Execute the query
     if (!$result = @ mysqli_query($connection, $query))

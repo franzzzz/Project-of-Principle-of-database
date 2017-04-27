@@ -15,6 +15,9 @@ $signupHometown = mysqlclean($_POST, "signupHometown", 40, $connection);
 $signupPassword = mysqlclean($_POST, "signupPassword", 40, $connection);
 $signupConfirmPassword = mysqlclean($_POST, "signupConfirmPassword", 40, $connection);
 
+date_default_timezone_set('America/New_York');
+$signupTime = date("Y-m-d H:i:s");
+
 if (!mysqli_select_db($connection, $databaseName))
     showerror();
 
@@ -22,7 +25,7 @@ session_start();
 
 // Authenticate the user
 if (registerUser($connection, $signupUsername, $signupEmail, $signupPassword, $signupHometown, 
-        $signupTruename, $signupGender)) {
+        $signupTruename, $signupGender, $signupTime)) {
     // Register the loginUsername
     $_SESSION["signupUsername"] = $signupUsername;
 
