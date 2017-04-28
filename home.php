@@ -2,8 +2,18 @@
 
 <?php
   session_start();
+  require 'dbFNS.php';
+  if (!$connection = mysqli_connect($hostName, $userName, $password))
+    die("Cannot connect");
+  mysqli_select_db($connection, $databaseName);
   $loginUsername = $_SESSION["loginUsername"];
-  
+  $query = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+  $result = mysqli_query($connection, $query);
+  if ($result == null) echo "wrong";
+  $line = mysqli_fetch_array($result);
+  $_SESSION["loginTime"] = $line[0];
+  $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+  $createtime = date('F d, Y', $php_createtime_timestamp);
 ?>
 
 <html lang="en">
@@ -33,6 +43,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<!--     <script type="text/javascript">
+      function test(){
+        alert("$loginUsername");
+      }
+</script>>
+<input class="cs-bgcolor" type="button" onclick="test()" value="Sign in"> -->
 
 </head>
 <body>
@@ -101,8 +117,8 @@
               <i class="icon-arrow-down8"></i>
               <div class="dropdown-area">
               <!-- add a session to post value here -->
-                <h5>Mark Benson</h5>
-                <span>Member Since May 20, 2014</span>
+                <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                <span> <?php echo 'Member Since '.$createtime; ?> </span>
                 <ul class="dropdown">
                   <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
