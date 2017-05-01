@@ -74,7 +74,7 @@
             <li><a href="#">Discover</a>
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
-                <li><a href="listing.html">List view</a></li>
+                <li><a href="listing.php">List view</a></li>
                 <li><a href="detail.html">Detail Page</a></li>
               </ul>
             </li>
@@ -189,7 +189,7 @@
                           while ($line_show_all_pro = mysqli_fetch_array($result_show_all_pro, MYSQL_NUM)){
                             
                             $php_endtime_timestamp = strtotime($line_show_all_pro[3]);
-                            $endtime = date('m d, Y', $php_endtime_timestamp);
+                            $endtime = date('m/d, Y', $php_endtime_timestamp);
                             //maxsum != 0
                             $funded_percent = floor(100*$line_show_all_pro[4]/$line_show_all_pro[2]);
                             if($funded_percent == 0 && $line_show_all_pro[4] != 0){
