@@ -6,6 +6,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Campaigs</title>
 
+<?php
+  session_start();
+  require 'dbFNS.php';
+  if (!$connection = mysqli_connect($hostName, $userName, $password))
+    die("Cannot connect");
+  mysqli_select_db($connection, $databaseName);
+  $loginUsername = $_SESSION["loginUsername"];
+  
+  //user's profile
+  $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+  $result_my_profile = @ mysqli_query($connection, $query_my_profile);
+  $line_my_profile = mysqli_fetch_array($result_my_profile);
+  $_SESSION["loginTime"] = $line_my_profile[0];
+  $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+  date_default_timezone_set('America/New_York');
+  $restday = floor((time()-$php_createtime_timestamp)/3600);
+  $createtime = date('F d, Y', $php_createtime_timestamp);
+
+  //show all project here
+  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum FROM project WHERE status = 'funding'";
+  $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
+
+?>
+
 <!-- Css (necessary Css) -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="assets/css/bootstrap-theme.css" rel="stylesheet">
@@ -44,7 +68,7 @@
             <li><a href="#">Discover</a>
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
-                <li><a href="listing.html">List view</a></li>
+                <li><a href="listing.php">List view</a></li>
                 <li><a href="detail.html">Detail Page</a></li>
               </ul>
             </li>
@@ -94,8 +118,9 @@
               <img alt="#" src="assets/extra-images/user-img.jpg">
               <i class="icon-arrow-down8"></i>
               <div class="dropdown-area">
-                <h5>Mark Benson</h5>
-                <span>Member Since May 20, 2014</span>
+                <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
                   <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
@@ -109,13 +134,13 @@
             </li>
           </ul>
         </div> 
-        <a href="sign.html" class="free-btn">Start for Free</a> </div>
+        <!-- <a href="sign.html" class="free-btn">Start for Free</a> </div> -->
     </div>
     <div class="mob-nav"></div>
     </div>
   </header>
   <!-- Header -->  
-	<div class="breadcrumb-sec" style="background:url(assets/extra-images/banner.jpg) no-repeat; background-size:100% auto; min-height:157px!important;">
+<!-- 	<div class="breadcrumb-sec" style="background:url(assets/extra-images/banner.jpg) no-repeat; background-size:100% auto; min-height:157px!important;">
 		<div class="absolute-sec">
 			<div class="container">
 				<div class="cs-table">
@@ -128,7 +153,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- Main Content -->
 	<main id="main-content">
 		<div class="main-section">
@@ -194,12 +219,50 @@
 													</ul>
 												<!--Sorting Navigation End-->
 													<ul class="grid-filter">
-														<li class="active"><a href="javascript:void(0)"><i class="icon-layout15"></i></a></li>
-														<li><a href="javascript:void(0)"><i class="icon-list7"></i></a></li>
+                            <li><a href="javascript:void(0)" onclick="window.location.href='home.php'"><i class="icon-layout15"></i></a></li>
+														<li class="active"><a href="javascript:void(0)"><i class="icon-list7"></i></a></li>
 													</ul>
 												</nav>
 											</div>
 											<div class="listing_default">
+
+                        <?php  
+                          while ($line_show_all_pro = mysqli_fetch_array($result_show_all_pro, MYSQL_NUM)){
+                            
+                            $php_endtime_timestamp = strtotime($line_show_all_pro[3]);
+                            $endtime = date('m/d, Y', $php_endtime_timestamp);
+                            //maxsum != 0
+                            $funded_percent = floor(100*$line_show_all_pro[4]/$line_show_all_pro[2]);
+                            if($funded_percent == 0 && $line_show_all_pro[4] != 0){
+                              $funded_percent = 1;
+                            }
+                            
+                            echo "
+                            <article class=\"col-lg-12\">
+                              <div class=\"directory-section\">
+                                <div class=\"cs_thumbsection\">
+                                  <figure><a href=\"#\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"#\"></a></figure>
+                                </div>
+                                <div class=\"content_info\">
+                                  <div class=\"title\">
+                                    <h3><a href=\"#\">".$line_show_all_pro[0]."</a></h3>
+                                    <span class=\"addr\">".$line_show_all_pro[1]."</span> 
+                                  </div>
+                                  <div class=\"dr_info\">
+                                    <ul>
+                                      <li> <i class=\"cscolor icon-target5\"></i> $".$line_show_all_pro[2]." goal </li>
+                                      <li> <i class=\"cscolor icon-clock7\"></i> ".$endtime." </li>
+                                    </ul>
+                                    <span class=\"bar\"><span style=\"width:".$funded_percent."%;\"></span></span>
+                                    <div class=\"detail\"> <span class=\"fund\">".$funded_percent."% Funded</span> <a href=\"tolbtn close star\" data-placement=\"top\" data-toggle=\"tooltip\" data-original-title=\"Mark as Favorite\"><i class=\"icon-star\"></i></a> </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </article>
+                            ";
+                          }
+                        ?>
+<!-- 
 												<article class="col-lg-12">
 													<div class="directory-section">
 														<div class="cs_thumbsection">
@@ -273,7 +336,7 @@
 															</div>
 														</div>
 													</div>
-												</article>
+												</article> -->
 											</div>
 											<div class="col-lg-12">
 												<nav class="pagination">

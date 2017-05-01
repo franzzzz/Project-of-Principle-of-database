@@ -13,20 +13,8 @@ function registerUser($connection, $username, $email, $password, $hometown,
     if (!isset($username) || !isset($gender))
         return false;
 
-    //echo date("Y-m-d H:i:s");
-
-    // if (!isset($hometown) && !isset(truename))
-    //     $query = "INSERT INTO `user` VALUES ('{$username}', null, '{$password}', 
-    //     '{$email}', '{$gender}', null, '2014-01-03 12:04:23')";
-    // else if (!isset($hometown) && isset(truename))
-    //     $query = "INSERT INTO `user` VALUES ('{$username}', '{$truename}', '{$password}', 
-    //     '{$email}', '{$gender}', null, '2014-01-03 12:04:23')";
-    // else if (!isset($hometown) && !isset(truename))
-    //     $query = "INSERT INTO `user` VALUES ('{$username}', null, '{$password}', 
-    //     '{$email}', '{$gender}', '{$hometown}', '2014-01-03 12:04:23')";
-
     // Formulate the SQL find the user
-    else $query = "INSERT INTO `user` VALUES ('{$username}', '{$truename}', '{$password}', 
+    $query = "INSERT INTO `user` VALUES ('{$username}', '{$truename}', '{$password}', 
         '{$email}', '{$gender}', '{$hometown}', '{$time}')";
 
     // Execute the query

@@ -15,6 +15,10 @@ $signupHometown = mysqlclean($_POST, "signupHometown", 40, $connection);
 $signupPassword = mysqlclean($_POST, "signupPassword", 40, $connection);
 $signupConfirmPassword = mysqlclean($_POST, "signupConfirmPassword", 40, $connection);
 
+// if($signupConfirmPassword != $signupPassword){ 
+//     echo"<script>alert('Your confirm password should be same!');window.location.href='sign.html'</script>";
+// }
+
 date_default_timezone_set('America/New_York');
 $signupTime = date("Y-m-d H:i:s");
 

@@ -19,4 +19,11 @@ echo '----------------------';
 echo "<br>";
 echo 'Hello world';
 
+<script type="text/javascript">
+      function test(){
+        alert("$loginUsername");
+      }
+</script>>
+<input class="cs-bgcolor" type="button" onclick="test()" value="Sign in">
+
 ?>

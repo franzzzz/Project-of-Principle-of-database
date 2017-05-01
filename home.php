@@ -2,8 +2,26 @@
 
 <?php
   session_start();
+  require 'dbFNS.php';
+  if (!$connection = mysqli_connect($hostName, $userName, $password))
+    die("Cannot connect");
+  mysqli_select_db($connection, $databaseName);
   $loginUsername = $_SESSION["loginUsername"];
   
+  //user's profile
+  $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+  $result_my_profile = @ mysqli_query($connection, $query_my_profile);
+  $line_my_profile = mysqli_fetch_array($result_my_profile);
+  $_SESSION["loginTime"] = $line_my_profile[0];
+  $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+  date_default_timezone_set('America/New_York');
+  $restday = floor((time()-$php_createtime_timestamp)/3600);
+  $createtime = date('F d, Y', $php_createtime_timestamp);
+
+  //show all project here
+  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum FROM project WHERE status = 'funding'";
+  $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
+
 ?>
 
 <html lang="en">
@@ -33,6 +51,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<!--     <script type="text/javascript">
+      function test(){
+        alert("$loginUsername");
+      }
+</script>>
+<input class="cs-bgcolor" type="button" onclick="test()" value="Sign in"> -->
 
 </head>
 <body>
@@ -50,7 +74,7 @@
             <li><a href="#">Discover</a>
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
-                <li><a href="listing.html">List view</a></li>
+                <li><a href="listing.php">List view</a></li>
                 <li><a href="detail.html">Detail Page</a></li>
               </ul>
             </li>
@@ -101,8 +125,9 @@
               <i class="icon-arrow-down8"></i>
               <div class="dropdown-area">
               <!-- add a session to post value here -->
-                <h5>Mark Benson</h5>
-                <span>Member Since May 20, 2014</span>
+                <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
                   <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
@@ -123,40 +148,6 @@
     </div>
   </header>
   <!-- Header -->    
-	<div class="cs-banner">
-		<div class="flexslider">
-			<ul class="slides">
-				<li>
-					<figure>
-						<img src="assets/extra-images/banner.jpg" alt="#">
-						<figcaption>
-							<div class="text">
-								<h2>Explore projects, anywhere &amp; everywhere! </h2>
-								<div class="spreator5"></div>
-								<span>People just like you have used Razoo to create more than 90,000 fundraising websites<br>
-and to give over $250,000,000 to the causes they care about.</span>
-								<a href="#" class="explore-btn cs-bgcolor"> Explore Campaigns</a>
-							</div>
-						</figcaption>
-					</figure>
-				</li>
-				<li>
-					<figure>
-						<img src="assets/extra-images/banner.jpg" alt="#">
-						<figcaption>
-							<div class="text">
-								<h2>Explore projects, anywhere &amp; everywhere! </h2>
-								<div class="spreator5"></div>
-								<span>People just like you have used Razoo to create more than 90,000 fundraising websites<br>
-and to give over $250,000,000 to the causes they care about.</span>
-								<a href="#" class="explore-btn cs-bgcolor"> Explore Campaigns</a>
-							</div>
-						</figcaption>
-					</figure>
-				</li>
-			</ul>
-		</div>
-	</div>
 	<!-- Main Content -->
 	<main id="main-content">
 		<div class="main-section">
@@ -166,53 +157,32 @@ and to give over $250,000,000 to the causes they care about.</span>
 						<div class="section-fullwidth col-lg-12">
 							<div class="cs-content-holder">
 								<div class="row">
-									<div class="main-heading top-center">
-										<h1>The world’s funding engine.</h1>
-										<strong class="title">We're distributing millions of dollars every week to campaigners around the world. Whether you're raising 500 dollars or 5 million euros.</strong> </div>
-									<div class="col-lg-4 col-md-4 col-sm-6">
-										<article class="cs-services modren top-center ">
-											<figure><img src="assets/extra-images/ico-services1.png" alt=""></figure>
-											<div class="text">
-												<h2>Create Your Page</h2>
-												<p>So sarcastically strung dazedly crab dear good-ness exuberant lightly fish so hey underneath to excluding apt burst walked gosh pugnaciously hello onto ouch lantern.</p>
-												<a href="#" class="read-more">Read More</a>
-											</div>
-										</article>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-6">
-										<article class="cs-services modren top-center ">
-											<figure><img src="assets/extra-images/ico-services2.png" alt=""></figure>
-											<div class="text">
-												<h2>Share Your Story</h2>
-												<p>So sarcastically strung dazedly crab dear good-ness exuberant lightly fish so hey underneath to excluding apt burst walked gosh pugnaciously hello onto ouch lantern.</p>
-												<a href="#" class="read-more">Read More</a>
-											</div>
-										</article>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-6">
-										<article class="cs-services modren top-center ">
-											<figure><img src="assets/extra-images/ico-services3.png" alt=""></figure>
-											<div class="text">
-												<h2>Raise Money</h2>
-												<p>So sarcastically strung dazedly crab dear good-ness exuberant lightly fish so hey underneath to excluding apt burst walked gosh pugnaciously hello onto ouch lantern.</p>
-												<a href="#" class="read-more">Read More</a>
-											</div>
-										</article>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="page-section">
-				<div class="container">
-					<div class="row">
-						<div class="section-fullwidth col-lg-12">
-							<div class="cs-content-holder">
-								<div class="row">
 									<aside class="page-sidebar col-lg-3">
 										<div class="widget cs_directory_categories">
+                      <div class="cs-search-area">
+                        <form>
+                          <fieldset>
+                            <label class="search">
+                              <input type="search" placeholder="Search Project">
+                            </label>
+                            
+                            <div class="select-box">
+                              <select>
+                                <option>Location</option>
+                                <option>Location</option>
+                                <option>Location</option>
+                              </select>
+                            </div>
+                            <div class="select-box">
+                              <select>
+                                <option>Location</option>
+                                <option>Location</option>
+                                <option>Location</option>
+                              </select>
+                            </div>
+                          </fieldset>
+                        </form>
+                      </div>
 											<div class="widget-section-title">
 												<h4><i class="icon-globe4"></i>15 Diverse Categories</h4>
 											</div>
@@ -237,188 +207,61 @@ and to give over $250,000,000 to the causes they care about.</span>
 										<div class="widget widget_advertisment"> <img src="assets/extra-images/adv2.jpg" alt=""> </div>
 									</aside>
 									<div class="page-content col-lg-9">
-										<div class="listing_grid">
-											<div class="row">
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-															<figure><a href="#"><img src="assets/extra-images/img.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">214 Greene Avenue</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:12%;"></span></span>
-																<div class="detail"> <span class="fund">12% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-															<figure><a href="#"><img src="assets/extra-images/listing-grid-1.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">NY, United States</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:84%;"></span></span>
-																<div class="detail"> <span class="fund">84% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-														  <figure><a href="#"><img src="assets/extra-images/listing-grid-2.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">214 Greene Avenue, Brooklyn</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:12%;"></span></span>
-																<div class="detail"> <span class="fund">12% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-															<figure><a href="#"><img src="assets/extra-images/listing-grid-3.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">Newyork, US</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:12%;"></span></span>
-																<div class="detail"> <span class="fund">12% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-															<figure><a href="#"><img src="assets/extra-images/listing-grid-4.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">Bradford, UK</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:84%;"></span></span>
-																<div class="detail"> <span class="fund">84% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-															<figure><a href="#"><img src="assets/extra-images/listing-grid-5.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">Singapore, Asia</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:12%;"></span></span>
-																<div class="detail"> <span class="fund">12% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-															<figure><a href="#"><img src="assets/extra-images/listing-grid-6.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">Tokyo, Japan</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:12%;"></span></span>
-																<div class="detail"> <span class="fund">12% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-															<figure><a href="#"><img src="assets/extra-images/listing-grid-7.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">214 Greene Avenue, Brooklyn</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:84%;"></span></span>
-																<div class="detail"> <span class="fund">84% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
-												<article class="col-lg-4 col-md-4 col-sm-6">
-													<div class="directory-section">
-														<div class="cs_thumbsection">
-															<figure><a href="#"><img src="assets/extra-images/listing-grid-8.jpg" alt=""></a></figure>
-														</div>
-														<div class="content_info">
-															<div class="title">
-																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
-																<span class="addr">NY, United States</span> </div>
-															<div class="dr_info">
-																<ul>
-																	<li> <i class="cscolor icon-target5"></i> $84,000 goal </li>
-																	<li> <i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																</ul>
-																<span class="bar"><span style="width:12%;"></span></span>
-																<div class="detail"> <span class="fund">12% Funded</span> <a href="#" class="star icon-star"></a> </div>
-															</div>
-														</div>
-													</div>
-												</article>
+                  <div class="row">
+										<div class="col-lg-12 main-filter">
+                        <nav class="wow filter-nav">
+                        <!--Sorting Navigation-->
+                          <ul class="cs-filter-menu pull-left">
+                            <li><a href="javascript:void(0)">Newest</a></li>
+                            <li><a href="javascript:void(0)">Popularity</a></li>
+                            <li><a href="javascript:void(0)">End Date</a></li>
+                            <li><a href="javascript:void(0)">Most Funded</a></li>
+                            <li><a href="javascript:void(0)">Magic</a></li>
+                          </ul>
+                        <!--Sorting Navigation End-->
+                          <ul class="grid-filter">
+                            <li class="active"><a href="javascript:void(0)"><i class="icon-layout15"></i></a></li>
+                            <li><a href="javascript:void(0)" onclick="window.location.href='listing.php'"><i class="icon-list7"></i></a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                    <div class="listing_grid">
+											
+                        <?php  
+                          while ($line_show_all_pro = mysqli_fetch_array($result_show_all_pro, MYSQL_NUM)){
+                            
+                            $php_endtime_timestamp = strtotime($line_show_all_pro[3]);
+                            $endtime = date('m/d, Y', $php_endtime_timestamp);
+                            //maxsum != 0
+                            $funded_percent = floor(100*$line_show_all_pro[4]/$line_show_all_pro[2]);
+                            if($funded_percent == 0 && $line_show_all_pro[4] != 0){
+                              $funded_percent = 1;
+                            }
+                            
+                            echo "
+                            <article class=\"col-lg-4 col-md-4 col-sm-6\">
+                              <div class=\"directory-section\">
+                                <div class=\"cs_thumbsection\">
+                                  <figure><a href=\"#\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"\"></a></figure>
+                                </div>
+                                <div class=\"content_info\">
+                                  <div class=\"title\">
+                                    <h3><a href=\"#\">".$line_show_all_pro[0]."</a></h3>
+                                    <span class=\"addr\">".$line_show_all_pro[1]."</span> </div>
+                                  <div class=\"dr_info\">
+                                    <ul>
+                                      <li> <i class=\"cscolor icon-target5\"></i> $".$line_show_all_pro[2]." goal </li>
+                                      <li> <i class=\"cscolor icon-clock7\"></i> ".$endtime." </li>
+                                    </ul>
+                                    <span class=\"bar\"><span style=\"width:".$funded_percent."%;\"></span></span>
+                                    <div class=\"detail\"> <span class=\"fund\">".$funded_percent."% Funded</span> <a href=\"#\" class=\"star icon-star\"></a> </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </article>
+                            ";
+                          }
+                        ?>
 											</div>
 										</div>
 									</div>
@@ -428,331 +271,8 @@ and to give over $250,000,000 to the causes they care about.</span>
 					</div>
 				</div>
 			</div>
-			<div class="page-section" style="background:url(assets/images/bg-partners.jpg) no-repeat 50% 50%; background-size:cover;">
-				<div class="container">
-					<div class="row">
-						<div class="section-fullwidth col-lg-12">
-							<div class="cs-content-holder">
-								<div class="row"> 
-									<div class="main-heading top-center col-lg-12">
-										<h1>Thanks to Our Partners.</h1>
-										<strong class="title">We're distributing millions of dollars every week to campaigners around the world. Whether you're raising 500 dollars or 5 million euros.</strong> 
-									</div>
-									<div class="cs-team team-simple">
-										<div class="col-lg-12">
-											<ul class="demo" id="demoOne">
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner1.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner2.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner3.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner4.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner5.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner6.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner7.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner8.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner9.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner10.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner11.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner12.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner13.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner15.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner16.jpg"></a>
-													</figure>
-												</li>
-												<li>
-													<a href="#" style="display:none;">BAT Boll</a>
-													<figure> 
-														<a href="#"><img alt="" src="assets/extra-images/img-partner17.jpg"></a>
-													</figure>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="page-section">
-				<div class="container">
-					<div class="row">
-						<div class="section-fullwidth col-md-12">
-							<div class="cs-content-holder">
-								<div class="row">
-									<div class="main-heading col-md-12 left top-center">
-										<a href="#" class="cs-btn">View Blogs</a>
-										<h1>Reviews, Press &amp; Media</h1>
-										<strong class="title">224 countries &amp; territories. 5 currencies. 4 languages. We'll get your crowdfunding campaign in front of millions of eyes.</strong>
-									</div>
-								<div class="masonary-sec">
-									
-										<div class="col-lg-3 col-md-3 col-sm-6 post-854"> 
-										<div class="cs-blog blog-masnery">
-											<div class="main-thumb">
-												<figure>
-													<a href="#"><img src="assets/extra-images/mas1.jpg" alt="thumbnail"></a>
-													<figcaption>
-														<a href="#">
-															<i class="icon-uniEAB5"></i>
-														</a>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="bloginfo-sec">
-												<h2><a href="#">Six Steps Your Nonprofit Must Take Before Launching a Senior Hire</a></h2>
-												<ul class="post-options">
-													<li><time datetime="2014-12-03"><i class="icon-clock7 cscolor"></i>December 3, 2014</time></li>  
-												</ul>
-											</div>
-										</div>
-									</div>
-										<div class="col-lg-3 col-md-3 col-sm-6 post-854"> 
-										<div class="cs-blog blog-masnery">
-											<div class="main-thumb">
-												<figure>
-													<a href="#"><img src="assets/extra-images/mas2.jpg" alt="thumbnail"></a>
-													<figcaption>
-														<a href="#">
-															<i class="icon-uniEAB5"></i>
-														</a>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="bloginfo-sec">
-												<h2><a href="#">Six Steps Your Nonprofit Must Take Before Launching a Senior Hire</a></h2>
-												<ul class="post-options">
-													<li><time datetime="2014-12-03"><i class="icon-clock7 cscolor"></i>December 3, 2014</time></li>  
-												</ul>
-											</div>
-										</div>
-									</div>  
-										<div class="col-lg-6 col-md-6 col-sm-6 post-854"> 
-										<div class="cs-blog blog-masnery">
-											<div class="main-thumb">
-												<figure>
-													<a href="#"><img src="assets/extra-images/mas8.jpg" alt="thumbnail"></a>
-													<figcaption>
-														<a href="#">
-															<i class="icon-uniEAB5"></i>
-														</a>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="bloginfo-sec">
-												<h2><a href="#">Six Steps Your Nonprofit Must Take Before Launching a Senior Hire</a></h2>
-												<ul class="post-options">
-													<li><time datetime="2014-12-03"><i class="icon-clock7 cscolor"></i>December 3, 2014</time></li>  
-												</ul>
-											</div>
-										</div>
-									</div>
-									 
-									 
-										<div class="col-lg-3 col-md-3 col-sm-6 post-854"> 
-										<div class="cs-blog blog-masnery">
-											<div class="main-thumb">
-												<figure>
-													<a href="#"><img src="assets/extra-images/mas6.jpg" alt="thumbnail"></a>
-													<figcaption>
-														<a href="#">
-															<i class="icon-uniEAB5"></i>
-														</a>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="bloginfo-sec">
-												<h2><a href="#">Six Steps Your Nonprofit Must Take Before Launching a Senior Hire</a></h2>
-												<ul class="post-options">
-													<li><time datetime="2014-12-03"><i class="icon-clock7 cscolor"></i>December 3, 2014</time></li>  
-												</ul>
-											</div>
-										</div>
-									</div>
-										<div class="col-lg-3 col-md-3 col-sm-6 post-854"> 
-										<div class="cs-blog blog-masnery">
-											<div class="main-thumb">
-												<figure>
-													<a href="#"><img src="assets/extra-images/mas7.jpg" alt="thumbnail"></a>
-													<figcaption>
-														<a href="#">
-															<i class="icon-uniEAB5"></i>
-														</a>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="bloginfo-sec">
-												<h2><a href="#">Six Steps Your Nonprofit Must Take Before Launching a Senior Hire</a></h2>
-												<ul class="post-options">
-													<li><time datetime="2014-12-03"><i class="icon-clock7 cscolor"></i>December 3, 2014</time></li>  
-												</ul>
-											</div>
-										</div>
-									</div>
-										<div class="col-lg-3 col-md-3 col-sm-6 post-854"> 
-										<div class="cs-blog blog-masnery">
-											<div class="main-thumb">
-												<figure>
-													<a href="#"><img src="assets/extra-images/mas4.jpg" alt="thumbnail"></a>
-													<figcaption>
-														<a href="#">
-															<i class="icon-uniEAB5"></i>
-														</a>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="bloginfo-sec">
-												<h2><a href="#">Six Steps Your Nonprofit Must Take Before Launching a Senior Hire</a></h2>
-												<ul class="post-options">
-													<li><time datetime="2014-12-03"><i class="icon-clock7 cscolor"></i>December 3, 2014</time></li>  
-												</ul>
-											</div>
-										</div>
-									</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="page-section">
-				<div class="container">
-					<div class="row">
-						<div class="section-fullwidth col-lg-12">
-							<div class="cs-content-holder">
-								<div class="row">
-									<div class="main-heading top-center col-lg-12">
-										<h1>Thousands Success Stories</h1>
-										<strong class="title">We're distributing millions of dollars every week to campaigners around the world. Whether you're raising 500 dollars or 5 million euros.</strong>
-									</div>
-									<div id="cs-testimonial-595" class="testimonial left italic-style">
-										<ul class="slides">
-											<li class="col-lg-6 col-md-6 col-sm-6">
-												<div class="question-mark">
-													<p>Over the past four years, the Classy platform has become absolutely essential to Pencils of Promise as we bring life-changing education to children around the world.</p>
-													<div class="ts-author">
-														<figure><img alt="" src="assets/extra-images/img-testi.png" draggable="false"></figure>
-														<span class="cs-author">Jimmi Warson<br>
-															<span>CEO &amp; Founder Pencils of Promise</span>
-														</span>
-													</div>
-												</div>
-											</li>
-											<li class="col-lg-6 col-md-6 col-sm-6">
-												<div class="question-mark">
-													<p>Thanks to Rally.org I'm doing my internship at the United Nations headquarters in NYC! NGOs and the public sector understand the power of RALLY and are starting to campaign online. Without Rally.org, this wouldn't be possible.</p>
-													<div class="ts-author">
-														<figure><img alt="" src="assets/extra-images/img-testi-1.png" draggable="false"></figure>
-														<span class="cs-author">Mike Delnes<br>
-															<span>CEO &amp; Founder</span>
-														</span>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="page-section" style="background:url(assets/images/bg-signup.jpg) no-repeat 100% 50%; background-size:cover; ">
-				<div class="container">
-					<div class="row">
-						<div class="section-fullwidth col-lg-12">
-							<div class="cs-content-holder">
-								<div class="row">
-									<div class="signup-area col-lg-12">
-										<a href="#" class="cs-btn">Start your Cause</a>
-										<div class="main-heading">
-											<h1>Sign up today to rally for what matters. </h1>
-											<strong class="title">"We have it in our power to begin the world over again." - Thomas Paine.</strong>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</main>
 	<!--// Main Content //-->
-
 	<!--// Footer Widget //-->
 	<footer id="footer-sec">
 		<div class="container">
@@ -846,7 +366,6 @@ and to give over $250,000,000 to the causes they care about.</span>
 		</div>
 	</div>
 	<!--// CopyRight //-->
-
 </div>
 
 <!-- jQuery (necessary JavaScript) -->
