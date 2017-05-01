@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+  require 'dbFNS.php';
+  if (!$connection = mysqli_connect($hostName, $userName, $password))
+    die("Cannot connect");
+  mysqli_select_db($connection, $databaseName);
+  $loginUsername = $_SESSION["loginUsername"];
+  
+  //user's profile
+  $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+  $result_my_profile = @ mysqli_query($connection, $query_my_profile);
+  $line_my_profile = mysqli_fetch_array($result_my_profile);
+  $_SESSION["loginTime"] = $line_my_profile[0];
+  $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+  date_default_timezone_set('America/New_York');
+  $restday = floor((time()-$php_createtime_timestamp)/3600);
+  $createtime = date('F d, Y', $php_createtime_timestamp);
+
+?>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -45,7 +64,7 @@
                 <!--<li><a href="contect.html">Contect</a></li>-->
                 <li><a href="sign.php">Create an Account</a></li>
                 <li><a href="sign.php">Sign In</a></li>
-                <li><a href="404.html">404 Page</a></li>
+                <li><a href="404.php">404 Page</a></li>
                 <!--<li><a href="under.html">under-construction</a></li>-->
                 <!--<li><a href="terms.html">Terms &amp; Conditions</a></li>-->
                 <!--<li><a href="pricing.html">Price &amp; Packges</a></li>-->
@@ -74,22 +93,22 @@
               <img alt="#" src="assets/extra-images/user-img.jpg">
               <i class="icon-arrow-down8"></i>
               <div class="dropdown-area">
-                <h5>Mark Benson</h5>
-                <span>Member Since May 20, 2014</span>
+                <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
                   <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
-                  <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
+                  <li><a href="my-donation.html"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
                   <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
-                <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
+                <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
             </li>
           </ul>
         </div> 
-        <a href="sign.php" class="free-btn">Start for Free</a> </div>
     </div>
     <div class="mob-nav"></div>
     </div>
@@ -129,7 +148,7 @@
 											  <div class="site-maps-links">
 													<h6>Visit some of our working pages</h6>
 													  <ul>
-														  <li><a href="#">Home Page</a></li>
+														  <li><a href="#" onclick="window.location.href='home.php'">Home Page</a></li>
 														  <!--<li><a href="#">About us</a></li>-->
 														  <!--<li><a href="#">Services</a></li>-->
 														  <!--<li><a href="#">Portfolio</a></li>-->

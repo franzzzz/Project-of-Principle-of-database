@@ -47,7 +47,7 @@ if (registerUser($connection, $signupUsername, $signupEmail, $signupPassword, $s
         "Could sign up as '{$signupUsername}'";
 
     // Relocate to the logout page
-    header("Location: 404.html");
+    header("Location: 404.php");
     exit;
 }
 ?>
