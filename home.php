@@ -136,7 +136,7 @@
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
                   <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
-                <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
+                <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
             </li>
           </ul>

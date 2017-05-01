@@ -16,10 +16,6 @@
   $restday = floor((time()-$php_createtime_timestamp)/3600);
   $createtime = date('F d, Y', $php_createtime_timestamp);
 
-  //show all project here
-  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum FROM project WHERE status = 'funding'";
-  $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
-
 ?>
 
 <html lang="en">
@@ -108,7 +104,7 @@
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
                   <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
-                <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
+                <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
             </li>
           </ul>
@@ -152,7 +148,7 @@
 											  <div class="site-maps-links">
 													<h6>Visit some of our working pages</h6>
 													  <ul>
-														  <li><a href="#">Home Page</a></li>
+														  <li><a href="#" onclick="window.location.href='home.php'">Home Page</a></li>
 														  <!--<li><a href="#">About us</a></li>-->
 														  <!--<li><a href="#">Services</a></li>-->
 														  <!--<li><a href="#">Portfolio</a></li>-->
