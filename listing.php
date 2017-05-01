@@ -25,7 +25,7 @@
   $createtime = date('F d, Y', $php_createtime_timestamp);
 
   //show all project here
-  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum FROM project WHERE status = 'funding'";
+  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, description FROM project WHERE status = 'funding'";
   $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
 
 ?>
@@ -246,7 +246,8 @@
                                 <div class=\"content_info\">
                                   <div class=\"title\">
                                     <h3><a href=\"#\">".$line_show_all_pro[0]."</a></h3>
-                                    <span class=\"addr\">".$line_show_all_pro[1]."</span> 
+                                    <span class=\"addr\">".$line_show_all_pro[1]."</span>
+                                    <p>".$line_show_all_pro[5]."</p> 
                                   </div>
                                   <div class=\"dr_info\">
                                     <ul>
@@ -272,7 +273,7 @@
 															<div class="title">
 																<h3><a href="#">We Are Cove Point - Stop Gas Export Plant</a></h3>
 																<span class="addr">214 Greene Avenue</span> 
-																<p>That sneered vivaciously that thus hey porpoise uncritical gosh be and much and this haughgosh be and much and this haughtily broadcast goodness.</p>
+																<p></p>
 															</div>
 															<div class="dr_info">
 																<ul>
