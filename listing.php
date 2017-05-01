@@ -227,7 +227,7 @@
 											<div class="listing_default">
 
                         <?php  
-                          while ($line_show_all_pro = mysqli_fetch_array($result_show_all_pro, MYSQL_NUM)){
+                          while ($line_show_all_pro = mysqli_fetch_array($result_show_all_pro, MYSQLI_NUM)){
                             
                             $php_endtime_timestamp = strtotime($line_show_all_pro[3]);
                             $endtime = date('m/d, Y', $php_endtime_timestamp);
