@@ -11,13 +11,19 @@ echo "<br>";
 echo '----------------------';
 echo "<br>";
 
-date_default_timezone_set(‘America/New_York’);
-$time = time();
-echo $time;
+date_default_timezone_set('America/New_York');
+echo date("Y-m-d H:i:s");
 
 echo "<br>";
 echo '----------------------';
 echo "<br>";
 echo 'Hello world';
+
+<script type="text/javascript">
+      function test(){
+        alert("$loginUsername");
+      }
+</script>>
+<input class="cs-bgcolor" type="button" onclick="test()" value="Sign in">
 
 ?>

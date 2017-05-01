@@ -6,6 +6,8 @@
  * @param $password
  * @return bool
  */
+session_start();
+
 function authenticateUser($connection, $username, $password)
 {
     // Test the username and password parameters
@@ -21,6 +23,7 @@ function authenticateUser($connection, $username, $password)
     // Execute the query
     if (!$result = @ mysqli_query($connection, $query))
         showerror();
+
 
     // exactly one row? then we have found the user
     if (mysqli_num_rows($result) != 1)
