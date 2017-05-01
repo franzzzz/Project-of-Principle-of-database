@@ -140,7 +140,7 @@
     </div>
   </header>
   <!-- Header -->  
-	<div class="breadcrumb-sec" style="background:url(assets/extra-images/banner.jpg) no-repeat; background-size:100% auto; min-height:157px!important;">
+<!-- 	<div class="breadcrumb-sec" style="background:url(assets/extra-images/banner.jpg) no-repeat; background-size:100% auto; min-height:157px!important;">
 		<div class="absolute-sec">
 			<div class="container">
 				<div class="cs-table">
@@ -153,7 +153,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- Main Content -->
 	<main id="main-content">
 		<div class="main-section">
@@ -219,8 +219,8 @@
 													</ul>
 												<!--Sorting Navigation End-->
 													<ul class="grid-filter">
-														<li class="active"><a href="javascript:void(0)"><i class="icon-layout15"></i></a></li>
-														<li><a href="javascript:void(0)"><i class="icon-list7"></i></a></li>
+                            <li><a href="javascript:void(0)" onclick="window.location.href='home.php'"><i class="icon-layout15"></i></a></li>
+														<li class="active"><a href="javascript:void(0)"><i class="icon-list7"></i></a></li>
 													</ul>
 												</nav>
 											</div>
@@ -262,7 +262,7 @@
                             ";
                           }
                         ?>
-
+<!-- 
 												<article class="col-lg-12">
 													<div class="directory-section">
 														<div class="cs_thumbsection">
@@ -336,7 +336,7 @@
 															</div>
 														</div>
 													</div>
-												</article>
+												</article> -->
 											</div>
 											<div class="col-lg-12">
 												<nav class="pagination">

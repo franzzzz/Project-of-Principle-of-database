@@ -159,6 +159,30 @@
 								<div class="row">
 									<aside class="page-sidebar col-lg-3">
 										<div class="widget cs_directory_categories">
+                      <div class="cs-search-area">
+                        <form>
+                          <fieldset>
+                            <label class="search">
+                              <input type="search" placeholder="Search Project">
+                            </label>
+                            
+                            <div class="select-box">
+                              <select>
+                                <option>Location</option>
+                                <option>Location</option>
+                                <option>Location</option>
+                              </select>
+                            </div>
+                            <div class="select-box">
+                              <select>
+                                <option>Location</option>
+                                <option>Location</option>
+                                <option>Location</option>
+                              </select>
+                            </div>
+                          </fieldset>
+                        </form>
+                      </div>
 											<div class="widget-section-title">
 												<h4><i class="icon-globe4"></i>15 Diverse Categories</h4>
 											</div>
@@ -183,8 +207,26 @@
 										<div class="widget widget_advertisment"> <img src="assets/extra-images/adv2.jpg" alt=""> </div>
 									</aside>
 									<div class="page-content col-lg-9">
-										<div class="listing_grid">
-											<div class="row">
+                  <div class="row">
+										<div class="col-lg-12 main-filter">
+                        <nav class="wow filter-nav">
+                        <!--Sorting Navigation-->
+                          <ul class="cs-filter-menu pull-left">
+                            <li><a href="javascript:void(0)">Newest</a></li>
+                            <li><a href="javascript:void(0)">Popularity</a></li>
+                            <li><a href="javascript:void(0)">End Date</a></li>
+                            <li><a href="javascript:void(0)">Most Funded</a></li>
+                            <li><a href="javascript:void(0)">Magic</a></li>
+                          </ul>
+                        <!--Sorting Navigation End-->
+                          <ul class="grid-filter">
+                            <li class="active"><a href="javascript:void(0)"><i class="icon-layout15"></i></a></li>
+                            <li><a href="javascript:void(0)" onclick="window.location.href='listing.php'"><i class="icon-list7"></i></a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                    <div class="listing_grid">
+											
                         <?php  
                           while ($line_show_all_pro = mysqli_fetch_array($result_show_all_pro, MYSQL_NUM)){
                             
