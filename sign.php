@@ -1,3 +1,9 @@
+<?php 
+  session_start();
+  $_SESSION["loginUsername"] = null;
+  $_SESSION["loginPassword"] = null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,8 +67,8 @@
                 <li><a href="about.html">About us</a></li>
                 <li><a href="faq.html">FAQ’s</a></li>
                 <li><a href="contect.html">Contect</a></li>
-                <li><a href="sign.html">Create an Account</a></li>
-                <li><a href="sign.html">Sign In</a></li>
+                <li><a href="sign.php">Create an Account</a></li>
+                <li><a href="sign.php">Sign In</a></li>
                 <li><a href="404.html">404 Page</a></li>
                 <li><a href="under.html">under-construction</a></li>
                 <li><a href="terms.html">Terms &amp; Conditions</a></li>
@@ -115,7 +121,7 @@
             </li>
           </ul>
         </div> --> 
-        <a href="sign.html" class="free-btn">Start for Free</a> </div>
+        <a href="sign.php" class="free-btn">Start for Free</a> </div>
     </div>
     <div class="mob-nav"></div>
     </div>
