@@ -87,7 +87,7 @@
                 <li><a href="contect.html">Contect</a></li>
                 <li><a href="sign.php">Create an Account</a></li>
                 <li><a href="sign.php">Sign In</a></li>
-                <li><a href="404.html">404 Page</a></li>
+                <li><a href="404.php">404 Page</a></li>
                 <li><a href="under.html">under-construction</a></li>
                 <li><a href="terms.html">Terms &amp; Conditions</a></li>
                 <li><a href="pricing.html">Price &amp; Packges</a></li>
@@ -136,7 +136,7 @@
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
                   <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
-                <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
+                <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
             </li>
           </ul>

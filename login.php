@@ -35,7 +35,7 @@ if (authenticateUser($connection, $loginUsername, $loginPassword)) {
         "Could not connect to the application as '{$loginUsername}'";
 
     // Relocate to the logout page
-    header("Location: 404.html");
+    header("Location: 404.php");
     exit;
 }
 ?>
