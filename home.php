@@ -131,7 +131,7 @@
                 <ul class="dropdown">
                   <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
-                  <li><a href="my-donation.html"><i class="icon-file-text-o"></i>My Donations</a></li>
+                  <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
                   <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
@@ -263,6 +263,19 @@
                           }
                         ?>
 											</div>
+                      <div class="col-lg-12">
+                        <nav class="pagination">
+                          <ul>
+                            <li class="pgprev"><a href="#"><i class="cscolor icon-angle-left"></i> Previous</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a class="active">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="pgnext"><a href="#" class="icon">Next <i class="cscolor icon-angle-right"></i></a></li>
+                          </ul>
+                        </nav>
+                      </div>
 										</div>
 									</div>
 								</div>
