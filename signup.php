@@ -16,7 +16,7 @@ $signupPassword = mysqlclean($_POST, "signupPassword", 40, $connection);
 $signupConfirmPassword = mysqlclean($_POST, "signupConfirmPassword", 40, $connection);
 
 // if($signupConfirmPassword != $signupPassword){ 
-//     echo"<script>alert('Your confirm password should be same!');window.location.href='sign.html'</script>";
+//     echo"<script>alert('Your confirm password should be same!');window.location.href='sign.php'</script>";
 // }
 
 date_default_timezone_set('America/New_York');
@@ -38,7 +38,7 @@ if (registerUser($connection, $signupUsername, $signupEmail, $signupPassword, $s
 
     //$_SESSION["signupPassword"] = $loginPassword;
     // Relocate back to the first page of the application
-    header("Location: sign.html");
+    header("Location: sign.php");
     exit;
 
 } else {
