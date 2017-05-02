@@ -69,7 +69,7 @@
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
                 <li><a href="listing.php">List view</a></li>
-                <li><a href="detail.html">Detail Page</a></li>
+                <li><a href="detail.php">Detail Page</a></li>
               </ul>
             </li>
             <li><a href="creators.html">Creators</a></li>
@@ -97,7 +97,7 @@
 				<ul class="sub-dropdown">
 					<li><a href="bloglrag.html">News Listing</a></li>
 					<li><a href="blogmedium.html">News Medium</a></li>
-					<li><a href="blogdetail.html">News Detail</a></li>
+					<li><a href="blogdetail.php">News Detail</a></li>
 				</ul>
 			</li>
           </ul>
@@ -129,7 +129,7 @@
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
                   <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
-                <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
+                <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
             </li>
           </ul>
@@ -241,11 +241,11 @@
                             <article class=\"col-lg-12\">
                               <div class=\"directory-section\">
                                 <div class=\"cs_thumbsection\">
-                                  <figure><a href=\"#\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"#\"></a></figure>
+                                  <figure><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."&pname_detail=".$line_show_all_pro[0]."'\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"#\"></a></figure>
                                 </div>
                                 <div class=\"content_info\">
                                   <div class=\"title\">
-                                    <h3><a href=\"#\">".$line_show_all_pro[0]."</a></h3>
+                                    <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."&pname_detail=".$line_show_all_pro[0]."'\">".$line_show_all_pro[0]."</a></h3>
                                     <span class=\"addr\">".$line_show_all_pro[1]."</span>
                                     <p>".$line_show_all_pro[5]."</p> 
                                   </div>

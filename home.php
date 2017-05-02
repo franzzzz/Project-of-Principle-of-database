@@ -8,7 +8,6 @@
     die("Cannot connect");
   mysqli_select_db($connection, $databaseName);
   $loginUsername = $_SESSION["loginUsername"];
-  
   //user's profile
   $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
   $result_my_profile = @ mysqli_query($connection, $query_my_profile);
@@ -20,7 +19,7 @@
   $createtime = date('F d, Y', $php_createtime_timestamp);
 
   //show all project here
-  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum FROM project WHERE status = 'funding'";
+  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, pid FROM project WHERE status = 'funding'";
   $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
 
 ?>
@@ -46,6 +45,16 @@
 <link href="assets/css/themetypo.css" rel="stylesheet">
 <link href="assets/css/widget.css" rel="stylesheet">
 
+<!-- <script type="text/javascript">
+    function goto_detail($pid) {
+      //post
+      document.querySelector("#pid_detail").value = $pid;
+      // document.querySelector("#customer").value = loginUsername;
+      document.getElementById("getpid").submit();
+
+      ?>
+    }
+</script> -->
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -76,7 +85,7 @@
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
                 <li><a href="listing.php">List view</a></li>
-                <li><a href="detail.html">Detail Page</a></li>
+                <li><a href="detail.php">Detail Page</a></li>
               </ul>
             </li>
             <li><a href="creators.html">Creators</a></li>
@@ -104,7 +113,7 @@
 				<ul class="sub-dropdown">
 					<li><a href="bloglrag.html">News Listing</a></li>
 					<li><a href="blogmedium.html">News Medium</a></li>
-					<li><a href="blogdetail.html">News Detail</a></li>
+					<li><a href="blogdetail.php">News Detail</a></li>
 				</ul>
 			</li>
           </ul>
@@ -243,11 +252,11 @@
                             <article class=\"col-lg-4 col-md-4 col-sm-6\">
                               <div class=\"directory-section\">
                                 <div class=\"cs_thumbsection\">
-                                  <figure><a href=\"#\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"\"></a></figure>
+                                  <figure><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."&pname_detail=".$line_show_all_pro[0]."'\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"\"></a></figure>
                                 </div>
                                 <div class=\"content_info\">
                                   <div class=\"title\">
-                                    <h3><a href=\"#\">".$line_show_all_pro[0]."</a></h3>
+                                    <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."&pname_detail=".$line_show_all_pro[0]."'\">".$line_show_all_pro[0]."</a></h3>
                                     <span class=\"addr\">".$line_show_all_pro[1]."</span> </div>
                                   <div class=\"dr_info\">
                                     <ul>
@@ -263,6 +272,10 @@
                             ";
                           }
                         ?>
+<!--                         <form role="form" method="POST" id="getpid" action="detail.php">
+                          <input type="hidden" id="pid_detail" name="pid_detail">
+                          <!--     <input type="hidden" id="customer" name="customer"> -->
+                        </form> -->
 											</div>
                       <div class="col-lg-12">
                         <nav class="pagination">
