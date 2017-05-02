@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
   session_start();
   require 'dbFNS.php';
@@ -25,6 +23,7 @@
 
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -76,7 +75,7 @@
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
                 <li><a href="listing.php">List view</a></li>
-                <li><a href="detail.html">Detail Page</a></li>
+                <li><a href="detail.php">Detail Page</a></li>
               </ul>
             </li>
             <li><a href="creators.html">Creators</a></li>

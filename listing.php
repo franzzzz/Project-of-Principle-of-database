@@ -69,7 +69,7 @@
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
                 <li><a href="listing.php">List view</a></li>
-                <li><a href="detail.html">Detail Page</a></li>
+                <li><a href="detail.php">Detail Page</a></li>
               </ul>
             </li>
             <li><a href="creators.html">Creators</a></li>

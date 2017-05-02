@@ -1,3 +1,36 @@
+<?php
+  session_start();
+  require 'dbFNS.php';
+
+  if (!$connection = mysqli_connect($hostName, $userName, $password))
+    die("Cannot connect");
+  mysqli_select_db($connection, $databaseName);
+  $loginUsername = $_SESSION["loginUsername"];
+
+  //user's profile
+  $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+  $result_my_profile = @ mysqli_query($connection, $query_my_profile);
+  $line_my_profile = mysqli_fetch_array($result_my_profile);
+  $_SESSION["loginTime"] = $line_my_profile[0];
+  $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+  date_default_timezone_set('America/New_York');
+  $restday = floor((time()-$php_createtime_timestamp)/3600);
+  $createtime = date('F d, Y', $php_createtime_timestamp);
+
+  //show the specific  project here
+
+  $_SESSION["pid_detail"] = "A";//删掉
+
+  //$local_pid_detail = $_SESSION["pid_detail"];
+
+  $local_pid_detail = "A";
+
+  $query_show_pledge_detail = "SELECT username, amount, pledgetime FROM Pledge WHERE pid = '$local_pid_detail'"; // ??
+  $result_show__pledge_detail = @ mysqli_query($connection, $query_show_project_detail);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,87 +66,96 @@
 <div class="wrapper"> 
 	
 	<!-- Header -->
-  <header id="main-header">
-    <div class="container">
-    <div class="main-head">
-      <div class="left-side">
-        <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
-        <nav class="navigation">
-          <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="#">Discover</a>
-              <ul class="sub-dropdown">
-                <li><a href="listing-grid.html">Grid View</a></li>
-                <li><a href="listing.php">List view</a></li>
-                <li><a href="detail.html">Detail Page</a></li>
-              </ul>
-            </li>
-            <li><a href="creators.html">Creators</a></li>
-            <li><a href="supporters.html">Supporters</a></li>
-            <li><a href="#">Pages</a>
-              <ul class="sub-dropdown">
-                <li><a href="about.html">About us</a></li>
-                <li><a href="faq.html">FAQ’s</a></li>
-                <li><a href="contect.html">Contect</a></li>
-                <li><a href="sign.php">Create an Account</a></li>
-                <li><a href="sign.php">Sign In</a></li>
-                <li><a href="404.php">404 Page</a></li>
-                <li><a href="under.html">under-construction</a></li>
-                <li><a href="terms.html">Terms &amp; Conditions</a></li>
-                <li><a href="pricing.html">Price &amp; Packges</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="site-map.html">Site Map</a></li>
-                <li><a href="result.html">Result</a></li>
-                <li><a href="donate.html">Donate</a></li>
-                <li><a href="user-detail2.html">user detail2</a></li>
-              </ul>
-            </li>
-            <li>
-				<a href="#">News</a>
-				<ul class="sub-dropdown">
-					<li><a href="bloglrag.html">News Listing</a></li>
-					<li><a href="blogmedium.html">News Medium</a></li>
-					<li><a href="blogdetail.html">News Detail</a></li>
-				</ul>
-			</li>
-          </ul>
-        </nav>
-      </div>
-      <div class="right-side">
-        <div class="cs-search-block">
-          <form>
-            <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
-            <label>
-              <input type="submit" value="Search">
-            </label>
-          </form>
-        </div>
-        <div class="profile-view">
-          <ul>
-            <li>
-              <img alt="#" src="assets/extra-images/user-img.jpg">
-              <i class="icon-arrow-down8"></i>
-              <div class="dropdown-area">
-                <h5>Mark Benson</h5>
-                <span>Member Since May 20, 2014</span>
-                <ul class="dropdown">
-                  <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
-                  <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
-                  <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
-                  <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
-                  <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
-                </ul>
-                <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
-              </div>
-            </li>
-          </ul>
-        </div> 
-        <a href="sign.php" class="free-btn">Start for Free</a> </div>
+    </head>
+    <body>
+    <div class="wrapper">
+
+        <!-- Header -->
+        <header id="main-header">
+            <div class="container">
+                <div class="main-head">
+                    <div class="left-side">
+                        <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
+                        <nav class="navigation">
+                            <ul>
+                                <li><a href="home.php">Home</a></li>
+                                <li><a href="#">Discover</a>
+                                    <ul class="sub-dropdown">
+                                        <li><a href="listing-grid.html">Grid View</a></li>
+                                        <li><a href="listing.php">List view</a></li>
+                                        <li><a href="detail.php">Detail Page</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="creators.html">Creators</a></li>
+                                <li><a href="supporters.html">Supporters</a></li>
+                                <li><a href="#">Pages</a>
+                                    <ul class="sub-dropdown">
+                                        <li><a href="about.html">About us</a></li>
+                                        <li><a href="faq.html">FAQ’s</a></li>
+                                        <li><a href="contect.html">Contect</a></li>
+                                        <li><a href="sign.php">Create an Account</a></li>
+                                        <li><a href="sign.php">Sign In</a></li>
+                                        <li><a href="404.php">404 Page</a></li>
+                                        <li><a href="under.html">under-construction</a></li>
+                                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                                        <li><a href="pricing.html">Price &amp; Packges</a></li>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="site-map.html">Site Map</a></li>
+                                        <li><a href="result.html">Result</a></li>
+                                        <li><a href="donate.html">Donate</a></li>
+                                        <li><a href="user-detail2.html">user detail2</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">News</a>
+                                    <ul class="sub-dropdown">
+                                        <li><a href="bloglrag.html">News Listing</a></li>
+                                        <li><a href="blogmedium.html">News Medium</a></li>
+                                        <li><a href="blogdetail.html">News Detail</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="right-side">
+                        <div class="cs-search-block">
+                            <form>
+                                <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
+                                <label>
+                                    <input type="submit" value="Search">
+                                </label>
+                            </form>
+                        </div>
+                        <div class="profile-view">
+                            <ul>
+                                <li>
+                                    <img alt="#" src="assets/extra-images/user-img.jpg">
+                                    <i class="icon-arrow-down8"></i>
+                                    <div class="dropdown-area">
+                                        <!-- add a session to post value here -->
+                                        <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                                        <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                                        <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
+                                        <ul class="dropdown">
+                                            <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
+                                            <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                                            <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
+                                            <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
+                                            <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
+                                            <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
+                                        </ul>
+                                        <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- <a href="sign.php" class="free-btn">Start for Free</a>  -->
+                    </div>
+                </div>
+                <div class="mob-nav"></div>
+            </div>
+        </header>
     </div>
-    <div class="mob-nav"></div>
-    </div>
-  </header>
   <!-- Header -->
 	<!-- Main Content -->
 	<main id="main-content">
@@ -230,34 +272,86 @@
 														<div class="post-block contribution-sec">
 															<h2>Contributions</h2>
 															<div class="contributor-list">
-																<article class="col-md-12">
+
+                                                                <?php
+                                                                $counter_pledger = 1;
+                                                                while ($line_show__pledge_detail = mysqli_fetch_array($result_show__pledge_detail, MYSQLI_NUM)){
+
+                                                                    $php_pledgetime_timestamp = strtotime($line_show__pledge_detail[2]);
+                                                                    $pledge_time = date('m/d, Y', $php_pledgetime_timestamp);
+
+                                                                    $pledge_username = $line_show__pledge_detail[0];
+                                                                    $pledge_amount = $line_show__pledge_detail[1];
+
+                                                                    echo "
+
+                                                                    <article class=\"col-md-12\">
+																	<span class=\"number\">".$counter_pledger."</span>
+																	<figure>
+																		<a href=\"#\"><img alt=\"#\" src=\"assets/extra-images/pic.png\"></a> 
+																	</figure>
+																	<div class=\"text\">
+																		<h4><a href=\"#\">".$pledge_username."</a></h4>
+																	</div>
+																	<div class=\"time-sec\">
+																		<time datetime=\"2013-02-14\">".$pledge_time."</time>
+																	</div>
+																	<span class=\"amount\">$2,000.00</span>
+																    </article>
+
+
+
+
+
+
+
+
+                                                                        <article class=\"col-lg-4 col-md-4 col-sm-6\">
+                                                                            <div class=\"directory-section\">
+                                                                                <div class=\"cs_thumbsection\">
+                                                                                     <figure><a href=\"#\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"\"></a></figure>
+                                                                                 </div>
+                                                                                <div class=\"content_info\">
+                                                                                <div class=\"title\">
+                                                                                    <h3><a href=\"#\">".$line_show_all_pro[0]."</a></h3>
+                                                                                        <span class=\"addr\">".$line_show_all_pro[1]."</span> </div>
+                                                                                            <div class=\"dr_info\">
+                                                                                                <ul>
+                                                                                                <li> <i class=\"cscolor icon-target5\"></i> $".$line_show_all_pro[2]." goal </li>
+                                                                                                <li> <i class=\"cscolor icon-clock7\"></i> ".$endtime." </li>
+                                                                                                </ul>
+                                                                                        <span class=\"bar\"><span style=\"width:".$funded_percent."%;\"></span></span>
+                                                                                        <div class=\"detail\"> <span class=\"fund\">".$funded_percent."% Funded</span> <a href=\"#\" class=\"star icon-star\"></a> </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </article>
+                                                                        ";
+                                                                    }
+                                                                ?>
+
+
+
+
+
+
+
+                                                                <article class="col-md-12">
 																	<span class="number">01</span>
 																	<figure>
 																		<a href="#"><img alt="#" src="assets/extra-images/pic.png"></a>
 																	</figure>
 																	<div class="text">
 																		<h4><a href="#">James Warsom</a></h4>
-																		<span>Newyork</span>
+<!--																		<span>Newyork</span>-->
 																	</div>
 																	<div class="time-sec">
 																		<time datetime="2013-02-14">September 3, 2015, 08:55pm</time>
 																	</div>
 																	<span class="amount">$2,000.00</span>
 																</article>
-																<article class="col-md-12">
-																	<span class="number">02</span>
-																	<figure>
-																		<a href="#"></a>
-																	</figure>
-																	<div class="text">
-																		<h4><a href="#">Jake Ruler</a></h4>
-																		<span>Newyork</span>
-																	</div>
-																	<div class="time-sec">
-																		<time datetime="2013-02-14">September 3, 2015, 08:55pm</time>
-																	</div>
-																	<span class="amount">$2,000.00</span>
-																</article>
+
+
 																<article class="col-md-12">
 																	<span class="number">03</span>
 																	<figure>
@@ -646,8 +740,7 @@
 												</div>
 												</div>
 											</div>
-										</div>
-									</div>
+
 									<aside class="page-sidebar col-lg-3">
 										<!--<div class="element-size-100 widget_contribution">
 											<h4>Make Contribution</h4>
