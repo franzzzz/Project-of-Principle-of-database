@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php 
+  session_start();
+  $_SESSION["pid_detail"] = $_GET["pid_detail"];
+  $_SESSION["pname_detail"] = $_GET["pname_detail"];
+
+  
+?>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -45,7 +52,7 @@
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
                 <li><a href="listing.php">List view</a></li>
-                <li><a href="detail.html">Detail Page</a></li>
+                <li><a href="detail.php">Detail Page</a></li>
               </ul>
             </li>
             <li><a href="creators.html">Creators</a></li>
@@ -73,7 +80,7 @@
 				<ul class="sub-dropdown">
 					<li><a href="bloglrag.html">News Listing</a></li>
 					<li><a href="blogmedium.html">News Medium</a></li>
-					<li><a href="blogdetail.html">News Detail</a></li>
+					<li><a href="blogdetail.php">News Detail</a></li>
 				</ul>
 			</li>
           </ul>
@@ -109,7 +116,6 @@
             </li>
           </ul>
         </div> 
-        <a href="sign.php" class="free-btn">Start for Free</a> </div>
     </div>
     <div class="mob-nav"></div>
     </div>
@@ -126,7 +132,7 @@
 								<div class="row">
 									<div class="post-detail">
 										<div class="main-heading col-lg-12">
-											<h1>Let's rally to provide one thousand breakfasts to the street community</h1>
+											<h1> <?php echo $_SESSION["pname_detail"]; ?></h1>
 										</div>
 										<div class="cause-detail">
 											<div class="col-lg-9">
