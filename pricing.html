@@ -71,7 +71,7 @@
 				<ul class="sub-dropdown">
 					<li><a href="bloglrag.html">News Listing</a></li>
 					<li><a href="blogmedium.html">News Medium</a></li>
-					<li><a href="blogdetail.html">News Detail</a></li>
+					<li><a href="blogdetail.php">News Detail</a></li>
 				</ul>
 			</li>
           </ul>
