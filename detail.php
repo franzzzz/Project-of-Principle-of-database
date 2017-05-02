@@ -8,18 +8,12 @@ require 'dbFNS.php';
     $loginUsername = $_SESSION["loginUsername"];
 
     //user's profile
-    $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
-    $result_my_profile = @ mysqli_query($connection, $query_my_profile);
-    $line_my_profile = mysqli_fetch_array($result_my_profile);
-    $_SESSION["loginTime"] = $line_my_profile[0];
-    $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
-    date_default_timezone_set('America/New_York');
-    $restday = floor((time()-$php_createtime_timestamp)/3600);
-    $createtime = date('F d, Y', $php_createtime_timestamp);
+    $restday = $_SESSION["loginRestDay"];
+    $createtime = $_SESSION["loginCreateTime"];
 
     //show the specific  project here
 
-    $_SESSION["pid_detail"] = "2";//删掉
+    $_SESSION["pid_detail"] = $_GET["pid_detail"];
 
     //$local_pid_detail = $_SESSION["pid_detail"];
 
@@ -31,20 +25,30 @@ require 'dbFNS.php';
         showerror();
 
     //for getting project description
-    $query_description_detail = "SELECT description, posttime, minfund, maxfund, endtime, completiontime FROM project WHERE pid = '{$local_pid_detail}'";
+    $query_description_detail = "SELECT * FROM project WHERE pid = '{$local_pid_detail}'";
     if(!$result_description_detail = @ mysqli_query($connection, $query_description_detail))
         showerror();
 
     $line_description_detail = mysqli_fetch_array($result_description_detail, MYSQLI_NUM);
 
-    $local_description = $line_description_detail[0];
-    $local_posttime = $line_description_detail[1];
-    $local_minfund = $line_description_detail[2];
-    $local_maxfund = $line_description_detail[3];
-    $line_description_detail[4] = strtotime($line_description_detail[4]);
-    $local_endtime = date('Y-m-d ',$line_description_detail[4]);
-    $line_description_detail[5] = strtotime($line_description_detail[5]);
-    $local_completiontime =date('Y-m-d ', $line_description_detail[5]);
+    $local_username = $line_description_detail[1];
+    $local_pname = $line_description_detail[2];
+    $local_description = $line_description_detail[3];
+    $local_posttime = $line_description_detail[4];
+    $local_minfund = $line_description_detail[5];
+    $local_maxfund = $line_description_detail[6];
+    $local_endtime_timestamp = strtotime($line_description_detail[7]);
+    $local_endtime = date('F d, Y',$local_endtime_timestamp);
+    $local_completiontime_timestamp = strtotime($line_description_detail[8]);
+    $local_completiontime =date('F d, Y', $local_completiontime_timestamp);
+    $local_moneysum = $line_description_detail[9];
+    $local_status = $line_description_detail[10];
+    $local_finaltime = $line_description_detail[11];
+
+    $local_funded_percent = floor(100*$local_moneysum/$local_maxfund);
+    if($local_funded_percent == 0 && $local_moneysum != 0){
+        $local_funded_percent = 1;
+    }
 
 ?>
 
@@ -54,7 +58,7 @@ require 'dbFNS.php';
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Campaigs</title>
+    <title>Crowdfunding</title>
 
     <!-- Css (necessary Css) -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -178,7 +182,7 @@ require 'dbFNS.php';
                                 <div class="row">
                                     <div class="post-detail">
                                         <div class="main-heading col-lg-12">
-                                            <h1>Let's rally to provide one thousand breakfasts to the street community</h1>
+                                            <h1><?php echo $local_pname ?></h1>
                                         </div>
                                         <div class="cause-detail">
                                             <div class="col-lg-9">
@@ -186,15 +190,15 @@ require 'dbFNS.php';
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-sm-6">
                                                 <div class="price-area">
-                                                    <span class="price-raised"><span>$2,260</span> raised</span>
-                                                    <span class="price-goal">$84,000 goal</span>
+                                                    <span class="price-raised"><span><?php echo'$'.$local_moneysum; ?></span> raised</span>
+                                                    <span class="price-goal"><?php '$'.$local_maxfund.' goal' ?></span>
                                                 </div>
-                                                <span class="bar"><span style="width:84%;"></span></span>
-                                                <span class="fund">84% Funded</span>
+                                                <span class="bar"><span style="width:<?php echo $local_funded_percent; ?>%;"></span></span>
+                                                <span class="fund"><?php echo $local_funded_percent ?>% Funded</span>
                                                 <a href="#" class="cs-btn"><span>Contribute now</span></a>
                                                 <div class="detail-list">
                                                     <ul>
-                                                        <li><i class="icon-clock7 cscolor"></i><a href="#">July 27, 2014</a></li>
+                                                        <li><i class="icon-clock7 cscolor"></i><a href="#"><?php echo $local_endtime; ?></a></li>
                                                         <li><i class="icon-map-marker cscolor"></i><a href="#">Brooklyn, NY, United States</a></li>
                                                         <li><i class="icon-list7 cscolor"></i><a href="#">Music art</a></li>
                                                     </ul>
@@ -202,7 +206,7 @@ require 'dbFNS.php';
                                                         <figure><img alt="" src="assets/extra-images/img-testi.png" draggable="false"></figure>
                                                         <span class="cs-author">
 															<span>Created By</span>
-															Jimmi Warson
+															<?php echo $local_username ?>
 														</span>
                                                     </div>
                                                 </div>

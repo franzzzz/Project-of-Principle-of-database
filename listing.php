@@ -15,14 +15,8 @@
   $loginUsername = $_SESSION["loginUsername"];
   
   //user's profile
-  $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
-  $result_my_profile = @ mysqli_query($connection, $query_my_profile);
-  $line_my_profile = mysqli_fetch_array($result_my_profile);
-  $_SESSION["loginTime"] = $line_my_profile[0];
-  $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
-  date_default_timezone_set('America/New_York');
-  $restday = floor((time()-$php_createtime_timestamp)/3600);
-  $createtime = date('F d, Y', $php_createtime_timestamp);
+  $restday = $_SESSION["loginRestDay"];
+  $createtime = $_SESSION["loginCreateTime"];
 
   //show all project here
   $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, description FROM project WHERE status = 'funding'";
