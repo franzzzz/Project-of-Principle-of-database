@@ -13,6 +13,7 @@ require 'dbFNS.php';
 
     //show the specific  project here
 
+
     $_SESSION["pid_detail"] = $_GET["pid_detail"];
 
     //$local_pid_detail = $_SESSION["pid_detail"];
@@ -49,6 +50,14 @@ require 'dbFNS.php';
     if($local_funded_percent == 0 && $local_moneysum != 0){
         $local_funded_percent = 1;
     }
+
+    //for getting comments
+    $query_comment_detail = "SELECT username, commenttime, content FROM comments WHERE pid = '{$local_pid_detail}'";
+    if(!$result_comment_detail = @ mysqli_query($connection, $query_comment_detail))
+        showerror();
+
+
+
 
 ?>
 
@@ -165,7 +174,7 @@ require 'dbFNS.php';
                             </li>
                         </ul>
                     </div>
-                    <a href="sign.php" class="free-btn">Start for Free</a> </div>
+
             </div>
             <div class="mob-nav"></div>
         </div>
@@ -251,7 +260,7 @@ require 'dbFNS.php';
                                                             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Contributions</a></li>
 <!--                                                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">FAQs</a></li>-->
                                                             <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">comments</a></li>
-                                                            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Testimonials</a></li>
+<!--                                                            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Testimonials</a></li>-->
                                                             <li role="presentation"><a href="#time-line" aria-controls="settings" role="tab" data-toggle="tab">Time Line</a></li>
                                                         </ul>
 
@@ -305,20 +314,20 @@ require 'dbFNS.php';
                                                                             $pledge_amount = $line_show__pledge_detail[1];
 
                                                                             echo "    
-                                                                        <article class=\"col-md-12\">
-                                                                        <span class=\"number\">".$counter_pledger."</span>
-                                                                        <figure>
-                                                                            <a href=\"#\"><img alt=\"#\" src=\"assets/extra-images/pic.png\"></a> 
-                                                                        </figure>
-                                                                        <div class=\"text\">
-                                                                            <h4><a href=\"#\">".$pledge_username."</a></h4>
-                                                                        </div>
-                                                                        <div class=\"time-sec\">
-                                                                            <time datetime=\"2013-02-14\">".$pledge_time."</time>
-                                                                        </div>
-                                                                        <span class=\"amount\">"."$".$pledge_amount."</span>
-                                                                        </article>                                          
-                                                                        ";
+                                                                                <article class=\"col-md-12\">
+                                                                                <span class=\"number\">".$counter_pledger."</span>
+                                                                                <figure>
+                                                                                    <a href=\"#\"><img alt=\"#\" src=\"assets/extra-images/pic.png\"></a> 
+                                                                                </figure>
+                                                                                <div class=\"text\">
+                                                                                    <h4><a href=\"#\">".$pledge_username."</a></h4>
+                                                                                </div>
+                                                                                <div class=\"time-sec\">
+                                                                                    <time datetime=\"2013-02-14\">".$pledge_time."</time>
+                                                                                </div>
+                                                                                <span class=\"amount\">"."$".$pledge_amount."</span>
+                                                                                </article>                                          
+                                                                             ";
                                                                             $counter_pledger++;
                                                                         }
                                                                         $counter_pledger = $counter_pledger + 1;
@@ -344,179 +353,199 @@ require 'dbFNS.php';
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div role="tabpanel" class="tab-pane" id="messages">
-                                                                <div class="post-block freq-sec">
-                                                                    <h2>Frequently asked questions</h2>
-                                                                    <div class="qustion-area">
-                                                                        <p>
-                                                                            <strong>Have a question?</strong>
-                                                                            if the info above doesn't help, you can ask the projct creator directly
-                                                                        </p>
-                                                                        <a href="#">Ask a question</a>
-                                                                    </div>
-                                                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading" role="tab" id="headingOne">
-                                                                                <h4 class="panel-title">
-                                                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                                        <i class="icon-question-circle"></i>
-                                                                                        Flirtatious angry magnificently more precise widely gosh
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                                                                <div class="panel-body">
-                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading" role="tab" id="headingTwo">
-                                                                                <h4 class="panel-title">
-                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                                        <i class="icon-question-circle"></i>
-                                                                                        One desperate more that some darn far far octopus darn badger passably
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                                                <div class="panel-body">
-                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading" role="tab" id="headingThree">
-                                                                                <h4 class="panel-title">
-                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                                        <i class="icon-question-circle"></i>
-                                                                                        Busted spun wedded inside seagull nonsensically took and folded debonairly ungraceful
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                                                <div class="panel-body">
-                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading" role="tab" id="heading4">
-                                                                                <h4 class="panel-title">
-                                                                                    <a aria-controls="collapse4" aria-expanded="false" href="#collapse4" data-parent="#accordion" data-toggle="collapse" role="button" class="collapsed">
-                                                                                        <i class="icon-question-circle"></i>
-                                                                                        Hellishly some behind moody a pernicious ardently imaginatively scurrilously beauteous hey below
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
-                                                                                <div class="panel-body">
-                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading" role="tab" id="heading5">
-                                                                                <h4 class="panel-title">
-                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                                                                        <i class="icon-question-circle"></i>
-                                                                                        Overcast and equal the blithe much between gosh concentrically when shed
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
-                                                                                <div class="panel-body">
-                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading" role="tab" id="heading6">
-                                                                                <h4 class="panel-title">
-                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                                                                                        <i class="icon-question-circle"></i>
-                                                                                        Fumed much a heron quit far following this gasped hardy ocelot
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
-                                                                                <div class="panel-body">
-                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading" role="tab" id="heading7">
-                                                                                <h4 class="panel-title">
-                                                                                    <a aria-controls="collapse7" aria-expanded="false" href="#collapse7" data-parent="#accordion" data-toggle="collapse" role="button" class="collapsed">
-                                                                                        <i class="icon-question-circle"></i>
-                                                                                        Frog some much goat affably far some jeepers above dreamed saluted
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
-                                                                                <div class="panel-body">
-                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="panel panel-default">
-                                                                            <div class="panel-heading" role="tab" id="heading8">
-                                                                                <h4 class="panel-title">
-                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                                                                                        <i class="icon-question-circle"></i>
-                                                                                        Disbanded more more hello impassive that flexed less where
-                                                                                    </a>
-                                                                                </h4>
-                                                                            </div>
-                                                                            <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
-                                                                                <div class="panel-body">
-                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+<!--                                                            <div role="tabpanel" class="tab-pane" id="messages">-->
+<!--                                                                <div class="post-block freq-sec">-->
+<!--                                                                    <h2>Frequently asked questions</h2>-->
+<!--                                                                    <div class="qustion-area">-->
+<!--                                                                        <p>-->
+<!--                                                                            <strong>Have a question?</strong>-->
+<!--                                                                            if the info above doesn't help, you can ask the projct creator directly-->
+<!--                                                                        </p>-->
+<!--                                                                        <a href="#">Ask a question</a>-->
+<!--                                                                    </div>-->
+<!--                                                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">-->
+<!--                                                                        <div class="panel panel-default">-->
+<!--                                                                            <div class="panel-heading" role="tab" id="headingOne">-->
+<!--                                                                                <h4 class="panel-title">-->
+<!--                                                                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
+<!--                                                                                        <i class="icon-question-circle"></i>-->
+<!--                                                                                        Flirtatious angry magnificently more precise widely gosh-->
+<!--                                                                                    </a>-->
+<!--                                                                                </h4>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                                                                <div class="panel-body">-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                        <div class="panel panel-default">-->
+<!--                                                                            <div class="panel-heading" role="tab" id="headingTwo">-->
+<!--                                                                                <h4 class="panel-title">-->
+<!--                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
+<!--                                                                                        <i class="icon-question-circle"></i>-->
+<!--                                                                                        One desperate more that some darn far far octopus darn badger passably-->
+<!--                                                                                    </a>-->
+<!--                                                                                </h4>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">-->
+<!--                                                                                <div class="panel-body">-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                        <div class="panel panel-default">-->
+<!--                                                                            <div class="panel-heading" role="tab" id="headingThree">-->
+<!--                                                                                <h4 class="panel-title">-->
+<!--                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">-->
+<!--                                                                                        <i class="icon-question-circle"></i>-->
+<!--                                                                                        Busted spun wedded inside seagull nonsensically took and folded debonairly ungraceful-->
+<!--                                                                                    </a>-->
+<!--                                                                                </h4>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">-->
+<!--                                                                                <div class="panel-body">-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                        <div class="panel panel-default">-->
+<!--                                                                            <div class="panel-heading" role="tab" id="heading4">-->
+<!--                                                                                <h4 class="panel-title">-->
+<!--                                                                                    <a aria-controls="collapse4" aria-expanded="false" href="#collapse4" data-parent="#accordion" data-toggle="collapse" role="button" class="collapsed">-->
+<!--                                                                                        <i class="icon-question-circle"></i>-->
+<!--                                                                                        Hellishly some behind moody a pernicious ardently imaginatively scurrilously beauteous hey below-->
+<!--                                                                                    </a>-->
+<!--                                                                                </h4>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">-->
+<!--                                                                                <div class="panel-body">-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                        <div class="panel panel-default">-->
+<!--                                                                            <div class="panel-heading" role="tab" id="heading5">-->
+<!--                                                                                <h4 class="panel-title">-->
+<!--                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">-->
+<!--                                                                                        <i class="icon-question-circle"></i>-->
+<!--                                                                                        Overcast and equal the blithe much between gosh concentrically when shed-->
+<!--                                                                                    </a>-->
+<!--                                                                                </h4>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">-->
+<!--                                                                                <div class="panel-body">-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                        <div class="panel panel-default">-->
+<!--                                                                            <div class="panel-heading" role="tab" id="heading6">-->
+<!--                                                                                <h4 class="panel-title">-->
+<!--                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">-->
+<!--                                                                                        <i class="icon-question-circle"></i>-->
+<!--                                                                                        Fumed much a heron quit far following this gasped hardy ocelot-->
+<!--                                                                                    </a>-->
+<!--                                                                                </h4>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">-->
+<!--                                                                                <div class="panel-body">-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                        <div class="panel panel-default">-->
+<!--                                                                            <div class="panel-heading" role="tab" id="heading7">-->
+<!--                                                                                <h4 class="panel-title">-->
+<!--                                                                                    <a aria-controls="collapse7" aria-expanded="false" href="#collapse7" data-parent="#accordion" data-toggle="collapse" role="button" class="collapsed">-->
+<!--                                                                                        <i class="icon-question-circle"></i>-->
+<!--                                                                                        Frog some much goat affably far some jeepers above dreamed saluted-->
+<!--                                                                                    </a>-->
+<!--                                                                                </h4>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">-->
+<!--                                                                                <div class="panel-body">-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                        <div class="panel panel-default">-->
+<!--                                                                            <div class="panel-heading" role="tab" id="heading8">-->
+<!--                                                                                <h4 class="panel-title">-->
+<!--                                                                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">-->
+<!--                                                                                        <i class="icon-question-circle"></i>-->
+<!--                                                                                        Disbanded more more hello impassive that flexed less where-->
+<!--                                                                                    </a>-->
+<!--                                                                                </h4>-->
+<!--                                                                            </div>-->
+<!--                                                                            <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">-->
+<!--                                                                                <div class="panel-body">-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                </div>-->
+<!--                                                                            </div>-->
+<!--                                                                        </div>-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
                                                             <div role="tabpanel" class="tab-pane" id="comments">
                                                                 <div id="comment">
                                                                     <div class="cs-section-title"><h2>324 Comments</h2></div>
                                                                     <!-- Ul Start -->
                                                                     <ul>
-                                                                        <li id="li-comment-1">
-                                                                            <div id="comment-1" class="thumblist">
-                                                                                <ul>
-                                                                                    <li>
-                                                                                        <figure> <a href="#"><img src="assets/extra-images/img-coment2.png" alt="#"></a> </figure>
-                                                                                        <div class="text-box">
-                                                                                            <a class="comment-reply" href="#"><i class="icon-play"></i>Reply</a>
-                                                                                            <h4>Sunshine Agency</h4>
-                                                                                            <time datetime="2011-01-12">September 23, 2014, 08:59PM</time>
-                                                                                            <p>Laughed wow lighted or harmful one beyond more ostrich lost impetuously robin fallaciously hello dolphin a flimsily nightingale quail underneath dear much cut essentially oppressively up and thus meretricious immense bet due egret conclusive that excepting with much through dear well kept.</p>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </li>
+
+                                                                        <?php
+                                                                        $counter_pledger = 1;
+
+                                                                        while ($line_comment_detail = mysqli_fetch_array($result_comment_detail, MYSQLI_NUM)){
+
+                                                                            $local_comment_username = $line_comment_detail[0];
+                                                                            $local_comment_commenttime = $line_comment_detail[1];
+                                                                            $local_comment_content = $line_comment_detail[2];
+
+
+
+
+                                                                            echo "
+                                                                                <li >
+                                                                                    <div class=\"thumblist\">
+                                                                                        <ul>
+                                                                                            <li>
+                                                                                                <figure> <a href=\"#\"><img src=\"assets/extra-images/img-coment2.png\" alt=\"#\"></a> </figure>
+                                                                                                <div class=\"text-box\">
+                                                                                                    
+                                                                                                    <h4>"."$local_comment_username"."</h4>
+                                                                                                    <time>"."$local_comment_commenttime"."</time>
+                                                                                                    <p>"."$local_comment_content"."</p>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </li>
+                                                                            ";
+                                                                        }
+                                                                       ?>
+
                                                                         <!-- #comment-## -->
-                                                                        <li id="li-comment-52">
-                                                                            <div id="comment-52" class="thumblist">
-                                                                                <ul>
-                                                                                    <li>
-                                                                                        <figure> <a href="#"><img src="assets/extra-images/img-coment1.png" alt="#"></a> </figure>
-                                                                                        <div class="text-box">
-                                                                                            <a class="comment-reply" href="#"><i class="icon-play"></i>Reply</a>
-                                                                                            <h4>James Warson</h4>
-                                                                                            <time datetime="2011-01-12">September 23, 2014, 08:59PM</time>
-                                                                                            <p>Laughed wow lighted or harmful one beyond more ostrich lost impetuously robin fallaciously hello dolphin a flimsily nightingale quail underneath dear much cut essentially oppressively up and thus meretricious immense bet due egret conclusive that excepting with much through dear well kept.</p>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </li>
+<!--                                                                        <li id="li-comment-52">-->
+<!--                                                                            <div id="comment-52" class="thumblist">-->
+<!--                                                                                <ul>-->
+<!--                                                                                    <li>-->
+<!--                                                                                        <figure> <a href="#"><img src="assets/extra-images/img-coment1.png" alt="#"></a> </figure>-->
+<!--                                                                                        <div class="text-box">-->
+<!--                                                                                            <a class="comment-reply" href="#"><i class="icon-play"></i>Reply</a>-->
+<!--                                                                                            <h4>James Warson</h4>-->
+<!--                                                                                            <time datetime="2011-01-12">September 23, 2014, 08:59PM</time>-->
+<!--                                                                                            <p>Laughed wow lighted or harmful one beyond more ostrich lost impetuously robin fallaciously hello dolphin a flimsily nightingale quail underneath dear much cut essentially oppressively up and thus meretricious immense bet due egret conclusive that excepting with much through dear well kept.</p>-->
+<!--                                                                                        </div>-->
+<!--                                                                                    </li>-->
+<!--                                                                                </ul>-->
+<!--                                                                            </div>-->
+<!--                                                                        </li>-->
                                                                         <!-- #comment-## -->
                                                                     </ul>
                                                                 </div>
+
+
                                                                 <div class="comment-respond" id="respond">
                                                                     <h2>Leave us a comment</h2>
                                                                     <form class="comment-form contact-form" id="commentform">
@@ -549,53 +578,54 @@ require 'dbFNS.php';
                                                                         </p>
                                                                     </form>
                                                                 </div>
+
                                                             </div>
-                                                            <div role="tabpanel" class="tab-pane" id="settings">
-                                                                <div class="post-block testimonial-sec">
-                                                                    <h2>Testimonails</h2>
-                                                                    <div class="testimonial left italic-style" id="cs-testimonial-595">
-                                                                        <ul class="slides">
-                                                                            <li class="col-md-12">
-                                                                                <div class="question-mark">
-                                                                                    <p>Disagreed rode some hey wherever more avoidable and regardless a barring much but naughtily when limpet far sporadically a since this essential jay dear where avowed much far far laudable suavely that and considering. Surely logically elephant far foolishly clapped hello far derisively hence this cried craven including oh malicious oh listless antelope overlaid grasshopper beauteously.</p>
-                                                                                    <div class="ts-author">
-                                                                                        <figure>
-                                                                                            <img draggable="false" src="assets/extra-images/img-testi.png" alt="">
-                                                                                        </figure>
-                                                                                        <span class="cs-author">Rich Warnor<br>
-																					<span>CEO &amp; Founder</span>
-																				</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li class="col-md-12">
-                                                                                <div class="question-mark">
-                                                                                    <p>Over the past four years, the Classy platform has become absolutely essential to Pencils of Promise as we bring life-changing education to children around the world.</p>
-                                                                                    <div class="ts-author">
-                                                                                        <figure><img src="assets/extra-images/author-img1.jpg" alt="">
-                                                                                        </figure>
-                                                                                        <span class="cs-author">Jeena Nichole<br>
-																					<span>CEO &amp; Founder Pencils of Promise</span>
-																				</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                            <li class="col-md-12">
-                                                                                <div class="question-mark">
-                                                                                    <p>Over the past four years, the Classy platform has become absolutely essential to Pencils of Promise as we bring life-changing education to children around the world.</p>
-                                                                                    <div class="ts-author">
-                                                                                        <figure><img src="assets/extra-images/author-img2.jpg" alt="">
-                                                                                        </figure>
-                                                                                        <span class="cs-author">Mark Benson<br>
-																					<span>CEO &amp; Founder Pencils of Promise</span>
-																				</span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+<!--                                                            <div role="tabpanel" class="tab-pane" id="settings">-->
+<!--                                                                <div class="post-block testimonial-sec">-->
+<!--                                                                    <h2>Testimonails</h2>-->
+<!--                                                                    <div class="testimonial left italic-style" id="cs-testimonial-595">-->
+<!--                                                                        <ul class="slides">-->
+<!--                                                                            <li class="col-md-12">-->
+<!--                                                                                <div class="question-mark">-->
+<!--                                                                                    <p>Disagreed rode some hey wherever more avoidable and regardless a barring much but naughtily when limpet far sporadically a since this essential jay dear where avowed much far far laudable suavely that and considering. Surely logically elephant far foolishly clapped hello far derisively hence this cried craven including oh malicious oh listless antelope overlaid grasshopper beauteously.</p>-->
+<!--                                                                                    <div class="ts-author">-->
+<!--                                                                                        <figure>-->
+<!--                                                                                            <img draggable="false" src="assets/extra-images/img-testi.png" alt="">-->
+<!--                                                                                        </figure>-->
+<!--                                                                                        <span class="cs-author">Rich Warnor<br>-->
+<!--																					<span>CEO &amp; Founder</span>-->
+<!--																				</span>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </li>-->
+<!--                                                                            <li class="col-md-12">-->
+<!--                                                                                <div class="question-mark">-->
+<!--                                                                                    <p>Over the past four years, the Classy platform has become absolutely essential to Pencils of Promise as we bring life-changing education to children around the world.</p>-->
+<!--                                                                                    <div class="ts-author">-->
+<!--                                                                                        <figure><img src="assets/extra-images/author-img1.jpg" alt="">-->
+<!--                                                                                        </figure>-->
+<!--                                                                                        <span class="cs-author">Jeena Nichole<br>-->
+<!--																					<span>CEO &amp; Founder Pencils of Promise</span>-->
+<!--																				</span>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </li>-->
+<!--                                                                            <li class="col-md-12">-->
+<!--                                                                                <div class="question-mark">-->
+<!--                                                                                    <p>Over the past four years, the Classy platform has become absolutely essential to Pencils of Promise as we bring life-changing education to children around the world.</p>-->
+<!--                                                                                    <div class="ts-author">-->
+<!--                                                                                        <figure><img src="assets/extra-images/author-img2.jpg" alt="">-->
+<!--                                                                                        </figure>-->
+<!--                                                                                        <span class="cs-author">Mark Benson<br>-->
+<!--																					<span>CEO &amp; Founder Pencils of Promise</span>-->
+<!--																				</span>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </li>-->
+<!--                                                                        </ul>-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
                                                             <div role="tabpanel" class="tab-pane" id="time-line">
                                                                 <div class="cs-timeline">
                                                                     <div class="timiline-title">
