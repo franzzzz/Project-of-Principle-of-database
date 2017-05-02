@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-
 <?php
   session_start();
   require 'dbFNS.php';
+
   if (!$connection = mysqli_connect($hostName, $userName, $password))
     die("Cannot connect");
   mysqli_select_db($connection, $databaseName);
@@ -23,6 +22,7 @@
 
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
