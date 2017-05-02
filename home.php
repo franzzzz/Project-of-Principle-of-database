@@ -14,7 +14,9 @@
   $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
   date_default_timezone_set('America/New_York');
   $restday = floor((time()-$php_createtime_timestamp)/3600);
+  $_SESSION["loginRestDay"] = $restday;
   $createtime = date('F d, Y', $php_createtime_timestamp);
+  $_SESSION["loginCreateTime"] = $createtime;
 
   //show all project here
   $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, pid FROM project WHERE status = 'funding'";
@@ -251,11 +253,11 @@
                             <article class=\"col-lg-4 col-md-4 col-sm-6\">
                               <div class=\"directory-section\">
                                 <div class=\"cs_thumbsection\">
-                                  <figure><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."&pname_detail=".$line_show_all_pro[0]."'\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"\"></a></figure>
+                                  <figure><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."'\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"\"></a></figure>
                                 </div>
                                 <div class=\"content_info\">
                                   <div class=\"title\">
-                                    <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."&pname_detail=".$line_show_all_pro[0]."'\">".$line_show_all_pro[0]."</a></h3>
+                                    <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."'\">".$line_show_all_pro[0]."</a></h3>
                                     <span class=\"addr\">".$line_show_all_pro[1]."</span> </div>
                                   <div class=\"dr_info\">
                                     <ul>
