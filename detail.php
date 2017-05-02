@@ -2,32 +2,49 @@
 session_start();
 require 'dbFNS.php';
 
-if (!$connection = mysqli_connect($hostName, $userName, $password))
-    die("Cannot connect");
-mysqli_select_db($connection, $databaseName);
-$loginUsername = $_SESSION["loginUsername"];
+    if (!$connection = mysqli_connect($hostName, $userName, $password))
+        die("Cannot connect");
+    mysqli_select_db($connection, $databaseName);
+    $loginUsername = $_SESSION["loginUsername"];
 
-//user's profile
-$query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
-$result_my_profile = @ mysqli_query($connection, $query_my_profile);
-$line_my_profile = mysqli_fetch_array($result_my_profile);
-$_SESSION["loginTime"] = $line_my_profile[0];
-$php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
-date_default_timezone_set('America/New_York');
-$restday = floor((time()-$php_createtime_timestamp)/3600);
-$createtime = date('F d, Y', $php_createtime_timestamp);
+    //user's profile
+    $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+    $result_my_profile = @ mysqli_query($connection, $query_my_profile);
+    $line_my_profile = mysqli_fetch_array($result_my_profile);
+    $_SESSION["loginTime"] = $line_my_profile[0];
+    $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+    date_default_timezone_set('America/New_York');
+    $restday = floor((time()-$php_createtime_timestamp)/3600);
+    $createtime = date('F d, Y', $php_createtime_timestamp);
 
-//show the specific  project here
+    //show the specific  project here
 
-$_SESSION["pid_detail"] = "2";//删掉
+    $_SESSION["pid_detail"] = "2";//删掉
 
-//$local_pid_detail = $_SESSION["pid_detail"];
+    //$local_pid_detail = $_SESSION["pid_detail"];
 
-$local_pid_detail = $_SESSION["pid_detail"];
+    $local_pid_detail = $_SESSION["pid_detail"];
 
-$query_show_pledge_detail = "SELECT username, amount, pledgetime FROM Pledge WHERE pid = '{$local_pid_detail}'";
-if(!$result_show__pledge_detail = @ mysqli_query($connection, $query_show_pledge_detail))
-    showerror();
+    //for getting pledgers
+    $query_show_pledge_detail = "SELECT username, amount, pledgetime FROM Pledge WHERE pid = '{$local_pid_detail}'";
+    if(!$result_show__pledge_detail = @ mysqli_query($connection, $query_show_pledge_detail))
+        showerror();
+
+    //for getting project description
+    $query_description_detail = "SELECT description, posttime, minfund, maxfund, endtime, completiontime FROM project WHERE pid = '{$local_pid_detail}'";
+    if(!$result_description_detail = @ mysqli_query($connection, $query_description_detail))
+        showerror();
+
+    $line_description_detail = mysqli_fetch_array($result_description_detail, MYSQLI_NUM);
+
+    $local_description = $line_description_detail[0];
+    $local_posttime = $line_description_detail[1];
+    $local_minfund = $line_description_detail[2];
+    $local_maxfund = $line_description_detail[3];
+    $line_description_detail[4] = strtotime($line_description_detail[4]);
+    $local_endtime = date('Y-m-d ',$line_description_detail[4]);
+    $line_description_detail[5] = strtotime($line_description_detail[5]);
+    $local_completiontime =date('Y-m-d ', $line_description_detail[5]);
 
 ?>
 
@@ -127,8 +144,10 @@ if(!$result_show__pledge_detail = @ mysqli_query($connection, $query_show_pledge
                                 <img alt="#" src="assets/extra-images/user-img.jpg">
                                 <i class="icon-arrow-down8"></i>
                                 <div class="dropdown-area">
-                                    <h5>Mark Benson</h5>
-                                    <span>Member Since May 20, 2014</span>
+                                    <!-- add a session to post value here -->
+                                    <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                                    <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                                    <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                                     <ul class="dropdown">
                                         <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
                                         <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
@@ -226,7 +245,7 @@ if(!$result_show__pledge_detail = @ mysqli_query($connection, $query_show_pledge
                                                         <ul class="nav nav-tabs" role="tablist">
                                                             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
                                                             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Contributions</a></li>
-                                                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">FAQs</a></li>
+<!--                                                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">FAQs</a></li>-->
                                                             <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">comments</a></li>
                                                             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Testimonials</a></li>
                                                             <li role="presentation"><a href="#time-line" aria-controls="settings" role="tab" data-toggle="tab">Time Line</a></li>
@@ -236,15 +255,21 @@ if(!$result_show__pledge_detail = @ mysqli_query($connection, $query_show_pledge
                                                         <div class="tab-content">
                                                             <div role="tabpanel" class="tab-pane active" id="home">
                                                                 <div class="post-block summary-sec rich_editor_text">
-                                                                    <h2>Cause Description</h2>
-                                                                    <span>Some effusive some misspelled groundhog rose temperate because well pending much and considering hello far tremendous the imprecise grew less much jeepers breathless and hey</span>
-                                                                    <p>Some effusive some misspelled groundhog rose temperate because well pending much and considering hello far tremendous the imprecise grew less much jeepers breathless and hey far more much belligerent hawk the placed warthog angrily outside goodness poutingly more gerbil much komodo far barring dependently but one hey reluctant salamander overrode this moth while in foresaw much handsomely ineffective muttered covetous a thanks that but moth well wherever less a rode abrasively oh much more steadily rid far immediate grouped vulgar jeez wanly.While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more overpaid deer.</p>
-                                                                    <p>Some effusive some misspelled groundhog rose temperate because well pending much and considering hello far tremendous the imprecise grew less much jeepers breathless and hey far more much belligerent hawk the placed warthog angrily outside goodness poutingly more gerbil much komodo far barring dependently but one hey reluctant salamander overrode this moth while in foresaw much handsomely ineffective muttered covetous a thanks that but moth well wherever less a rode abrasively oh much more steadily,</p>
+                                                                    <h2>Project Description</h2>
+
+                                                                    <span>created time:     <?php echo "$local_posttime"; ?></span>
+                                                                    <span>minimum funding amount:       $<?php echo "$local_minfund"; ?></span>
+                                                                    <span>maximum funding amount:       $<?php echo "$local_maxfund"; ?></span>
+                                                                    <span>end time for crowdfunding:        <?php echo "$local_endtime"; ?></span>
+                                                                    <span>aim to finish before:         <?php echo "$local_completiontime"; ?></span>
+
+                                                                    <p><?php echo "$local_description"?></p>
+
                                                                     <figure>
                                                                         <img src="assets/extra-images/tab1.jpg" alt="#">
                                                                     </figure>
-                                                                    <p>Some effusive some misspelled groundhog rose temperate because well pending much and considering hello far tremendous the imprecise grew less much jeepers breathless and hey far more much belligerent hawk the placed warthog angrily outside goodness poutingly more gerbil much komodo far barring dependently but one hey reluctant salamander. </p>
-                                                                    <p>Some effusive some misspelled groundhog rose temperate because well pending much and considering hello far tremendous the imprecise grew less much jeepers breathless and hey far more much belligerent hawk the placed warthog angrily outside goodness poutingly more gerbil much komodo far barring dependently but one hey reluctant salamander overrode this moth while in foresaw much handsomely ineffective muttered covetous a thanks that but moth well wherever less a rode abrasively oh much more steadily,</p>
+
+                                                                    <p><?php echo "$local_description"?></p>
                                                                     <p>Some effusive some misspelled groundhog rose temperate because well pending much and considering hello far tremendous the imprecise grew less much jeepers breathless and hey far more much belligerent hawk the placed warthog angrily outside goodness poutingly more gerbil much komodo far barring dependently but one hey reluctant salamander.</p>
                                                                     <!--<div class="tags">
                                                                         <i class="icon-tag7 cs-bgcolor"></i>
@@ -267,7 +292,6 @@ if(!$result_show__pledge_detail = @ mysqli_query($connection, $query_show_pledge
                                                                         <?php
                                                                         $counter_pledger = 1;
 
-                                                                        echo "start haha";
                                                                         while ($line_show__pledge_detail = mysqli_fetch_array($result_show__pledge_detail, MYSQLI_NUM)){
 
                                                                             $php_pledgetime_timestamp = strtotime($line_show__pledge_detail[2]);
