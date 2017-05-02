@@ -19,7 +19,7 @@
   $createtime = $_SESSION["loginCreateTime"];
 
   //show all project here
-  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, description FROM project WHERE status = 'funding'";
+  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, description, pid FROM project WHERE status = 'funding'";
   $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
 
 ?>
@@ -235,11 +235,11 @@
                             <article class=\"col-lg-12\">
                               <div class=\"directory-section\">
                                 <div class=\"cs_thumbsection\">
-                                  <figure><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."&pname_detail=".$line_show_all_pro[0]."'\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"#\"></a></figure>
+                                  <figure><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[6]."'\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"#\"></a></figure>
                                 </div>
                                 <div class=\"content_info\">
                                   <div class=\"title\">
-                                    <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."&pname_detail=".$line_show_all_pro[0]."'\">".$line_show_all_pro[0]."</a></h3>
+                                    <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[6]."'\">".$line_show_all_pro[0]."</a></h3>
                                     <span class=\"addr\">".$line_show_all_pro[1]."</span>
                                     <p>".$line_show_all_pro[5]."</p> 
                                   </div>
