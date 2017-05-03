@@ -99,7 +99,7 @@ insert into `follow` values ('BobInBrooklyn', 'C');
 
 drop table if exists `comments`;
 create table comments (
-    `cid` int not null,
+    `cid` int NOT NULL AUTO_INCREMENT,
     `username` varchar(36) not null,
     `pid` int not null,
     `commenttime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
