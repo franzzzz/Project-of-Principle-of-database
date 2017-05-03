@@ -232,18 +232,17 @@ require 'dbFNS.php';
                                                     </div>
                                                 </div>
                                                 <ul class="share-opts">
-                                                    <li>
-                                                        <i class="icon-share2"></i>
-                                                        <a href="#">Share</a>
-                                                    </li>
+<!--                                                    <li>-->
+<!--                                                        <i class="icon-share2"></i>-->
+<!--                                                        <a href="#">Share</a>-->
+<!--                                                    </li>-->
                                                     <li>
                                                         <i class="icon-star"></i>
-                                                        <a href="#">Save</a>
+
+                                                        <a href="addLike.php">like</a>
+
                                                     </li>
-                                                    <li>
-                                                        <i class="icon-warning4"></i>
-                                                        <a href="#">Report</a>
-                                                    </li>
+<!--                                                    
                                                 </ul>
                                             </div>
                                         </div>
