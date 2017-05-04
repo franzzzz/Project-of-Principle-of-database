@@ -12,3 +12,23 @@
 *.xml
 
 .idea/workspace.xml
+
+*.php
+
+*.php
+
+404.php
+
+detail.php
+
+discover.php
+
+donate.php
+
+listing.php
+
+project.php
+
+searchResult.php
+
+sign.php
