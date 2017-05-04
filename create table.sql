@@ -99,7 +99,7 @@ insert into `follow` values ('BobInBrooklyn', 'C');
 
 drop table if exists `comments`;
 create table comments (
-    `cid` int not null,
+    `cid` int NOT NULL AUTO_INCREMENT,
     `username` varchar(36) not null,
     `pid` int not null,
     `commenttime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -294,6 +294,30 @@ create table sample (
 insert into `sample` values ('1', '1', '2017-04-04 12:04:23', 'aad58c739888c366dc879883f383a1a7', 'Hello World Proj1', 'Hi!');
 insert into `sample` values ('2', '1', '2017-04-04 12:04:24', '1b374d74d60c82099a4e0501d09a0f56', 'Hello World again Proj1', 'Hi! again');
 insert into `sample` values ('3', '7', '2017-04-05 12:04:23', '838e0e72279f984f5182a721cb04bd04', 'Hello World proj7', 'Hi!');
+
+drop Trigger if exists `AddAmount`;
+
+Create Trigger AddAmount
+After Insert On PLEDGE for each row
+    Update Project
+    Set moneysum = moneysum + new.amount
+    Where Project .pid = new.pid;
+
+drop Event if exists `checktime`;
+
+DELIMITER $$
+create Event `CheckTime`
+on schedule Every 1 day Starts '2017-04-20 00:00:00'   
+On Completion Preserve
+Do Begin
+    Update PROJECT
+    Set new.status = ‘failed’
+    Where now() > endtime And old.status = ‘funding’ And moneysum < minfund;
+    
+    Update PROJECT
+    Set new.status = ‘working’
+    Where now() > endtime And old.status = ‘funding’ And moneysum >= minfund;
+End$$
 
 /*
 drop table if exists `projgroup`;

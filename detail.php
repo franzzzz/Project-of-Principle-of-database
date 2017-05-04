@@ -174,7 +174,7 @@ require 'dbFNS.php';
                             </li>
                         </ul>
                     </div>
-
+                </div>
             </div>
             <div class="mob-nav"></div>
         </div>
@@ -548,29 +548,55 @@ require 'dbFNS.php';
 
                                                                 <div class="comment-respond" id="respond">
                                                                     <h2>Leave us a comment</h2>
-                                                                    <form class="comment-form contact-form" id="commentform">
-                                                                        <p class="comment-form-author">
-                                                                            <label>
-                                                                                <i class="icon-user2"></i>
-                                                                                <input type="text" value="Enter Your Name" onblur="if(this.value == '') { this.value = 'Enter Your Name'; }" onfocus="if(this.value == 'Enter Your Name') { this.value = ''; }">
-                                                                            </label>
-                                                                        </p>
-                                                                        <p class="comment-form-email">
-                                                                            <label>
-                                                                                <i class="icon-envelope-o"></i>
-                                                                                <input type="text" value="Email Address" onblur="if(this.value == '') { this.value = 'Email Address'; }" onfocus="if(this.value == 'Email Address') { this.value = ''; }" class="cs-classic">
-                                                                            </label>
-                                                                        </p>
-                                                                        <p class="comment-form-website">
-                                                                            <label>
-                                                                                <i class="icon-globe4"></i>
-                                                                                <input type="text" value="Website" onblur="if(this.value == '') { this.value = 'Website'; }" onfocus="if(this.value == 'Website') { this.value = ''; }">
-                                                                            </label>
-                                                                        </p>
+                                                                    <form class="comment-form contact-form" id="commentform" method="POST" action = "newcomment.php">
+<!--                                                                        <p class="comment-form-author">-->
+<!--                                                                            <label>-->
+<!--                                                                                <i class="icon-user2"></i>-->
+<!--                                                                                <input type="text" value="Enter Your Name" onblur="if(this.value == '') { this.value = 'Enter Your Name'; }" onfocus="if(this.value == 'Enter Your Name') { this.value = ''; }">-->
+<!--                                                                            </label>-->
+<!--                                                                        </p>-->
+<!--                                                                        <p class="comment-form-email">-->
+<!--                                                                            <label>-->
+<!--                                                                                <i class="icon-envelope-o"></i>-->
+<!--                                                                                <input type="text" value="Email Address" onblur="if(this.value == '') { this.value = 'Email Address'; }" onfocus="if(this.value == 'Email Address') { this.value = ''; }" class="cs-classic">-->
+<!--                                                                            </label>-->
+<!--                                                                        </p>-->
+<!--                                                                        <p class="comment-form-website">-->
+<!--                                                                            <label>-->
+<!--                                                                                <i class="icon-globe4"></i>-->
+<!--                                                                                <input type="text" value="Website" onblur="if(this.value == '') { this.value = 'Website'; }" onfocus="if(this.value == 'Website') { this.value = ''; }">-->
+<!--                                                                            </label>-->
+                                                                        <div class="right-side">
+                                                                            <div class="profile-view">
+                                                                                <ul>
+                                                                                    <li>
+                                                                                        <img alt="#" src="assets/extra-images/user-img.jpg">
+                                                                                        <i class="icon-arrow-down8"></i>
+                                                                                        <div class="dropdown-area">
+                                                                                            <!-- add a session to post value here -->
+                                                                                            <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                                                                                            <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                                                                                            <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
+                                                                                            <ul class="dropdown">
+                                                                                                <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
+                                                                                                <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                                                                                                <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
+                                                                                                <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
+                                                                                                <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
+                                                                                                <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
+                                                                                            </ul>
+                                                                                            <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+<!--
+</p>-->
                                                                         <p class="comment-form-comment fullwidt">
                                                                             <label>
                                                                                 <i class="icon-comments-o"></i>
-                                                                                <textarea placeholder="Enter Message"></textarea>
+                                                                                <textarea name = "comment" placeholder="Enter Message"></textarea>
                                                                             </label>
                                                                         </p>
                                                                         <p class="form-submit">
