@@ -95,12 +95,12 @@
                 <h5>Mark Benson</h5>
                 <span>Member Since May 20, 2014</span>
                 <ul class="dropdown">
-                  <li><a href="project.html"><i class="icon-flag5"></i>My project</a></li>
+                  <li><a href="project.php"><i class="icon-flag5"></i>My project</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                   <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-project.html"><i class="icon-plus6"></i>Create New</a></li>
+                  <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
                 <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
               </div>
@@ -151,11 +151,11 @@
 											<div class="col-lg-12">
 												<div class="profile-block">
 													<ul class="scroll-nav">
-														<li class="active"><a href="project.html"><i class="icon-star-o"></i>My Cuases</a></li>
+														<li class="active"><a href="project.php"><i class="icon-star-o"></i>My Cuases</a></li>
 														<li><a href="saved.html"><i class=" icon-save"></i>Saved project</a></li>
 														<li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
 														<li><a href="profilesetting.html"><i class="icon-gear"></i>Profile Settings</a></li>
-														<li><a href="create-new-project.html"><i class="icon-gear"></i>Create New</a></li>
+														<li><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
 														<li><a href="donation.html"><i class="icon-sign-in"></i>Sign Out</a></li>
 													</ul>
 														<div class="cs-profile-area">
