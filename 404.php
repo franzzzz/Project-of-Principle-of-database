@@ -16,13 +16,10 @@
   $restday = floor((time()-$php_createtime_timestamp)/3600);
   $createtime = date('F d, Y', $php_createtime_timestamp);
 
-<<<<<<< Updated upstream:404.php
-=======
   //show all project here
   $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum FROM project WHERE status = 'funding'";
   $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
 
->>>>>>> Stashed changes:404.php
 ?>
 
 <html lang="en">
