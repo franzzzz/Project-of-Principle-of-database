@@ -563,7 +563,7 @@
     margin: 2px 5px 0 0;
     vertical-align: middle;
 }
-.cause-holder {
+.project-holder {
 	width: 900px;
 	margin: 0 auto;
 }
@@ -884,8 +884,8 @@
 	margin:0;
 }
 .post-detail .main-heading:after{ display:none; }
-.cause-detail>div:first-child{ margin:0 ;}
-.cause-detail .price-raised{
+.project-detail>div:first-child{ margin:0 ;}
+.project-detail .price-raised{
 	display:block;
 	color:#666;
 	font-size:26px;
@@ -893,18 +893,18 @@
 	font-weight:700;
 	margin:0 0 5px;
 }
-.cause-detail .price-area{ margin:0 0 20px;}
-.cause-detail .price-raised span{
+.project-detail .price-area{ margin:0 0 20px;}
+.project-detail .price-raised span{
 	font-size:36px;
 	line-height:39px;
 }
-.cause-detail .price-goal{
+.project-detail .price-goal{
 	display:block;
 	font-size:16px;
 	line-height:19px;
 	color:#999;
 }
-.cause-detail .bar {
+.project-detail .bar {
     background: none repeat scroll 0 0 #d7d9dc;
     display: block;
     height: 21px;
@@ -912,7 +912,7 @@
     position: relative;
     width: 100%;
 }
-.cause-detail .bar span {
+.project-detail .bar span {
     background: none repeat scroll 0 0 #6ee376;
     height: 21px;
     left: 0;
@@ -920,15 +920,15 @@
     top: 0;
     width: 0;
 }
-.cause-detail .fund {
+.project-detail .fund {
     color: #4f4a9c;
 	font-size: 19px;
 	line-height:23px;
 	margin:0 0 20px;
 	display:block;
 }
-.cause-detail .cs-btn span{ position:relative; }
-.cause-detail .cs-btn span:after{
+.project-detail .cs-btn span{ position:relative; }
+.project-detail .cs-btn span:after{
 	background: none repeat scroll 0 0 #fff;
     border-radius: 12px;
     color: #ff5422;
@@ -946,7 +946,7 @@
     z-index: 1;
 	text-align: center;
 }
-.cause-detail .cs-btn{
+.project-detail .cs-btn{
 	display:block;
 	font-size:18px;
 	font-weight:700;
@@ -955,19 +955,19 @@
 	position:relative;
 	margin:0 0 20px;
 }
-.cause-detail .detail-list{ 
+.project-detail .detail-list{ 
 	border: solid #f0f0f0; 
 	margin: 0 0 18px;
     padding: 20px 0 15px; 
 	border-width:1px 0; 
 }
-.cause-detail .detail-list ul{ margin:0 0 20px; }
-.cause-detail .detail-list li{
+.project-detail .detail-list ul{ margin:0 0 20px; }
+.project-detail .detail-list li{
 	list-style:none;
 	margin:0 0 10px;
 }
-.cause-detail .detail-list a{ display:inline-block; vertical-align:middle;}
-.cause-detail .detail-list i{ display:inline-block; vertical-align:middle; margin:0 10px 0 0 ; width:16px;}
+.project-detail .detail-list a{ display:inline-block; vertical-align:middle;}
+.project-detail .detail-list i{ display:inline-block; vertical-align:middle; margin:0 10px 0 0 ; width:16px;}
 .user-info figure {
     float: left;
     margin: 0 10px 0 0;
@@ -997,10 +997,10 @@
 	line-height:15px;
 	margin:0 12px 0 0;
 }
-.cause-detail .share-opts li:first-child {
+.project-detail .share-opts li:first-child {
     margin-left: 0;
 }
-.cause-detail .share-opts li {
+.project-detail .share-opts li {
 	margin: 0 0 0 45px;
 }
 .share-opts li i{
@@ -1264,7 +1264,7 @@
     width: 30px;
 }
 /*- Auther Style -*/
-.cause-holder .cs-auther, .cause-holder .cs-donations {
+.project-holder .cs-auther, .project-holder .cs-donations {
 	margin: 0 0 30px 0;
 }
 .cs-auther {
@@ -1843,12 +1843,12 @@
 .saved-ads:hover .text .close {
 	color: #efefef;
 }
-/*--- Causes Style ---*/
-.cs-causes {
+/*--- project Style ---*/
+.cs-project {
 	width: 100%;
 	float:left;
 }
-.cs-causes article {
+.cs-project article {
 	width: 100%;
 	float: left;
 	padding: 20px 0 0 0;
@@ -1856,30 +1856,30 @@
 	border: 1px solid #eaedef;
 	margin: 0 0 10px 0;
 }
-.cs-causes figure {
+.cs-project figure {
 	float: left;
 	margin: 0;
 	padding: 0 0 0 20px;
 }
-.cs-causes article figure ~ section {
+.cs-project article figure ~ section {
 	padding: 0 20px 20px 190px;
 }
-.cs-causes article section {
+.cs-project article section {
 	padding: 20px;
 }
-.cs-causes article section h3 {
+.cs-project article section h3 {
 	font-size: 18px;
 	color: #2e2e2e;
 	margin: 0;
 	line-height: 24px;
 }
-.cs-causes article section span {
+.cs-project article section span {
 	color: #999;
     float: left;
     font-size: 12px;
     margin: 0 0 10px;
 }
-.cs-causes .post-options {
+.cs-project .post-options {
 	display: inline-block;
     margin: 0 0 15px;
     width: 100%;
@@ -2101,7 +2101,7 @@
 	opacity: 1;
 }
 
-/*--- Causes Gallry Style ---*/
+/*--- project Gallry Style ---*/
 .galleryupload li{ list-style: none;}
 .galleryupload li.featured-image {
 	float: left;
@@ -2697,7 +2697,7 @@ ul.cs-tags-selection li a.close {
     padding: 0 0 20px;
     width: 100%;
 }
-.cause-holder .cs-table-holder {
+.project-holder .cs-table-holder {
 	margin: -15px 0 0;
 }
 .edit-area .cs-table-holder {

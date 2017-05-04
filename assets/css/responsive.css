@@ -25,7 +25,7 @@
 	.page-section .user-signup .social-network li a {min-width: 300px;}
 	.page-section .under-text {padding: 30px 0 5px 40px;}
 	.page-section .under-wrapp .under-logo {padding: 146px 20px;}
-	.main-section .cause-holder {width: 100%;}
+	.main-section .project-holder {width: 100%;}
 		
 }
 	
@@ -69,7 +69,7 @@
 	.main-section .under-text .is-countdown {margin: 0 0 25px;}
 	.main-section .cs-result .search-area {width: 100%;}
 	.main-section .cs-result.suggestion {padding: 0 20px;}
-	.main-section .cause-holder {width: 100%; display: inline-block;}
+	.main-section .project-holder {width: 100%; display: inline-block;}
 	.main-section .profile-block {padding: 0 0 0 0;}
 	.main-section .cs-profile-holder .field-col {margin: 0 -4px 10px 5px; padding: 0;}
 	.main-section .author-info figure {display: inline-block; width: auto; margin: 0 0 10px;}
@@ -163,8 +163,8 @@
 	.main-section .cs-ads-area article .detail-area .ads-btn {top: 10px;}
 	.main-section .cs-ads-area article .edit-area .edit-opts {float: left;}
 	.main-section .cs-ads-area article .edit-opts li {margin: 0 30px 0 0;}
-	.main-section .cause-holder .cs-table-holder table thead {float: left; width: 100%;}
-	.main-section .cause-holder .cs-table-holder table tbody,
+	.main-section .project-holder .cs-table-holder table thead {float: left; width: 100%;}
+	.main-section .project-holder .cs-table-holder table tbody,
 	.main-section .cs-profile-holder table td, .main-section .cs-profile-holder table th {float: left; width: 100%;}
 	.main-section .cs-profile-holder .upload-box {width: 100%; display: inline-block;}
 	.main-section .cs-profile-holder li > label {width: 100%;}
