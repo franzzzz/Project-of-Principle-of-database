@@ -242,7 +242,10 @@ require 'dbFNS.php';
                                                         <a href="addLike.php">like</a>
 
                                                     </li>
-<!--                                                    
+<!--                                                    <li>-->
+<!--                                                        <i class="icon-warning4"></i>-->
+<!--                                                        <a href="#">Report</a>-->
+<!--                                                    </li>-->
                                                 </ul>
                                             </div>
                                         </div>
@@ -500,7 +503,7 @@ require 'dbFNS.php';
 <!--                                                            </div>-->
                                                             <div role="tabpanel" class="tab-pane" id="comments">
                                                                 <div id="comment">
-                                                                    <div class="cs-section-title"><h2>324 Comments</h2></div>
+                                                                    <div class="cs-section-title"><h2><?php echo mysqli_num_rows($result_comment_detail)." Comments" ?> </h2></div>
                                                                     <!-- Ul Start -->
                                                                     <ul>
 
