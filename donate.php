@@ -1,3 +1,69 @@
+<?php
+    session_start();
+    require 'dbFNS.php';
+
+    if (!$connection = mysqli_connect($hostName, $userName, $password))
+        die("Cannot connect");
+    mysqli_select_db($connection, $databaseName);
+    $loginUsername = $_SESSION["loginUsername"];
+
+    //user's profile
+    $restday = $_SESSION["loginRestDay"];
+    $createtime = $_SESSION["loginCreateTime"];
+
+    //show the specific  project here
+
+
+    $local_pid_detail = $_SESSION["pid_detail"];
+
+
+    //for getting project description
+    $query_description_detail = "SELECT * FROM project WHERE pid = '{$local_pid_detail}'";
+    if(!$result_description_detail = @ mysqli_query($connection, $query_description_detail))
+        showerror();
+
+    $line_description_detail = mysqli_fetch_array($result_description_detail, MYSQLI_NUM);
+
+    $local_username = $line_description_detail[1];
+    $local_pname = $line_description_detail[2];
+    $local_description = $line_description_detail[3];
+    $local_posttime = $line_description_detail[4];
+    $local_minfund = $line_description_detail[5];
+    $local_maxfund = $line_description_detail[6];
+    $local_endtime_timestamp = strtotime($line_description_detail[7]);
+    $local_endtime = date('F d, Y',$local_endtime_timestamp);
+    $local_completiontime_timestamp = strtotime($line_description_detail[8]);
+    $local_completiontime =date('F d, Y', $local_completiontime_timestamp);
+    $local_moneysum = $line_description_detail[9];
+    $local_status = $line_description_detail[10];
+    $local_finaltime = $line_description_detail[11];
+
+    $local_funded_percent = floor(100*$local_moneysum/$local_maxfund);
+    if($local_funded_percent == 0 && $local_moneysum != 0){
+        $local_funded_percent = 1;
+    }
+
+    $max_donate_amount = $local_maxfund - $local_moneysum;
+
+    //for getting comments
+    $query_comment_detail = "SELECT username, commenttime, content FROM comments WHERE pid = '{$local_pid_detail}'";
+    if(!$result_comment_detail = @ mysqli_query($connection, $query_comment_detail))
+        showerror();
+
+    //for getting project step time
+    $query_project_time = "SELECT posttime, endtime, completiontime,status,finaltime FROM project WHERE pid = '{$local_pid_detail}'";
+    if(!$result_project_time = @ mysqli_query($connection, $query_project_time))
+        showerror();
+
+    $line_project_time = mysqli_fetch_array($result_project_time, MYSQLI_NUM);
+
+    $local_posttime = date('F d, Y',strtotime($line_project_time[0]));
+    $local_endtime = date('F d, Y',strtotime($line_project_time[1]));
+    $local_completiontime = date('F d, Y',strtotime($line_project_time[2]));
+    $local_status = $line_project_time[3];
+    $local_finaltime = $line_project_time[4];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +131,7 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="site-map.html">Site Map</a></li>
                 <li><a href="result.html">Result</a></li>
-                <li><a href="donate.html">Donate</a></li>
+                <li><a href="donate.php">Donate</a></li>
                 <li><a href="user-detail2.html">user detail2</a></li>
               </ul>
             </li>
@@ -95,8 +161,10 @@
               <img alt="#" src="assets/extra-images/user-img.jpg">
               <i class="icon-arrow-down8"></i>
               <div class="dropdown-area">
-                <h5>Mark Benson</h5>
-                <span>Member Since May 20, 2014</span>
+                  <!-- add a session to post value here -->
+                  <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                  <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                  <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
                   <li><a href="project.php"><i class="icon-flag5"></i>My project</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
@@ -110,20 +178,20 @@
             </li>
           </ul>
         </div> 
-        <a href="sign.php" class="free-btn">Start for Free</a> </div>
+
     </div>
     <div class="mob-nav"></div>
     </div>
   </header>
   <!-- Header -->
-	<div class="breadcrumb-sec donate-sec" style="background: url(assets/extra-images/bg-donate.jpg) no-repeat; background-size:100% auto; min-height:250px;">
+	<div class="breadcrumb-sec donate-sec" style="background: url(assets/extra-images/bg-counter.jpg) no-repeat; background-size:100% auto; min-height:250px;">
 		<div class="absolute-sec">
 			<div class="container">
 				<div class="cs-table">
 					<div class="cs-tablerow">
 						<div class="pageinfo page-title-align-left">
-							<h1 style="color:#fff !important; text-transform:none;">Jason Cleaning projects</h1>
-							<strong style="text-align:center; display:block; color:#fff; font-weight:normal;" class="title">People just like you have used Razoo to create more than 90,000 fundraising websites.</strong>
+							<h1 style="color:#fff !important; text-transform:none;"><?php echo $local_pname ?></h1>
+							<strong style="text-align:center; display:block; color:#fff; font-weight:normal;" class="title">People just like you have used their money to make the change.</strong>
 						</div>
 					</div>
 				</div>
@@ -142,12 +210,13 @@
 									<div class="col-lg-12">
 										<div class="donate-area">
 											<ul class="nav nav-tabs" role="tablist">
-												<li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="home" href="#home">01. Donate</a></li>
-												<li role="presentation"><a data-toggle="tab" role="tab" aria-controls="profile" href="#profile">02. Payment</a></li>
-												<li role="presentation"><a data-toggle="tab" role="tab" aria-controls="messages" href="#messages">03. Confirmation</a></li>
+												<li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="home" >01. Donate</a></li>
+												<li role="presentation"><a aria-controls="profile" >02. Payment</a></li>
+												<li role="presentation"><a aria-controls="messages">03. Confirmation</a></li>
 											</ul>
 											<div class="tab-content">
 												<div id="home" class="tab-pane active fade in" role="tabpanel">
+<<<<<<< HEAD:donate.html
 													<div class="donate-holder">
 														<h3>Your Donation</h3>
 														<div class="cs-holder">
@@ -270,6 +339,64 @@
 						</div>
 					</div>
 				</div>
+=======
+													<f class="donate-holder">
+                                                        <form method="post" action="donatePage2.php">
+                                                            <h3>Your Donation</h3>
+                                                            <div class="cs-holder">
+                                                                <div class="slider-value">
+
+                                                                        <span>$</span>
+                                                                        <input type="text" name = "donate_amount" value="1">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="cs-holder">
+                                                                <div id="slider"></div>
+                                                            </div>
+<!--                                                            <div class="spreator3">-->
+<!--                                                                <span>Or</span>-->
+<!--                                                            </div>-->
+<!--                                                            <h3>Enter your Amount</h3>-->
+<!--                                                            <div class="form-area">-->
+<!--                                                                    <div class="input-area">-->
+<!--                                                                        <span>$</span>-->
+<!--                                                                        <input type="text" placeholder="--><?php //echo $max_donate_amount; ?><!--">-->
+<!--                                                                    </div>-->
+<!--                                                            </div>-->
+    <!--														<div class="amount-area">-->
+    <!--															<div class="left-side">-->
+    <!--																<p>-->
+    <!--																	<span>$</span>-->
+    <!--																	Total Amount-->
+    <!--																</p>-->
+    <!--															</div>-->
+    <!--															<div class="right-side">-->
+    <!--																<input type="text" value="$0.00">-->
+    <!--															</div>-->
+    <!--														</div>-->
+<!--                                                            <div class="cs-holder">-->
+<!--                                                                <div class="Sigup-btn">-->
+<!--                                                                    <span>Or</span>-->
+<!--                                                                    <a href="#" class="account-btn">Have and Account?</a>-->
+<!--                                                                    <a href="#">Sigup for a new account</a>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+                                                            <div class="cs-holder">
+                                                                <input type="submit" value="Go to Payments">
+                                                            </div>
+                                                        </form>
+                                                    </f>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+>>>>>>> master:donate.php
 			</section>
 		</div>
 	</main>
@@ -383,16 +510,23 @@
 	jQuery("#slider").slider({
       range: "min",
       min: 1,
+<<<<<<< HEAD:donate.html
       max: 1000,
+=======
+      max: <?php echo $max_donate_amount; ?>,
+>>>>>>> master:donate.php
       slide: function(event, ui) {
         jQuery('.slider-value input').val(ui.value);
+
+        //try
+         $.post("donatePage2.php", ui.value);
       },
   });  
 	  
     //$( "#slider" ).slider({
-//		change: function(event, ui) { 
-//			jQuery('.slider-value input').val(ui.value); 
-//		} 
+//		change: function(event, ui) {
+//			jQuery('.slider-value input').val(ui.value);
+//		}
 //	});
   });
   </script>

@@ -82,7 +82,7 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="site-map.html">Site Map</a></li>
                 <li><a href="result.html">Result</a></li>
-                <li><a href="donate.html">Donate</a></li>
+                <li><a href="donate.php">Donate</a></li>
                 <li><a href="user-detail2.html">user detail2</a></li>
               </ul>
             </li>

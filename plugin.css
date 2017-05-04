@@ -1227,7 +1227,11 @@
     margin: 0 0 0 -6px;
     padding: 0;
     vertical-align: middle;
+<<<<<<< HEAD
     width: 100px;
+=======
+    width: 120px;
+>>>>>>> master
 }
 .donate-area .slider-value span {
 	color: #666;
