@@ -126,7 +126,7 @@
                 <div class="right-side">
                     <div class="cs-search-block">
                         <form method="post" action="searchResult.php">
-                            <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
+                            <input type="text" id="s" name="search_key" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
                             <label>
                                 <input type="submit" value="Search">
                             </label>
@@ -174,26 +174,14 @@
                                     <aside class="page-sidebar col-lg-3">
                                         <div class="widget cs_directory_categories">
                                             <div class="cs-search-area">
-                                                <form>
+                                                <form method="post" action="searchResult.php">
+
                                                     <fieldset>
                                                         <label class="search">
-                                                            <input type="search" placeholder="Search Project">
+                                                            <input type="search" name="search_key" placeholder="Search Project">
                                                         </label>
+                                                        <input type="submit" value="Search" >
 
-                                                        <div class="select-box">
-                                                            <select>
-                                                                <option>Location</option>
-                                                                <option>Location</option>
-                                                                <option>Location</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="select-box">
-                                                            <select>
-                                                                <option>Location</option>
-                                                                <option>Location</option>
-                                                                <option>Location</option>
-                                                            </select>
-                                                        </div>
                                                     </fieldset>
                                                 </form>
                                             </div>

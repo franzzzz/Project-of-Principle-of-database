@@ -186,16 +186,6 @@
                             </label>
                                 <input type="submit" value="Search" >
 
-
-<!--                                <form method="post" action="searchResult.php">-->
-<!--                                    <input type="text" id="s" name="search_key" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">-->
-<!--                                    <label>-->
-<!--                                        <input type="submit" value="Search">-->
-<!--                                    </label>-->
-<!--                                </form>-->
-
-
-
                           </fieldset>
 
                         </form>
