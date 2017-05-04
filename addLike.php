@@ -23,7 +23,7 @@ $query = "INSERT INTO `likes` VALUES ('{$like_username}', '{$like_pid}')";
 
 // Execute the query
 if (!$result = @ mysqli_query($connection, $query))
-    header("Location: 404.php");;
+    header("Location: 404.php");
 
 header("Location: detail.php?pid_detail= $like_pid");
 ?>
