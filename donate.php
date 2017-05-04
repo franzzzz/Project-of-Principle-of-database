@@ -168,12 +168,12 @@
                   <span> <?php echo 'Member Since '.$createtime; ?> </span>
                   <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
-                  <li><a href="project.php"><i class="icon-flag5"></i>My project</a></li>
+                  <li><a href="home.php"><i class="icon-flag5"></i>My project</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                   <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
+                  <li><a href="create-new-home.php"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
                 <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
               </div>
@@ -218,6 +218,130 @@
 											</ul>
 											<div class="tab-content">
 												<div id="home" class="tab-pane active fade in" role="tabpanel">
+<<<<<<< HEAD:donate.html
+													<div class="donate-holder">
+														<h3>Your Donation</h3>
+														<div class="cs-holder">
+															<div class="slider-value">
+																<form>
+																	<span>$</span>
+																	<input type="text" value="1000">
+																</form>
+															</div>
+														</div>
+														<div class="cs-holder">
+															<div id="slider"></div>
+														</div>
+														<div class="spreator3">
+															<span>Or</span>
+														</div>
+														<h3>Enter your Amount</h3>
+														<div class="form-area">
+															<form>
+																<div class="input-area">
+																	<span>$</span>
+																	<input type="text" placeholder="1425.99">
+																</div>
+																<input type="checkbox" value="auto-parts" name="directory_categories" class="directory-categories-checkbox" id="category_auto-parts">
+																<label for="category_auto-parts">Hide my donation from the public</label>
+															</form>
+														</div>
+														<div class="amount-area">
+															<div class="left-side">
+																<p>
+																	<span>$</span>
+																	Total Amount
+																</p>
+															</div>
+															<div class="right-side">
+																<input type="text" value="$0.00">
+															</div>
+														</div>
+														<div class="cs-holder">
+															<div class="Sigup-btn">
+																<span>Or</span>
+																<a href="#" class="account-btn">Have and Account?</a>
+																<a href="#">Sigup for a new account</a>
+															</div>
+														</div>
+														<div class="cs-holder">
+															<input type="submit" value="Go to Payments">
+														</div>
+													</div>
+												</div>
+												<div id="profile" class="tab-pane fade in" role="tabpanel">
+													<div class="pyment-area">
+														<div class="donate-holder">
+															<div class="amount-area">
+																<div class="left-side">
+																	<p>
+																		<span>$</span>
+																		Total Amount
+																	</p>
+																</div>
+																<div class="right-side">
+																	<input type="text" value="$0.00">
+																</div>
+															</div>
+															<div class="select-payments">
+																<ul class="cs-gateway-wrap">
+																	<li>
+																		<div class="radio-image-wrapper">
+																			<input type="radio" id="cs_paypal_gateway" value="cs_paypal_gateway" name="cs_payment_gateway" checked="checked" class="cs-gateway-calculation">
+																			<label for="cs_paypal_gateway">
+																				<span><img alt="#" src="assets/extra-images/pyment1.png">
+																				</span> 
+																			</label>
+																		</div>
+																		<div class="radio-image-wrapper"><input type="radio" id="cs_authorizedotnet_gateway" value="cs_authorizedotnet_gateway" name="cs_payment_gateway" class="cs-gateway-calculation"><label for="cs_authorizedotnet_gateway"><span><img alt="#" src="assets/extra-images/pyment2.png">
+																				</span> </label>
+																		</div>
+																		<div class="radio-image-wrapper"><input type="radio" id="cs_pre_bank_transfer" value="cs_pre_bank_transfer" name="cs_payment_gateway" class="cs-gateway-calculation"><label for="cs_pre_bank_transfer"><span><img alt="#" src="assets/extra-images/pyment3.png">
+																				</span> </label></div>
+																		<div class="radio-image-wrapper"><input type="radio" id="cs_skrill_gateway" value="cs_skrill_gateway" name="cs_payment_gateway" class="cs-gateway-calculation"><label for="cs_skrill_gateway"><span><img alt="#" src="assets/extra-images/pyment4.png">
+																				</span> </label>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+															<div class="cs-holder">
+																<div class="infotext">
+																	<p>Fled less sniffled sorrowful scorpion less hummed lorikeet dear jeepers more patiently shuffled close adjusted far the goodness grunted basically reprehensive the hello ahead more to slow along the unbearably fumblingly yikes sneered and and hence pill wobbled in one.</p>
+																</div>
+															</div>
+															<div class="form-area">
+																<form>
+																	<input type="checkbox" id="pyment" class="directory-categories-checkbox" name="directory_categories" value="auto-parts">
+																	<label for="pyment">Hide my donation from the public</label>
+																</form>
+															</div>
+															<div class="cs-holder">
+																<input type="submit" value="Go to Payments">
+															</div>
+														</div>
+													</div>
+												</div>
+												<div id="messages" class="tab-pane fade in" role="tabpanel">
+													<div class="confirmation-area">
+														<div class="donate-holder">
+															<div class="icon-area">
+																<i class="icon-check"></i>
+															</div>
+															<strong>We recived your Payment</strong>
+															<h3>Thank you so much for your Contribution</h3>
+															<p>Patiently shuffled close adjusted far the goodness grunted basically<br> reprehensive the hello ahead more to slow along the unbearably fumblingly<br> yikes sneered and and hence pill wobbled in one.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+=======
 													<f class="donate-holder">
                                                         <form method="post" action="donatePage2.php">
                                                             <h3>Your Donation</h3>
@@ -274,6 +398,7 @@
                         </div>
                     </div>
                 </div>
+>>>>>>> master:donate.php
 			</section>
 		</div>
 	</main>
@@ -387,7 +512,11 @@
 	jQuery("#slider").slider({
       range: "min",
       min: 1,
+<<<<<<< HEAD:donate.html
+      max: 1000,
+=======
       max: <?php echo $max_donate_amount; ?>,
+>>>>>>> master:donate.php
       slide: function(event, ui) {
         jQuery('.slider-value input').val(ui.value);
 
