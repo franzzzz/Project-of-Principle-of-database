@@ -1722,17 +1722,17 @@
 }
 
 /*--- Donatin Style ---*/
-.campaigs-package {
+.Crowdfunding-package {
     float: left;
     width: 100%;
 }
-.campaigs-package table thead th:first-child,
-.campaigs-package table tbody td:first-child {
+.Crowdfunding-package table thead th:first-child,
+.Crowdfunding-package table tbody td:first-child {
     padding: 5px 0;
     text-align: center;
     width: 40px;
 }
-.campaigs-package table thead tr th {
+.Crowdfunding-package table thead tr th {
 	background-color: #4f4a9c;
 	border: none;
 	color: #fff;
@@ -1741,32 +1741,32 @@
 	text-transform: uppercase;
 	padding: 0 0 5px 14px;
 }
-.campaigs-package table tr:nth-child(2n) {
+.Crowdfunding-package table tr:nth-child(2n) {
     background-color: #fcfcfc;
 }
-.campaigs-package table thead tr th:nth-child(2n+1) {
+.Crowdfunding-package table thead tr th:nth-child(2n+1) {
 	background-color: #3f3b7d;
 }
-.campaigs-package table tbody tr td:nth-child(2n+1) {
+.Crowdfunding-package table tbody tr td:nth-child(2n+1) {
 	color: #777777;
 }
-.campaigs-package table tbody tr td {
+.Crowdfunding-package table tbody tr td {
 	color: #333;
 	padding: 5px 0 5px 14px;
 }
-.campaigs-package table tfoot {
+.Crowdfunding-package table tfoot {
 	border-bottom: 1px solid #ededed;
 	border-right: 1px solid #ededed;
 	border-left: 1px solid #ededed;
 }
-.campaigs-package table tfoot tr td {
+.Crowdfunding-package table tfoot tr td {
 	border: none;
 	color: #777777;
 }
-.campaigs-package table tfoot .price {
+.Crowdfunding-package table tfoot .price {
     padding: 10px 0;
 }
-.campaigs-package table tfoot .price strong {
+.Crowdfunding-package table tfoot .price strong {
 	font-size: 20px;
 	color: #4f4a9c;
 	margin: 0 0 0 5px;
@@ -2144,7 +2144,7 @@
     float: left;
     width: 66.66%;
 }
-.galleryupload #campaigs_images_container {
+.galleryupload #Crowdfunding_images_container {
     background: url(assets/extra-images/bg-gallry.png) repeat;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1) inset;
     float: left;
@@ -2152,37 +2152,37 @@
     position: relative;
     width: 100%;
 }
-.gallery-thumb .campaigs_images li {
+.gallery-thumb .Crowdfunding_images li {
     float: left;
     padding: 0 7px 0 0;
     position: relative;
     width: 25%;
 	border: none;
 }
-.gallery-thumb .campaigs_images li img {
+.gallery-thumb .Crowdfunding_images li img {
 	border: 1px solid #eeeeee;
     box-shadow: 0 0 0 2px #fff inset;
     padding: 3px;
     width: 100%;
 }
-.galleryupload .campaigs_images li a.delete {
+.galleryupload .Crowdfunding_images li a.delete {
 	height: 16px;
     line-height: 13px;
     right: 3px;
     top: -7px;
     width: 16px;
 }
-.galleryupload .campaigs_images li a.delete i {
+.galleryupload .Crowdfunding_images li a.delete i {
 	font-size: 9px;
 }
 
-.galleryupload .campaigs_images li figcaption {
+.galleryupload .Crowdfunding_images li figcaption {
     height: 100%;
     position: absolute;
     top: 0;
     width: 100%;
 }
-.galleryupload .campaigs_images li figcaption input {
+.galleryupload .Crowdfunding_images li figcaption input {
     background: inherit;
     border: medium none;
     color: #ffffff;
