@@ -273,9 +273,9 @@
                             ";
                           }
                         ?>
-<!--                         <form role="form" method="POST" id="getpid" action="detail.php">
+<!--                    <form role="form" method="POST" id="getpid" action="detail.php">
                           <input type="hidden" id="pid_detail" name="pid_detail">
-                          <!--     <input type="hidden" id="customer" name="customer"> -->
+                          <input type="hidden" id="customer" name="customer"> 
                         </form> -->
 											</div>
                       <div class="col-lg-12">

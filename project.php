@@ -55,8 +55,8 @@
 </head>
 <body>
 <div class="wrapper"> 
-	
-	<!-- Header -->
+  
+  <!-- Header -->
   <header id="main-header">
     <div class="container">
     <div class="main-head">
@@ -93,13 +93,13 @@
               </ul>
             </li>
             <li>
-				<a href="#">News</a>
-				<ul class="sub-dropdown">
-					<li><a href="bloglrag.html">News Listing</a></li>
-					<li><a href="blogmedium.html">News Medium</a></li>
-					<li><a href="blogdetail.php">News Detail</a></li>
-				</ul>
-			</li>
+        <a href="#">News</a>
+        <ul class="sub-dropdown">
+          <li><a href="bloglrag.html">News Listing</a></li>
+          <li><a href="blogmedium.html">News Medium</a></li>
+          <li><a href="blogdetail.php">News Detail</a></li>
+        </ul>
+      </li>
           </ul>
         </nav>
       </div>
@@ -118,8 +118,9 @@
               <img alt="#" src="assets/extra-images/user-img.jpg">
               <i class="icon-arrow-down8"></i>
               <div class="dropdown-area">
-                <h5>Mark Benson</h5>
-                <span>Member Since May 20, 2014</span>
+                <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
                   <li><a href="project.php"><i class="icon-flag5"></i>My project</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
@@ -133,308 +134,307 @@
             </li>
           </ul>
         </div> 
-        <a href="sign.php" class="free-btn">Start for Free</a> </div>
     </div>
     <div class="mob-nav"></div>
     </div>
   </header>
   <!-- Header -->
-	
-	<!-- Main Content -->
-	<main id="main-content">
-		<div class="main-section">
-			<div class="page-section">
-				<div class="profile-pages">
-					<div class="container">
-						<div class="row">
-							<div class="section-fullwidth col-lg-12">
-								<div class="cs-content-holder">
-									<div class="row">
-										<div class="project-holder">
-											<div class="col-lg-12">
-												<div class="cs-auther">
-													<figure>
-														<a href="#"><img src="assets/extra-images/auther1.jpg" alt="#"></a>
-													</figure>
-													<div class="text">
-														<h3>Mark Benson</h3>
-														<span>Member Since September 23, 2014</span>
-													</div>
-												</div>
-												<div class="right-sec">
-													<ul class="cs-donations">
-														<li>
-															<span>Donations</span>
-															<strong>$ 5,689.00</strong>
-														</li>
-														<li>
-															<span>Donated</span>
-															<strong>$ 5,689.00</strong>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="col-lg-12">
-												<div class="profile-block">
-													<ul class="scroll-nav">
-															<li class="active"><a href="project.php"><i class="icon-star-o"></i>My Cuases</a></li>
-															<li><a href="saved.html"><i class=" icon-save"></i>Saved project</a></li>
-															<li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
-															<li><a href="profilesetting.html"><i class="icon-gear"></i>Profile Settings</a></li>
-															<li><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
-															<li><a href="donation.html"><i class="icon-sign-in"></i>Sign Out</a></li>
-														</ul>
-													  <div class="cs-profile-area">
-														<div class="cs-title no-border">
-														  <h3>599 Saved project</h3>
-														</div>
-														<div class="cs-profile-holder">
-														  <div class="cs-ads-area">
-															<article>
-															<div class="post-main">
-															  <!-- <a href="#" class="cs-fav-btn"></a> -->
-															  <figure>
-																<a href="#"><img alt="" src="assets/extra-images/project-list1.jpg"></a>
-															  </figure>
-															  <div class="detail-area">
-																<div class="ads-title">
-																	<div class="ads-btn">
-																	  <!-- <a href="#" class="fav-btn"><i class="icon-star-o"></i><span>22</span></a> -->
-																	  <a href="#" class="del icon-trash-o"></a>
-																	</div>	
-																  <div class="text">
-																	<h3><a href="#">Volkswagen Passat CC 2.0TDI BlueMotion Tech CC</a></h3>
-																	<span class="loc">Brooklyn, NY, United States</span>
-																	<ul class="post-details">
-																	  <li>84% Funded</li>
-																	  <li><i class="cscolor icon-target5"></i> $ 84,000 goal</li>
-																	  <li><i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																	</ul>
-																	<span class="bar"><span style="width:84%;"></span></span>
-																  </div>
-																</div>
-			
-															  </div>
-															  </div>
-															  <div class="edit-area">
-																<a href="#" class="coll">6 Donations Collected</a>
-																<ul class="edit-opts">
-																  <!-- <li class="package"><a href="#">Package</a></li>
-																  <li class="deactive-ad"><a href="#">Deactive Ad</a></li> -->
-																 <li class="active-ad"><a href="#">Active Ad</a></li>
-																  <li class="edit-ad"><a href="#">Edit</a></li>
-																</ul>
-																<div class="cs-profile-holder">
-																	<div class="cs-table-holder">
-																		<table>
-																			<thead>
-																				<tr>
-																					<th>#</th>
-																					<th>Name</th>
-																					<th>Date</th>
-																					<th>Transaction ID</th>
-																					<th>Amount</th>
-																				</tr>
-																			</thead>
-																			<tbody>
-																				<tr>
-																					<td>1</td>
-																					<td>Vauxhall corsa excellent condition service...</td>
-																					<td>23-12-2013</td>
-																					<td>AB1352CC</td>
-																					<td>$22.00</td>
-																				</tr>
-																				<tr>
-																					<td>2</td>
-																					<td>Vauxhall corsa excellent condition service...</td>
-																					<td>23-12-2013</td>
-																					<td>AB1352CC</td>
-																					<td>$22.00</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																	</div>
-																</div>
-															  </div>
-															</article>
-															<article>
-															<div class="post-main">
-															  <!-- <a href="#" class="cs-fav-btn"></a> -->
-															  <figure>
-																<a href="#"><img alt="" src="assets/extra-images/project-list1.jpg"></a>
-															  </figure>
-															  <div class="detail-area">
-																<div class="ads-title">
-																	<div class="ads-btn">
-																	  <!-- <a href="#" class="fav-btn"><i class="icon-star-o"></i><span>22</span></a> -->
-																	  <a href="#" class="del icon-trash-o"></a>
-																	</div>	
-																  <div class="text">
-																	<h3><a href="#">Volkswagen Passat CC 2.0TDI BlueMotion Tech CC</a></h3>
-																	<span class="loc">Brooklyn, NY, United States</span>
-																	<ul class="post-details">
-																	  <li>84% Funded</li>
-																	  <li><i class="cscolor icon-target5"></i> $ 84,000 goal</li>
-																	  <li><i class="cscolor icon-clock7"></i> July 27, 2014 </li>
-																	</ul>
-																	<span class="bar"><span style="width:84%;"></span></span>
-																  </div>
-																</div>
-			
-															  </div>
-															  </div>
-															  <div class="edit-area">
-																<a href="#" class="coll">6 Donations Collected</a>
-																<ul class="edit-opts">
-																  <!-- <li class="package"><a href="#">Package</a></li>
-																  <li class="deactive-ad"><a href="#">Deactive Ad</a></li> -->
-																 <li class="active-ad"><a href="#">Active Ad</a></li>
-																  <li class="edit-ad"><a href="#">Edit</a></li>
-																</ul>
-																<div class="cs-profile-holder">
-																	<div class="cs-table-holder">
-																		<table>
-																			<thead>
-																				<tr>
-																					<th>#</th>
-																					<th>Name</th>
-																					<th>Date</th>
-																					<th>Transaction ID</th>
-																					<th>Amount</th>
-																				</tr>
-																			</thead>
-																			<tbody>
-																				<tr>
-																					<td>1</td>
-																					<td>Vauxhall corsa excellent condition service...</td>
-																					<td>23-12-2013</td>
-																					<td>AB1352CC</td>
-																					<td>$22.00</td>
-																				</tr>
-																				<tr>
-																					<td>2</td>
-																					<td>Vauxhall corsa excellent condition service...</td>
-																					<td>23-12-2013</td>
-																					<td>AB1352CC</td>
-																					<td>$22.00</td>
-																				</tr>
-																			</tbody>
-																		</table>
-																	</div>
-																</div>
-															  </div>
-															</article>
-														  </div>
-														</div>
-													  </div>
-													</div>
-												</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				</div>
-			</div>
-	</main>
-	<!--// Main Content //--> 
-	
-	<!--// Footer Widget //-->
-	<footer id="footer-sec">
-		<div class="container">
-			<div class="row">
-				<div class="ads-sec col-lg-12"> <img src="assets/images/ads.jpg" alt="" > </div>
-				<div class="col-lg-12">
-					<div class="tweet-sec">
-						<p><i class="twitter-icon icon-twitter2"></i> Thing anyone did today was get ready for #Scandal <a href="#">http://t.co/UfiNiBLWlZ http://t.co/Fvggnf320f</a> <span class="by">Boxtheme</span> <span class="time">10 hours ago</span></p>
-					</div>
-				</div>
-				<aside class="col-lg-4 col-md-4 col-sm-6 widget widget_categories">
-					<div class="widget-section-title"> <strong class="title">Campaigning</strong> </div>
-					<ul>
-						<li><a href="#">Contributing</a></li>
-						<li><a href="#">Publishing</a></li>
-						<li><a href="#">Explore Partner Pages</a></li>
-						<li><a href="#">Music</a></li>
-						<li><a href="#">Daily Inspiration</a></li>
-						<li><a href="#">Film and Theatre</a></li>
-						<li><a href="#">Sign Up Now</a></li>
-						<li><a href="#">Food and Drink</a></li>
-						<li><a href="#">Private, secure, spam-free</a></li>
-						<li><a href="#">Sports</a></li>
-						<li><a href="#">School</a></li>
-					</ul>
-				</aside>
-				<aside class="widget col-lg-4 col-md-4 col-sm-6 widget_categories">
-					<div class="widget-section-title"> <strong class="title">Contributing</strong> </div>
-					<ul>
-						<li><a href="#">Crowdfunder API - Beta</a>
-						<li><a href="#">How crowdfunding works</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Creating a project</a></li>
-						<li><a href="#">Guides</a></li>
-						<li><a href="#">Supporting a project</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Guidelines</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Jobs</a></li>
-						<li><a href="#">Partners</a></li>
-					</ul>
-				</aside>
-				<aside class="widget col-lg-4 col-md-4 col-sm-6 widget_newsletter">
-					<div class="widget-section-title"> <strong class="title">Weekly Newsletter</strong> </div>
-					<form>
-						<fieldset>
-							<input type="submit" value="Submit" name="submit" class="cs-btn">
-							<input class="email" type="email" placeholder="Your Email Address">
-						</fieldset>
-						<span>Private, secure, spam-free</span>
-					</form>
-				</aside>
-			</div>
-		</div>
-	</footer>
-	<!--// Footer Widget //--> 
-	
-	<!--// CopyRight //-->
-	<div id="copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="footer_icon"><a href="#"><img src="assets/images/footer-logo.png" alt=""></a></div>
-					<div class="fnav-area">
-						<nav class="footer-nav">
-							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Categories</a></li>
-								<li><a href="#">Showrooms</a></li>
-								<li><a href="#">Agents</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">Contact us</a></li>
-							</ul>
-						</nav>
-						<p>©2014 Box Theme All rights reserved. Design by <a href="http://www.jqueryfuns.com">Chimp Studio</a></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="social-media">
-						<ul>
-							<li><a href="#"><i class="icon-facebook7"></i></a></li>
-							<li><a href="#"><i class="icon-twitter6"></i></a></li>
-							<li><a href="#"><i class="icon-googleplus7"></i></a></li>
-							<li><a href="#"><i class="icon-instagram4"></i></a></li>
-							<li><a href="#"><i class="icon-youtube-play"></i></a></li>
-							<li><a href="#"><i class="icon-skype"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--// CopyRight //-->
-	
+  
+  <!-- Main Content -->
+  <main id="main-content">
+    <div class="main-section">
+      <div class="page-section">
+        <div class="profile-pages">
+          <div class="container">
+            <div class="row">
+              <div class="section-fullwidth col-lg-12">
+                <div class="cs-content-holder">
+                  <div class="row">
+                    <div class="project-holder">
+                      <div class="col-lg-12">
+                        <div class="cs-auther">
+                          <figure>
+                            <a href="#"><img src="assets/extra-images/auther1.jpg" alt="#"></a>
+                          </figure>
+                          <div class="text">
+                            <h3>Mark Benson</h3>
+                            <span>Member Since September 23, 2014</span>
+                          </div>
+                        </div>
+                        <div class="right-sec">
+                          <ul class="cs-donations">
+                            <li>
+                              <span>Donations</span>
+                              <strong>$ 5,689.00</strong>
+                            </li>
+                            <li>
+                              <span>Donated</span>
+                              <strong>$ 5,689.00</strong>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="profile-block">
+                          <ul class="scroll-nav">
+                              <li class="active"><a href="project.php"><i class="icon-star-o"></i>My Cuases</a></li>
+                              <li><a href="saved.html"><i class=" icon-save"></i>Saved project</a></li>
+                              <li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
+                              <li><a href="profilesetting.html"><i class="icon-gear"></i>Profile Settings</a></li>
+                              <li><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
+                              <li><a href="donation.html"><i class="icon-sign-in"></i>Sign Out</a></li>
+                            </ul>
+                            <div class="cs-profile-area">
+                            <div class="cs-title no-border">
+                              <h3>599 Saved project</h3>
+                            </div>
+                            <div class="cs-profile-holder">
+                              <div class="cs-ads-area">
+                              <article>
+                              <div class="post-main">
+                                <!-- <a href="#" class="cs-fav-btn"></a> -->
+                                <figure>
+                                <a href="#"><img alt="" src="assets/extra-images/project-list1.jpg"></a>
+                                </figure>
+                                <div class="detail-area">
+                                <div class="ads-title">
+                                  <div class="ads-btn">
+                                    <!-- <a href="#" class="fav-btn"><i class="icon-star-o"></i><span>22</span></a> -->
+                                    <a href="#" class="del icon-trash-o"></a>
+                                  </div>  
+                                  <div class="text">
+                                  <h3><a href="#">Volkswagen Passat CC 2.0TDI BlueMotion Tech CC</a></h3>
+                                  <span class="loc">Brooklyn, NY, United States</span>
+                                  <ul class="post-details">
+                                    <li>84% Funded</li>
+                                    <li><i class="cscolor icon-target5"></i> $ 84,000 goal</li>
+                                    <li><i class="cscolor icon-clock7"></i> July 27, 2014 </li>
+                                  </ul>
+                                  <span class="bar"><span style="width:84%;"></span></span>
+                                  </div>
+                                </div>
+      
+                                </div>
+                                </div>
+                                <div class="edit-area">
+                                <a href="#" class="coll">6 Donations Collected</a>
+                                <ul class="edit-opts">
+                                  <!-- <li class="package"><a href="#">Package</a></li>
+                                  <li class="deactive-ad"><a href="#">Deactive Ad</a></li> -->
+                                 <li class="active-ad"><a href="#">Active Ad</a></li>
+                                  <li class="edit-ad"><a href="#">Edit</a></li>
+                                </ul>
+                                <div class="cs-profile-holder">
+                                  <div class="cs-table-holder">
+                                    <table>
+                                      <thead>
+                                        <tr>
+                                          <th>#</th>
+                                          <th>Name</th>
+                                          <th>Date</th>
+                                          <th>Transaction ID</th>
+                                          <th>Amount</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>1</td>
+                                          <td>Vauxhall corsa excellent condition service...</td>
+                                          <td>23-12-2013</td>
+                                          <td>AB1352CC</td>
+                                          <td>$22.00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>2</td>
+                                          <td>Vauxhall corsa excellent condition service...</td>
+                                          <td>23-12-2013</td>
+                                          <td>AB1352CC</td>
+                                          <td>$22.00</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                </div>
+                              </article>
+                              <article>
+                              <div class="post-main">
+                                <!-- <a href="#" class="cs-fav-btn"></a> -->
+                                <figure>
+                                <a href="#"><img alt="" src="assets/extra-images/project-list1.jpg"></a>
+                                </figure>
+                                <div class="detail-area">
+                                <div class="ads-title">
+                                  <div class="ads-btn">
+                                    <!-- <a href="#" class="fav-btn"><i class="icon-star-o"></i><span>22</span></a> -->
+                                    <a href="#" class="del icon-trash-o"></a>
+                                  </div>  
+                                  <div class="text">
+                                  <h3><a href="#">Volkswagen Passat CC 2.0TDI BlueMotion Tech CC</a></h3>
+                                  <span class="loc">Brooklyn, NY, United States</span>
+                                  <ul class="post-details">
+                                    <li>84% Funded</li>
+                                    <li><i class="cscolor icon-target5"></i> $ 84,000 goal</li>
+                                    <li><i class="cscolor icon-clock7"></i> July 27, 2014 </li>
+                                  </ul>
+                                  <span class="bar"><span style="width:84%;"></span></span>
+                                  </div>
+                                </div>
+      
+                                </div>
+                                </div>
+                                <div class="edit-area">
+                                <a href="#" class="coll">6 Donations Collected</a>
+                                <ul class="edit-opts">
+                                  <!-- <li class="package"><a href="#">Package</a></li>
+                                  <li class="deactive-ad"><a href="#">Deactive Ad</a></li> -->
+                                 <li class="active-ad"><a href="#">Active Ad</a></li>
+                                  <li class="edit-ad"><a href="#">Edit</a></li>
+                                </ul>
+                                <div class="cs-profile-holder">
+                                  <div class="cs-table-holder">
+                                    <table>
+                                      <thead>
+                                        <tr>
+                                          <th>#</th>
+                                          <th>Name</th>
+                                          <th>Date</th>
+                                          <th>Transaction ID</th>
+                                          <th>Amount</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>1</td>
+                                          <td>Vauxhall corsa excellent condition service...</td>
+                                          <td>23-12-2013</td>
+                                          <td>AB1352CC</td>
+                                          <td>$22.00</td>
+                                        </tr>
+                                        <tr>
+                                          <td>2</td>
+                                          <td>Vauxhall corsa excellent condition service...</td>
+                                          <td>23-12-2013</td>
+                                          <td>AB1352CC</td>
+                                          <td>$22.00</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                </div>
+                              </article>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+  </main>
+  <!--// Main Content //--> 
+  
+  <!--// Footer Widget //-->
+  <footer id="footer-sec">
+    <div class="container">
+      <div class="row">
+        <div class="ads-sec col-lg-12"> <img src="assets/images/ads.jpg" alt="" > </div>
+        <div class="col-lg-12">
+          <div class="tweet-sec">
+            <p><i class="twitter-icon icon-twitter2"></i> Thing anyone did today was get ready for #Scandal <a href="#">http://t.co/UfiNiBLWlZ http://t.co/Fvggnf320f</a> <span class="by">Boxtheme</span> <span class="time">10 hours ago</span></p>
+          </div>
+        </div>
+        <aside class="col-lg-4 col-md-4 col-sm-6 widget widget_categories">
+          <div class="widget-section-title"> <strong class="title">Campaigning</strong> </div>
+          <ul>
+            <li><a href="#">Contributing</a></li>
+            <li><a href="#">Publishing</a></li>
+            <li><a href="#">Explore Partner Pages</a></li>
+            <li><a href="#">Music</a></li>
+            <li><a href="#">Daily Inspiration</a></li>
+            <li><a href="#">Film and Theatre</a></li>
+            <li><a href="#">Sign Up Now</a></li>
+            <li><a href="#">Food and Drink</a></li>
+            <li><a href="#">Private, secure, spam-free</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">School</a></li>
+          </ul>
+        </aside>
+        <aside class="widget col-lg-4 col-md-4 col-sm-6 widget_categories">
+          <div class="widget-section-title"> <strong class="title">Contributing</strong> </div>
+          <ul>
+            <li><a href="#">Crowdfunder API - Beta</a>
+            <li><a href="#">How crowdfunding works</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Creating a project</a></li>
+            <li><a href="#">Guides</a></li>
+            <li><a href="#">Supporting a project</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Guidelines</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </aside>
+        <aside class="widget col-lg-4 col-md-4 col-sm-6 widget_newsletter">
+          <div class="widget-section-title"> <strong class="title">Weekly Newsletter</strong> </div>
+          <form>
+            <fieldset>
+              <input type="submit" value="Submit" name="submit" class="cs-btn">
+              <input class="email" type="email" placeholder="Your Email Address">
+            </fieldset>
+            <span>Private, secure, spam-free</span>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </footer>
+  <!--// Footer Widget //--> 
+  
+  <!--// CopyRight //-->
+  <div id="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="footer_icon"><a href="#"><img src="assets/images/footer-logo.png" alt=""></a></div>
+          <div class="fnav-area">
+            <nav class="footer-nav">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Showrooms</a></li>
+                <li><a href="#">Agents</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </nav>
+            <p>©2014 Box Theme All rights reserved. Design by <a href="http://www.jqueryfuns.com">Chimp Studio</a></p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="social-media">
+            <ul>
+              <li><a href="#"><i class="icon-facebook7"></i></a></li>
+              <li><a href="#"><i class="icon-twitter6"></i></a></li>
+              <li><a href="#"><i class="icon-googleplus7"></i></a></li>
+              <li><a href="#"><i class="icon-instagram4"></i></a></li>
+              <li><a href="#"><i class="icon-youtube-play"></i></a></li>
+              <li><a href="#"><i class="icon-skype"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// CopyRight //-->
+  
 </div>
 
 <!-- jQuery (necessary JavaScript) --> 
@@ -445,7 +445,7 @@
 <script src="assets/scripts/jquery.flexslider-min.js"></script> 
 <script src="assets/scripts/functions.js"></script>
 <script type="text/javascript">
-	jQuery(document).ready(function(){
+  jQuery(document).ready(function(){
       jQuery('.edit-area').find('.cs-table-holder').hide();
       jQuery('.edit-area').on('click', '.coll', function(e){
         e.preventDefault();
