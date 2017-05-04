@@ -17,6 +17,8 @@
     $donate_amount  = $_POST["donate_amount"];
     $_SESSION["donate_amount"] = $donate_amount;
 
+    $local_pname=$_SESSION["pname"];
+
     //get loginUsers' credit cards
     $query_cardnumber = "SELECT cardnumber FROM creditcard WHERE username = '{$loginUsername}'";
     if(!$result_cardnumber = @ mysqli_query($connection, $query_cardnumber))
