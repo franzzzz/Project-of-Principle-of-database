@@ -8,13 +8,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blogdetail.html" afterPath="$PROJECT_DIR$/blogdetail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bloglrag.html" afterPath="$PROJECT_DIR$/bloglrag.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blogmedium.html" afterPath="$PROJECT_DIR$/blogmedium.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/causes.html" afterPath="$PROJECT_DIR$/causes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.html" afterPath="$PROJECT_DIR$/project.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contect.html" afterPath="$PROJECT_DIR$/contect.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create-new-cause.html" afterPath="$PROJECT_DIR$/create-new-cause.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create-new-project.html" afterPath="$PROJECT_DIR$/create-new-project.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donate.html" afterPath="$PROJECT_DIR$/donate.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donation.html" afterPath="$PROJECT_DIR$/donation.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/faq.html" afterPath="$PROJECT_DIR$/faq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home.php" afterPath="$PROJECT_DIR$/home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/discover.php" afterPath="$PROJECT_DIR$/discover.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/listing.php" afterPath="$PROJECT_DIR$/listing.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-donation.php" afterPath="$PROJECT_DIR$/my-donation.php" />
@@ -313,8 +313,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home.php">
+      <file leaf-file-name="discover.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/discover.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1579">
               <caret line="156" column="24" lean-forward="false" selection-start-line="229" selection-start-column="24" selection-end-line="263" selection-end-column="26" />
@@ -437,7 +437,7 @@
       <list>
         <option value="$PROJECT_DIR$/404.php" />
         <option value="$PROJECT_DIR$/creators.html" />
-        <option value="$PROJECT_DIR$/home.php" />
+        <option value="$PROJECT_DIR$/discover.php" />
         <option value="$PROJECT_DIR$/detail.html" />
         <option value="$PROJECT_DIR$/detail.php" />
       </list>
@@ -663,7 +663,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.php">
+    <entry file="file://$PROJECT_DIR$/discover.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13080">
           <caret line="872" column="7" lean-forward="false" selection-start-line="872" selection-start-column="7" selection-end-line="872" selection-end-column="7" />
@@ -716,7 +716,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/listing-grid.html" />
-    <entry file="file://$PROJECT_DIR$/create-new-cause.html">
+    <entry file="file://$PROJECT_DIR$/create-new-project.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11604">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1066,7 +1066,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.php">
+    <entry file="file://$PROJECT_DIR$/discover.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2222">
           <caret line="223" column="112" lean-forward="false" selection-start-line="223" selection-start-column="112" selection-end-line="223" selection-end-column="112" />
@@ -1173,7 +1173,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create-new-cause.html">
+    <entry file="file://$PROJECT_DIR$/create-new-project.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11604">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1197,7 +1197,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.php">
+    <entry file="file://$PROJECT_DIR$/discover.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13080">
           <caret line="872" column="7" lean-forward="false" selection-start-line="872" selection-start-column="7" selection-end-line="872" selection-end-column="7" />
@@ -1250,7 +1250,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/listing-grid.html" />
-    <entry file="file://$PROJECT_DIR$/create-new-cause.html">
+    <entry file="file://$PROJECT_DIR$/create-new-project.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11604">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1277,7 +1277,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.php">
+    <entry file="file://$PROJECT_DIR$/discover.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1579">
           <caret line="156" column="24" lean-forward="false" selection-start-line="229" selection-start-column="24" selection-end-line="263" selection-end-column="26" />

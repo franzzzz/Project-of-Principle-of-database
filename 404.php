@@ -50,10 +50,10 @@
     <div class="container">
     <div class="main-head">
       <div class="left-side">
-        <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
+        <div class="logo"><a href="discover.php"><img src="assets/images/logo.png" alt=""></a></div>
         <nav class="navigation">
           <ul>
-            <li><a href="home.php">Home</a></li>
+            <li><a href="discover.php">Home</a></li>
             <li><a href="listing.php">Discover</a></li>
             <li><a href="creators.html">Creators</a></li>
             <li><a href="supporters.html">Supporters</a></li>
@@ -97,12 +97,12 @@
                 <span> <?php echo 'Member Since '.$createtime; ?> </span>
                 <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
-                  <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
-                  <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                  <li><a href="project.html"><i class="icon-flag5"></i>My project</a></li>
+                  <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                   <li><a href="my-donation.html"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
+                  <li><a href="create-new-project.html"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
                 <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
@@ -148,7 +148,7 @@
 											  <div class="site-maps-links">
 													<h6>Visit some of our working pages</h6>
 													  <ul>
-														  <li><a href="#" onclick="window.location.href='home.php'">Home Page</a></li>
+														  <li><a href="#" onclick="window.location.href='discover.php'">Home Page</a></li>
 														  <!--<li><a href="#">About us</a></li>-->
 														  <!--<li><a href="#">Services</a></li>-->
 														  <!--<li><a href="#">Portfolio</a></li>-->

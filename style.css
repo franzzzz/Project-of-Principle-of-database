@@ -510,19 +510,19 @@ Text Domain: pc
     width: 13px;
     z-index: 1;
 }
-.widget_cause input[type="email"],
-.widget_cause input[type="text"]{
+.widget_project input[type="email"],
+.widget_project input[type="text"]{
 	width:100%;
 	border-radius:0;
 	border:1px solid #c9cacc;
 	margin:0 0 10px;
 }
-.widget_cause textarea{
+.widget_project textarea{
 	width:100% !important;
 	height:103px;
 	margin:0 0 10px;
 }
-.widget_cause input[type="submit"]{
+.widget_project input[type="submit"]{
 	border-bottom:none;
 	border:none;
 	width:100%;

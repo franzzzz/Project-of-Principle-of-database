@@ -100,10 +100,10 @@ require 'dbFNS.php';
         <div class="container">
             <div class="main-head">
                 <div class="left-side">
-                    <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
+                    <div class="logo"><a href="discover.php"><img src="assets/images/logo.png" alt=""></a></div>
                     <nav class="navigation">
                         <ul>
-                            <li><a href="home.php">Home</a></li>
+                            <li><a href="discover.php">Home</a></li>
                             <li><a href="#">Discover</a>
                                 <ul class="sub-dropdown">
                                     <li><a href="listing-grid.html">Grid View</a></li>
@@ -162,12 +162,12 @@ require 'dbFNS.php';
                                     <span> <?php echo 'Member Since '.$createtime; ?> </span>
                                     <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                                     <ul class="dropdown">
-                                        <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
-                                        <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                                        <li><a href="project.html"><i class="icon-flag5"></i>My project</a></li>
+                                        <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                                         <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                                         <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                                         <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                                        <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
+                                        <li><a href="create-new-project.html"><i class="icon-plus6"></i>Create New</a></li>
                                     </ul>
                                     <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
                                 </div>
@@ -193,7 +193,7 @@ require 'dbFNS.php';
                                         <div class="main-heading col-lg-12">
                                             <h1><?php echo $local_pname ?></h1>
                                         </div>
-                                        <div class="cause-detail">
+                                        <div class="project-detail">
                                             <div class="col-lg-9">
                                                 <figure><img src="assets/extra-images/detail-img.jpg" alt=""></figure>
                                             </div>
@@ -283,7 +283,7 @@ require 'dbFNS.php';
                                                                     </figure>
 
                                                                     <p><?php echo "$local_description"?></p>
-                                                                    <p>Some effusive some misspelled groundhog rose temperate because well pending much and considering hello far tremendous the imprecise grew less much jeepers breathless and hey far more much belligerent hawk the placed warthog angrily outside goodness poutingly more gerbil much komodo far barring dependently but one hey reluctant salamander.</p>
+                                                                    <p>Some effusive some misspelled groundhog rose temperate beproject well pending much and considering hello far tremendous the imprecise grew less much jeepers breathless and hey far more much belligerent hawk the placed warthog angrily outside goodness poutingly more gerbil much komodo far barring dependently but one hey reluctant salamander.</p>
                                                                     <!--<div class="tags">
                                                                         <i class="icon-tag7 cs-bgcolor"></i>
                                                                         <ul>
@@ -375,7 +375,7 @@ require 'dbFNS.php';
 <!--                                                                            </div>-->
 <!--                                                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">-->
 <!--                                                                                <div class="panel-body">-->
-<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
 <!--                                                                                </div>-->
 <!--                                                                            </div>-->
 <!--                                                                        </div>-->
@@ -390,7 +390,7 @@ require 'dbFNS.php';
 <!--                                                                            </div>-->
 <!--                                                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">-->
 <!--                                                                                <div class="panel-body">-->
-<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
 <!--                                                                                </div>-->
 <!--                                                                            </div>-->
 <!--                                                                        </div>-->
@@ -405,7 +405,7 @@ require 'dbFNS.php';
 <!--                                                                            </div>-->
 <!--                                                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">-->
 <!--                                                                                <div class="panel-body">-->
-<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
 <!--                                                                                </div>-->
 <!--                                                                            </div>-->
 <!--                                                                        </div>-->
@@ -420,7 +420,7 @@ require 'dbFNS.php';
 <!--                                                                            </div>-->
 <!--                                                                            <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">-->
 <!--                                                                                <div class="panel-body">-->
-<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
 <!--                                                                                </div>-->
 <!--                                                                            </div>-->
 <!--                                                                        </div>-->
@@ -435,7 +435,7 @@ require 'dbFNS.php';
 <!--                                                                            </div>-->
 <!--                                                                            <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">-->
 <!--                                                                                <div class="panel-body">-->
-<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
 <!--                                                                                </div>-->
 <!--                                                                            </div>-->
 <!--                                                                        </div>-->
@@ -450,7 +450,7 @@ require 'dbFNS.php';
 <!--                                                                            </div>-->
 <!--                                                                            <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">-->
 <!--                                                                                <div class="panel-body">-->
-<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
 <!--                                                                                </div>-->
 <!--                                                                            </div>-->
 <!--                                                                        </div>-->
@@ -465,7 +465,7 @@ require 'dbFNS.php';
 <!--                                                                            </div>-->
 <!--                                                                            <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">-->
 <!--                                                                                <div class="panel-body">-->
-<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
 <!--                                                                                </div>-->
 <!--                                                                            </div>-->
 <!--                                                                        </div>-->
@@ -480,7 +480,7 @@ require 'dbFNS.php';
 <!--                                                                            </div>-->
 <!--                                                                            <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">-->
 <!--                                                                                <div class="panel-body">-->
-<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well because stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well because stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
+<!--                                                                                    <p>While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully.  While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more much stared during ouch darn however unsociably and well beproject stole wonderfully. While far jeepers this much stared during ouch darn however unsociably and well beproject stole wonderfully goodness reciprocatingly much more. While far jeepers this much stared during ouch</p>-->
 <!--                                                                                </div>-->
 <!--                                                                            </div>-->
 <!--                                                                        </div>-->
@@ -578,12 +578,12 @@ require 'dbFNS.php';
                                                                                             <span> <?php echo 'Member Since '.$createtime; ?> </span>
                                                                                             <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                                                                                             <ul class="dropdown">
-                                                                                                <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
-                                                                                                <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                                                                                                <li><a href="project.html"><i class="icon-flag5"></i>My project</a></li>
+                                                                                                <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                                                                                                 <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                                                                                                 <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                                                                                                 <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                                                                                                <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
+                                                                                                <li><a href="create-new-project.html"><i class="icon-plus6"></i>Create New</a></li>
                                                                                             </ul>
                                                                                             <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
                                                                                         </div>
@@ -736,21 +736,21 @@ require 'dbFNS.php';
                                             </form>
                                         </div>-->
                                         <div class="widget_phases widget">
-                                            <h4>Cause Phases</h4>
+                                            <h4>project Phases</h4>
                                             <article class="phase-block col-md-12">
                                                 <h5 class="cscolor">Phase 1</h5>
                                                 <span class="price">$9,500</span>
-                                                <p>While far jeepers this much stared during ouch darn however unsocia- bly and well because stole wonder- fully goodness reciprocatingly much more.</p>
+                                                <p>While far jeepers this much stared during ouch darn however unsocia- bly and well beproject stole wonder- fully goodness reciprocatingly much more.</p>
                                             </article>
                                             <article class="phase-block col-md-12">
                                                 <h5 class="cscolor">Phase 1</h5>
                                                 <span class="price">$9,500</span>
-                                                <p>While far jeepers this much stared during ouch darn however unsocia- bly and well because stole wonder- fully goodness reciprocatingly much more.</p>
+                                                <p>While far jeepers this much stared during ouch darn however unsocia- bly and well beproject stole wonder- fully goodness reciprocatingly much more.</p>
                                             </article>
                                             <article class="phase-block col-md-12">
                                                 <h5 class="cscolor">Phase 1</h5>
                                                 <span class="price">$9,500</span>
-                                                <p>While far jeepers this much stared during ouch darn however unsocia- bly and well because stole wonder- fully goodness reciprocatingly much more.</p>
+                                                <p>While far jeepers this much stared during ouch darn however unsocia- bly and well beproject stole wonder- fully goodness reciprocatingly much more.</p>
                                             </article>
                                         </div>
                                         <div class="widget_doc widget">

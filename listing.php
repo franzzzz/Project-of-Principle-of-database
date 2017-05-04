@@ -55,10 +55,10 @@
     <div class="container">
     <div class="main-head">
       <div class="left-side">
-        <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
+        <div class="logo"><a href="discover.php"><img src="assets/images/logo.png" alt=""></a></div>
         <nav class="navigation">
           <ul>
-            <li><a href="home.php">Home</a></li>
+            <li><a href="discover.php">Home</a></li>
             <li><a href="#">Discover</a>
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
@@ -116,12 +116,12 @@
                 <span> <?php echo 'Member Since '.$createtime; ?> </span>
                 <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
-                  <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
-                  <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                  <li><a href="project.html"><i class="icon-flag5"></i>My project</a></li>
+                  <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                   <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
+                  <li><a href="create-new-project.html"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
                 <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
@@ -141,7 +141,7 @@
 					<div class="cs-tablerow">
 						<div class="pageinfo page-title-align-left">
 							<h1 style="color:#fff !important; text-transform:none;">Explore Projects</h1>
-							<strong style="text-align:center; display:block; color:#fff; font-weight:normal;" class="title">People just like you have used Razoo to create more than 90,000 fundraising websites<br>and to give over $250,000,000 to the causes they care about.</strong>
+							<strong style="text-align:center; display:block; color:#fff; font-weight:normal;" class="title">People just like you have used Razoo to create more than 90,000 fundraising websites<br>and to give over $250,000,000 to the project they care about.</strong>
 						</div>
 					</div>
 				</div>
@@ -213,7 +213,7 @@
 													</ul>
 												<!--Sorting Navigation End-->
 													<ul class="grid-filter">
-                            <li><a href="javascript:void(0)" onclick="window.location.href='home.php'"><i class="icon-layout15"></i></a></li>
+                            <li><a href="javascript:void(0)" onclick="window.location.href='discover.php'"><i class="icon-layout15"></i></a></li>
 														<li class="active"><a href="javascript:void(0)"><i class="icon-list7"></i></a></li>
 													</ul>
 												</nav>
