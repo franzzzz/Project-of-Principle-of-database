@@ -17,7 +17,7 @@
  .switch-label:after {content: attr(data-on);}
  .switch-label:before {content: attr(data-off);}
 
- .galleryupload .Crowdfunding_images li figcaption input {text-transform: unset;}
+ .galleryupload .campaigs_images li figcaption input {text-transform: unset;}
 
  .panel-group .panel-collapse[aria-expanded="true"] .panel:parent h4 a{color:#ccc !important;}
  .slicknav_menu { *zoom: 1; }

@@ -139,12 +139,12 @@
                                     <span> <?php echo 'Member Since '.$createtime; ?> </span>
                                     <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                                     <ul class="dropdown">
-                                        <li><a href="project.php"><i class="icon-flag5"></i>My project</a></li>
+                                        <li><a href="home.php"><i class="icon-flag5"></i>My project</a></li>
                                         <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                                         <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                                         <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                                         <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                                        <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
+                                        <li><a href="create-new-home.php"><i class="icon-plus6"></i>Create New</a></li>
                                     </ul>
                                     <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
                                 </div>
