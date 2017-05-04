@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31a744eb-e037-4cb3-95b1-e390acd0363e" name="Default" comment="">
+<<<<<<< Updated upstream
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/searchResult.php" />
+=======
+<<<<<<< Updated upstream
+      <change type="MOVED" beforePath="$PROJECT_DIR$/detail.html" afterPath="$PROJECT_DIR$/detail.php" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/images/ads.jpg" afterPath="$PROJECT_DIR$/assets/images/ads.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/404.php" afterPath="$PROJECT_DIR$/404.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/creators.html" afterPath="$PROJECT_DIR$/creators.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home.php" afterPath="$PROJECT_DIR$/home.php" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/discover.php" afterPath="$PROJECT_DIR$/discover.php" />
     </list>
@@ -605,6 +616,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/listing-grid.html" />
     <entry file="file://$PROJECT_DIR$/listing.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -614,6 +626,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/404.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -705,6 +719,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="dbDummy://dbtable:/df9928b/57b783e1-5002-4971-bec2-0af2fe4e39ff/crowdfunding.user" />
     <entry file="file://$PROJECT_DIR$/listing.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -719,6 +734,25 @@
         <state relative-caret-position="2460">
           <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
           <folding />
+=======
+<<<<<<< Updated upstream
+    <entry file="dbDummy://dbtable:/df9928b/57b783e1-5002-4971-bec2-0af2fe4e39ff/crowdfunding.user">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/404.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1431">
+          <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="268" selection-end-column="7" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
