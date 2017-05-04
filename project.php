@@ -1,10 +1,36 @@
+<?php
+  session_start();
+  require 'dbFNS.php';
+
+  if (!$connection = mysqli_connect($hostName, $userName, $password))
+    die("Cannot connect");
+  mysqli_select_db($connection, $databaseName);
+  $loginUsername = $_SESSION["loginUsername"];
+  //user's profile
+  $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+  $result_my_profile = @ mysqli_query($connection, $query_my_profile);
+  $line_my_profile = mysqli_fetch_array($result_my_profile);
+  $_SESSION["loginTime"] = $line_my_profile[0];
+  $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+  date_default_timezone_set('America/New_York');
+  $restday = floor((time()-$php_createtime_timestamp)/3600);
+  $_SESSION["loginRestDay"] = $restday;
+  $createtime = date('F d, Y', $php_createtime_timestamp);
+  $_SESSION["loginCreateTime"] = $createtime;
+
+  //show all project here
+  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, pid FROM project WHERE status = 'funding'";
+  $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Campaigs</title>
+<title>Crowdfunding</title>
 
 <!-- Css (necessary Css) -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -35,10 +61,10 @@
     <div class="container">
     <div class="main-head">
       <div class="left-side">
-        <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
+        <div class="logo"><a href="discover.php"><img src="assets/images/logo.png" alt=""></a></div>
         <nav class="navigation">
           <ul>
-            <li><a href="home.php">Home</a></li>
+            <li><a href="discover.php">Home</a></li>
             <li><a href="#">Discover</a>
               <ul class="sub-dropdown">
                 <li><a href="listing-grid.html">Grid View</a></li>
@@ -95,12 +121,12 @@
                 <h5>Mark Benson</h5>
                 <span>Member Since May 20, 2014</span>
                 <ul class="dropdown">
-                  <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
-                  <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                  <li><a href="project.php"><i class="icon-flag5"></i>My project</a></li>
+                  <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                   <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
+                  <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
                 <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
               </div>
@@ -124,7 +150,7 @@
 							<div class="section-fullwidth col-lg-12">
 								<div class="cs-content-holder">
 									<div class="row">
-										<div class="cause-holder">
+										<div class="project-holder">
 											<div class="col-lg-12">
 												<div class="cs-auther">
 													<figure>
@@ -151,16 +177,16 @@
 											<div class="col-lg-12">
 												<div class="profile-block">
 													<ul class="scroll-nav">
-															<li class="active"><a href="causes.html"><i class="icon-star-o"></i>My Cuases</a></li>
-															<li><a href="saved.html"><i class=" icon-save"></i>Saved Causes</a></li>
+															<li class="active"><a href="project.php"><i class="icon-star-o"></i>My Cuases</a></li>
+															<li><a href="saved.html"><i class=" icon-save"></i>Saved project</a></li>
 															<li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
 															<li><a href="profilesetting.html"><i class="icon-gear"></i>Profile Settings</a></li>
-															<li><a href="create-new-cause.html"><i class="icon-gear"></i>Create New</a></li>
+															<li><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
 															<li><a href="donation.html"><i class="icon-sign-in"></i>Sign Out</a></li>
 														</ul>
 													  <div class="cs-profile-area">
 														<div class="cs-title no-border">
-														  <h3>599 Saved Causes</h3>
+														  <h3>599 Saved project</h3>
 														</div>
 														<div class="cs-profile-holder">
 														  <div class="cs-ads-area">
@@ -168,7 +194,7 @@
 															<div class="post-main">
 															  <!-- <a href="#" class="cs-fav-btn"></a> -->
 															  <figure>
-																<a href="#"><img alt="" src="assets/extra-images/causes-list1.jpg"></a>
+																<a href="#"><img alt="" src="assets/extra-images/project-list1.jpg"></a>
 															  </figure>
 															  <div class="detail-area">
 																<div class="ads-title">
@@ -235,7 +261,7 @@
 															<div class="post-main">
 															  <!-- <a href="#" class="cs-fav-btn"></a> -->
 															  <figure>
-																<a href="#"><img alt="" src="assets/extra-images/causes-list1.jpg"></a>
+																<a href="#"><img alt="" src="assets/extra-images/project-list1.jpg"></a>
 															  </figure>
 															  <div class="detail-area">
 																<div class="ads-title">
