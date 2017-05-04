@@ -563,7 +563,7 @@
     margin: 2px 5px 0 0;
     vertical-align: middle;
 }
-.project-holder {
+.cause-holder {
 	width: 900px;
 	margin: 0 auto;
 }
@@ -884,8 +884,8 @@
 	margin:0;
 }
 .post-detail .main-heading:after{ display:none; }
-.project-detail>div:first-child{ margin:0 ;}
-.project-detail .price-raised{
+.cause-detail>div:first-child{ margin:0 ;}
+.cause-detail .price-raised{
 	display:block;
 	color:#666;
 	font-size:26px;
@@ -893,18 +893,18 @@
 	font-weight:700;
 	margin:0 0 5px;
 }
-.project-detail .price-area{ margin:0 0 20px;}
-.project-detail .price-raised span{
+.cause-detail .price-area{ margin:0 0 20px;}
+.cause-detail .price-raised span{
 	font-size:36px;
 	line-height:39px;
 }
-.project-detail .price-goal{
+.cause-detail .price-goal{
 	display:block;
 	font-size:16px;
 	line-height:19px;
 	color:#999;
 }
-.project-detail .bar {
+.cause-detail .bar {
     background: none repeat scroll 0 0 #d7d9dc;
     display: block;
     height: 21px;
@@ -912,7 +912,7 @@
     position: relative;
     width: 100%;
 }
-.project-detail .bar span {
+.cause-detail .bar span {
     background: none repeat scroll 0 0 #6ee376;
     height: 21px;
     left: 0;
@@ -920,15 +920,15 @@
     top: 0;
     width: 0;
 }
-.project-detail .fund {
+.cause-detail .fund {
     color: #4f4a9c;
 	font-size: 19px;
 	line-height:23px;
 	margin:0 0 20px;
 	display:block;
 }
-.project-detail .cs-btn span{ position:relative; }
-.project-detail .cs-btn span:after{
+.cause-detail .cs-btn span{ position:relative; }
+.cause-detail .cs-btn span:after{
 	background: none repeat scroll 0 0 #fff;
     border-radius: 12px;
     color: #ff5422;
@@ -946,7 +946,7 @@
     z-index: 1;
 	text-align: center;
 }
-.project-detail .cs-btn{
+.cause-detail .cs-btn{
 	display:block;
 	font-size:18px;
 	font-weight:700;
@@ -955,19 +955,19 @@
 	position:relative;
 	margin:0 0 20px;
 }
-.project-detail .detail-list{ 
+.cause-detail .detail-list{ 
 	border: solid #f0f0f0; 
 	margin: 0 0 18px;
     padding: 20px 0 15px; 
 	border-width:1px 0; 
 }
-.project-detail .detail-list ul{ margin:0 0 20px; }
-.project-detail .detail-list li{
+.cause-detail .detail-list ul{ margin:0 0 20px; }
+.cause-detail .detail-list li{
 	list-style:none;
 	margin:0 0 10px;
 }
-.project-detail .detail-list a{ display:inline-block; vertical-align:middle;}
-.project-detail .detail-list i{ display:inline-block; vertical-align:middle; margin:0 10px 0 0 ; width:16px;}
+.cause-detail .detail-list a{ display:inline-block; vertical-align:middle;}
+.cause-detail .detail-list i{ display:inline-block; vertical-align:middle; margin:0 10px 0 0 ; width:16px;}
 .user-info figure {
     float: left;
     margin: 0 10px 0 0;
@@ -997,10 +997,10 @@
 	line-height:15px;
 	margin:0 12px 0 0;
 }
-.project-detail .share-opts li:first-child {
+.cause-detail .share-opts li:first-child {
     margin-left: 0;
 }
-.project-detail .share-opts li {
+.cause-detail .share-opts li {
 	margin: 0 0 0 45px;
 }
 .share-opts li i{
@@ -1227,11 +1227,7 @@
     margin: 0 0 0 -6px;
     padding: 0;
     vertical-align: middle;
-<<<<<<< HEAD
-    width: 100px;
-=======
-    width: 120px;
->>>>>>> master
+    width: 60px;
 }
 .donate-area .slider-value span {
 	color: #666;
@@ -1268,7 +1264,7 @@
     width: 30px;
 }
 /*- Auther Style -*/
-.project-holder .cs-auther, .project-holder .cs-donations {
+.cause-holder .cs-auther, .cause-holder .cs-donations {
 	margin: 0 0 30px 0;
 }
 .cs-auther {
@@ -1726,17 +1722,17 @@
 }
 
 /*--- Donatin Style ---*/
-.Crowdfunding-package {
+.campaigs-package {
     float: left;
     width: 100%;
 }
-.Crowdfunding-package table thead th:first-child,
-.Crowdfunding-package table tbody td:first-child {
+.campaigs-package table thead th:first-child,
+.campaigs-package table tbody td:first-child {
     padding: 5px 0;
     text-align: center;
     width: 40px;
 }
-.Crowdfunding-package table thead tr th {
+.campaigs-package table thead tr th {
 	background-color: #4f4a9c;
 	border: none;
 	color: #fff;
@@ -1745,32 +1741,32 @@
 	text-transform: uppercase;
 	padding: 0 0 5px 14px;
 }
-.Crowdfunding-package table tr:nth-child(2n) {
+.campaigs-package table tr:nth-child(2n) {
     background-color: #fcfcfc;
 }
-.Crowdfunding-package table thead tr th:nth-child(2n+1) {
+.campaigs-package table thead tr th:nth-child(2n+1) {
 	background-color: #3f3b7d;
 }
-.Crowdfunding-package table tbody tr td:nth-child(2n+1) {
+.campaigs-package table tbody tr td:nth-child(2n+1) {
 	color: #777777;
 }
-.Crowdfunding-package table tbody tr td {
+.campaigs-package table tbody tr td {
 	color: #333;
 	padding: 5px 0 5px 14px;
 }
-.Crowdfunding-package table tfoot {
+.campaigs-package table tfoot {
 	border-bottom: 1px solid #ededed;
 	border-right: 1px solid #ededed;
 	border-left: 1px solid #ededed;
 }
-.Crowdfunding-package table tfoot tr td {
+.campaigs-package table tfoot tr td {
 	border: none;
 	color: #777777;
 }
-.Crowdfunding-package table tfoot .price {
+.campaigs-package table tfoot .price {
     padding: 10px 0;
 }
-.Crowdfunding-package table tfoot .price strong {
+.campaigs-package table tfoot .price strong {
 	font-size: 20px;
 	color: #4f4a9c;
 	margin: 0 0 0 5px;
@@ -1847,12 +1843,12 @@
 .saved-ads:hover .text .close {
 	color: #efefef;
 }
-/*--- project Style ---*/
-.cs-project {
+/*--- Causes Style ---*/
+.cs-causes {
 	width: 100%;
 	float:left;
 }
-.cs-project article {
+.cs-causes article {
 	width: 100%;
 	float: left;
 	padding: 20px 0 0 0;
@@ -1860,30 +1856,30 @@
 	border: 1px solid #eaedef;
 	margin: 0 0 10px 0;
 }
-.cs-project figure {
+.cs-causes figure {
 	float: left;
 	margin: 0;
 	padding: 0 0 0 20px;
 }
-.cs-project article figure ~ section {
+.cs-causes article figure ~ section {
 	padding: 0 20px 20px 190px;
 }
-.cs-project article section {
+.cs-causes article section {
 	padding: 20px;
 }
-.cs-project article section h3 {
+.cs-causes article section h3 {
 	font-size: 18px;
 	color: #2e2e2e;
 	margin: 0;
 	line-height: 24px;
 }
-.cs-project article section span {
+.cs-causes article section span {
 	color: #999;
     float: left;
     font-size: 12px;
     margin: 0 0 10px;
 }
-.cs-project .post-options {
+.cs-causes .post-options {
 	display: inline-block;
     margin: 0 0 15px;
     width: 100%;
@@ -2105,7 +2101,7 @@
 	opacity: 1;
 }
 
-/*--- project Gallry Style ---*/
+/*--- Causes Gallry Style ---*/
 .galleryupload li{ list-style: none;}
 .galleryupload li.featured-image {
 	float: left;
@@ -2148,7 +2144,7 @@
     float: left;
     width: 66.66%;
 }
-.galleryupload #Crowdfunding_images_container {
+.galleryupload #campaigs_images_container {
     background: url(assets/extra-images/bg-gallry.png) repeat;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1) inset;
     float: left;
@@ -2156,37 +2152,37 @@
     position: relative;
     width: 100%;
 }
-.gallery-thumb .Crowdfunding_images li {
+.gallery-thumb .campaigs_images li {
     float: left;
     padding: 0 7px 0 0;
     position: relative;
     width: 25%;
 	border: none;
 }
-.gallery-thumb .Crowdfunding_images li img {
+.gallery-thumb .campaigs_images li img {
 	border: 1px solid #eeeeee;
     box-shadow: 0 0 0 2px #fff inset;
     padding: 3px;
     width: 100%;
 }
-.galleryupload .Crowdfunding_images li a.delete {
+.galleryupload .campaigs_images li a.delete {
 	height: 16px;
     line-height: 13px;
     right: 3px;
     top: -7px;
     width: 16px;
 }
-.galleryupload .Crowdfunding_images li a.delete i {
+.galleryupload .campaigs_images li a.delete i {
 	font-size: 9px;
 }
 
-.galleryupload .Crowdfunding_images li figcaption {
+.galleryupload .campaigs_images li figcaption {
     height: 100%;
     position: absolute;
     top: 0;
     width: 100%;
 }
-.galleryupload .Crowdfunding_images li figcaption input {
+.galleryupload .campaigs_images li figcaption input {
     background: inherit;
     border: medium none;
     color: #ffffff;
@@ -2701,7 +2697,7 @@ ul.cs-tags-selection li a.close {
     padding: 0 0 20px;
     width: 100%;
 }
-.project-holder .cs-table-holder {
+.cause-holder .cs-table-holder {
 	margin: -15px 0 0;
 }
 .edit-area .cs-table-holder {

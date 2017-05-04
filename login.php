@@ -26,7 +26,7 @@ if (authenticateUser($connection, $loginUsername, $loginPassword)) {
     $_SESSION["loginPassword"] = $loginPassword;
 
     // Relocate back to the first page of the application
-    header("Location: project.php");
+    header("Location: home.php");
     exit;
 
 } else {
