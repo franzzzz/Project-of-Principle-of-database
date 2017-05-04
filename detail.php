@@ -156,8 +156,8 @@ $local_finaltime = $line_project_time[4];
                 </div>
                 <div class="right-side">
                     <div class="cs-search-block">
-                        <form>
-                            <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
+                        <form method="post" action="searchResult.php">
+                            <input type="text" id="s" name="search_key" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
                             <label>
                                 <input type="submit" value="Search">
                             </label>

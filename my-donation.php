@@ -100,7 +100,7 @@
                   <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-home.php"><i class="icon-plus6"></i>Create New</a></li>
+                  <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
                 <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
               </div>
@@ -155,7 +155,7 @@
 														<li><a href="saved.html"><i class=" icon-save"></i>Saved project</a></li>
 														<li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
 														<li><a href="profilesetting.html"><i class="icon-gear"></i>Profile Settings</a></li>
-														<li><a href="create-new-home.php"><i class="icon-gear"></i>Create New</a></li>
+														<li><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
 														<li><a href="donation.html"><i class="icon-sign-in"></i>Sign Out</a></li>
 													</ul>
 														<div class="cs-profile-area">

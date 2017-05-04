@@ -114,7 +114,7 @@
                   <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-home.php"><i class="icon-plus6"></i>Create New</a></li>
+                  <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
                 <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
               </div>
@@ -223,27 +223,27 @@
 												  <li class="col-lg-6 col-md-6 col-sm-6">
 													<label>User name</label>
 													<input type="text" placeholder="" name="signupUsername">
-                          </li>
+                                                  </li>
 												  <li class="col-lg-6 col-md-6 col-sm-6">
 													<label>Email Address</label>
 													<input type="text" placeholder="" name="signupEmail">
 												  </li>
-                          <li class="col-lg-6 col-md-6 col-sm-6">
-                          <label>Password</label>
-                          <input type="password" placeholder="" name="signupPassword">
-                          </li>
-                          <li class="col-lg-6 col-md-6 col-sm-6">
-                          <label>Confirm password</label>
-                          <input type="password" placeholder="" name="signupConfirmPassword">
-                          </li>
-												  <li class="col-lg-6 col-md-6 col-sm-6">
-													<label>Gender</label>
-													<!-- <input type="text" placeholder="" name="signupGender"> -->
-                          <select placeholder = "" name = "signupGender">
-                            <option value="Unknown">Unknown</option>
-                            <option value ="Male">Male</option>
-                            <option value ="Female">Female</option>
-                          </select>
+                                                  <li class="col-lg-6 col-md-6 col-sm-6">
+                                                      <label>Password</label>
+                                                      <input type="password" placeholder="" name="signupPassword">
+                                                  </li>
+                                                  <li class="col-lg-6 col-md-6 col-sm-6">
+                                                      <label>Confirm password</label>
+                                                      <input type="password" placeholder="" name="signupConfirmPassword">
+                                                  </li>
+                                                  <li class="col-lg-6 col-md-6 col-sm-6">
+                                                     <label>Gender</label>
+                                                                            <!-- <input type="text" placeholder="" name="signupGender"> -->
+                                                      <select placeholder = "" name = "signupGender">
+                                                        <option value="Unknown">Unknown</option>
+                                                        <option value ="Male">Male</option>
+                                                        <option value ="Female">Female</option>
+                                                  </select>
 												  </li>
 												  <li class="col-lg-6 col-md-6 col-sm-6">
 													<label>True name <span>(Optional)</span></label>

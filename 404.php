@@ -80,12 +80,12 @@
       </div>
       <div class="right-side">
         <div class="cs-search-block">
-          <form>
-            <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
-            <label>
-              <input type="submit" value="Search">
-            </label>
-          </form>
+            <form method="post" action="searchResult.php">
+                <input type="text" id="s" name="search_key" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
+                <label>
+                    <input type="submit" value="Search">
+                </label>
+            </form>
         </div>
         <div class="profile-view">
           <ul>
@@ -102,7 +102,7 @@
                   <li><a href="my-donation.html"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                   <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                  <li><a href="create-new-home.php"><i class="icon-plus6"></i>Create New</a></li>
+                  <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
                 </ul>
                 <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
