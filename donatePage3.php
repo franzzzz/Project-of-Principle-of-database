@@ -35,7 +35,6 @@
 //    echo $local_pid_pledge."<br>";
 //    echo $donate_time."<br>";
 
-echo $local_pname;
 
 ?>
 <!DOCTYPE html>
