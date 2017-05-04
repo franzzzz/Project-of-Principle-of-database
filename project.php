@@ -1,10 +1,36 @@
+<?php
+  session_start();
+  require 'dbFNS.php';
+
+  if (!$connection = mysqli_connect($hostName, $userName, $password))
+    die("Cannot connect");
+  mysqli_select_db($connection, $databaseName);
+  $loginUsername = $_SESSION["loginUsername"];
+  //user's profile
+  $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+  $result_my_profile = @ mysqli_query($connection, $query_my_profile);
+  $line_my_profile = mysqli_fetch_array($result_my_profile);
+  $_SESSION["loginTime"] = $line_my_profile[0];
+  $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+  date_default_timezone_set('America/New_York');
+  $restday = floor((time()-$php_createtime_timestamp)/3600);
+  $_SESSION["loginRestDay"] = $restday;
+  $createtime = date('F d, Y', $php_createtime_timestamp);
+  $_SESSION["loginCreateTime"] = $createtime;
+
+  //show all project here
+  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, pid FROM project WHERE status = 'funding'";
+  $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Campaigs</title>
+<title>Crowdfunding</title>
 
 <!-- Css (necessary Css) -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
