@@ -38,6 +38,8 @@
     $local_status = $line_description_detail[10];
     $local_finaltime = $line_description_detail[11];
 
+    $_SESSION["pname"] = $local_pname;
+
     $local_funded_percent = floor(100*$local_moneysum/$local_maxfund);
     if($local_funded_percent == 0 && $local_moneysum != 0){
         $local_funded_percent = 1;

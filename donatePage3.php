@@ -22,6 +22,8 @@
     $donate_time  = date("Y-m-d H:i:s");
 
 
+    $local_pname=$_SESSION["pname"];
+
     //get loginUsers' credit cards
     $query_insert_pledge = " insert into Pledge VALUES ('{$local_pid_pledge}','{$donate_cardnumber}','{$donate_time}','{$loginUsername}','{$donate_amount}',0 ) ";
     if(!$result = @ mysqli_query($connection, $query_insert_pledge))
