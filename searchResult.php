@@ -1,26 +1,29 @@
 <?php
-session_start();
-require 'dbFNS.php';
+    session_start();
+    require 'dbFNS.php';
 
-if (!$connection = mysqli_connect($hostName, $userName, $password))
-    die("Cannot connect");
-mysqli_select_db($connection, $databaseName);
-$loginUsername = $_SESSION["loginUsername"];
-//user's profile
-$query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
-$result_my_profile = @ mysqli_query($connection, $query_my_profile);
-$line_my_profile = mysqli_fetch_array($result_my_profile);
-$_SESSION["loginTime"] = $line_my_profile[0];
-$php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
-date_default_timezone_set('America/New_York');
-$restday = floor((time()-$php_createtime_timestamp)/3600);
-$_SESSION["loginRestDay"] = $restday;
-$createtime = date('F d, Y', $php_createtime_timestamp);
-$_SESSION["loginCreateTime"] = $createtime;
+    if (!$connection = mysqli_connect($hostName, $userName, $password))
+        die("Cannot connect");
+    mysqli_select_db($connection, $databaseName);
+    $loginUsername = $_SESSION["loginUsername"];
+    //user's profile
+    $query_my_profile = "SELECT createtime FROM user WHERE username = '{$loginUsername}'";
+    $result_my_profile = @ mysqli_query($connection, $query_my_profile);
+    $line_my_profile = mysqli_fetch_array($result_my_profile);
+    $_SESSION["loginTime"] = $line_my_profile[0];
+    $php_createtime_timestamp = strtotime($_SESSION["loginTime"]);
+    date_default_timezone_set('America/New_York');
+    $restday = floor((time()-$php_createtime_timestamp)/3600);
+    $_SESSION["loginRestDay"] = $restday;
+    $createtime = date('F d, Y', $php_createtime_timestamp);
+    $_SESSION["loginCreateTime"] = $createtime;
 
-//show all project here
-$query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, pid FROM project WHERE status = 'funding'";
-$result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
+    $search_key = mysqlclean($_POST, "search_key", 40, $connection);
+
+    //show all project here
+    $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum, pid FROM project WHERE pname like '%$search_key%' OR description like '%$search_key%' ";
+    $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
+
 
 ?>
 

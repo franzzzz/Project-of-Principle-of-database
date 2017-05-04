@@ -1,5 +1,6 @@
 <?php
   session_start();
+  echo $_GET["s"];
   require 'dbFNS.php';
 
   if (!$connection = mysqli_connect($hostName, $userName, $password))
@@ -122,12 +123,17 @@
       </div>
       <div class="right-side">
         <div class="cs-search-block">
+
+
           <form method="post" action="searchResult.php">
-            <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
-            <label>
-              <input type="submit" value="Search">
-            </label>
+            <input type="text" id="s" name="search_key" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
+                <label>
+                  <input type="submit" value="Search">
+                </label>
           </form>
+
+
+
         </div>
         <div class="profile-view">
           <ul>
@@ -170,28 +176,28 @@
 								<div class="row">
 									<aside class="page-sidebar col-lg-3">
 										<div class="widget cs_directory_categories">
+
                       <div class="cs-search-area">
-                        <form>
-                          <fieldset>
+                        <form method="post" action="searchResult.php">
+
+                            <fieldset>
                             <label class="search">
-                              <input type="search" placeholder="Search Project">
+                              <input type="search" name="search_key" placeholder="Search Project">
                             </label>
-                            
-                            <div class="select-box">
-                              <select>
-                                <option>Location</option>
-                                <option>Location</option>
-                                <option>Location</option>
-                              </select>
-                            </div>
-                            <div class="select-box">
-                              <select>
-                                <option>Location</option>
-                                <option>Location</option>
-                                <option>Location</option>
-                              </select>
-                            </div>
+                                <input type="submit" value="Search" >
+
+
+<!--                                <form method="post" action="searchResult.php">-->
+<!--                                    <input type="text" id="s" name="search_key" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">-->
+<!--                                    <label>-->
+<!--                                        <input type="submit" value="Search">-->
+<!--                                    </label>-->
+<!--                                </form>-->
+
+
+
                           </fieldset>
+
                         </form>
                       </div>
 											<div class="widget-section-title">
@@ -276,7 +282,7 @@
 <!--                         <form role="form" method="POST" id="getpid" action="detail.php">
                           <input type="hidden" id="pid_detail" name="pid_detail">
                           <!--     <input type="hidden" id="customer" name="customer"> -->
-                        </form> -->
+                        </form>
 											</div>
                       <div class="col-lg-12">
                         <nav class="pagination">
