@@ -56,6 +56,18 @@ require 'dbFNS.php';
     if(!$result_comment_detail = @ mysqli_query($connection, $query_comment_detail))
         showerror();
 
+    //for getting project step time
+    $query_project_time = "SELECT posttime, endtime, completiontime,status,finaltime FROM project WHERE pid = '{$local_pid_detail}'";
+    if(!$result_project_time = @ mysqli_query($connection, $query_project_time))
+        showerror();
+
+    $line_project_time = mysqli_fetch_array($result_project_time, MYSQLI_NUM);
+
+    $local_posttime = date('F d, Y',strtotime($line_project_time[0]));
+    $local_endtime = date('F d, Y',strtotime($line_project_time[1]));
+    $local_completiontime = date('F d, Y',strtotime($line_project_time[2]));
+    $local_status = $line_project_time[3];
+    $local_finaltime = $line_project_time[4];
 
 
 
@@ -220,18 +232,17 @@ require 'dbFNS.php';
                                                     </div>
                                                 </div>
                                                 <ul class="share-opts">
-                                                    <li>
-                                                        <i class="icon-share2"></i>
-                                                        <a href="#">Share</a>
-                                                    </li>
+<!--                                                    <li>-->
+<!--                                                        <i class="icon-share2"></i>-->
+<!--                                                        <a href="#">Share</a>-->
+<!--                                                    </li>-->
                                                     <li>
                                                         <i class="icon-star"></i>
-                                                        <a href="#">Save</a>
+
+                                                        <a href="addLike.php">like</a>
+
                                                     </li>
-                                                    <li>
-                                                        <i class="icon-warning4"></i>
-                                                        <a href="#">Report</a>
-                                                    </li>
+<!--                                                    
                                                 </ul>
                                             </div>
                                         </div>
@@ -547,7 +558,7 @@ require 'dbFNS.php';
 
 
                                                                 <div class="comment-respond" id="respond">
-                                                                    <h2>Leave us a comment</h2>
+                                                                    <h2>Leave us a comment(no more then 140 characters)</h2>
                                                                     <form class="comment-form contact-form" id="commentform" method="POST" action = "newcomment.php">
 <!--                                                                        <p class="comment-form-author">-->
 <!--                                                                            <label>-->
@@ -660,8 +671,8 @@ require 'dbFNS.php';
                                                                     <ul>
                                                                         <li>
                                                                             <article>
-                                                                                <time datetime="2013-02-14">2013 - present</time>
-                                                                                <h4>New Freelancer</h4>
+                                                                                <h4>Funding Finish Time</h4>
+                                                                                <h4><?php echo "$local_endtime" ?></h4>
                                                                                 <div class="text-box">
                                                                                     <div class="info-area">
                                                                                         <p>Thanks to our backers we’re cruising past our goal of 100k and are up to 115! Getting closer to the $150k goal of land ownership (check out the previous update... Read more</p>
@@ -669,8 +680,10 @@ require 'dbFNS.php';
                                                                                 </div>
                                                                             </article>
                                                                             <article>
-                                                                                <time datetime="2013-02-14">2013 - present</time>
-                                                                                <h4>New Freelancer</h4>
+                                                                                <h4>Complete Time</h4>
+                                                                                <h4><?php echo "$local_finaltime" ?></h4>
+                                                                                <h4>complete status: </h4>
+                                                                                <h4><?php echo "$local_status" ?></h4>
                                                                                 <div class="text-box">
                                                                                     <div class="info-area">
                                                                                         <p>Thanks to our backers we’re cruising past our goal of 100k and are up to 115! Getting closer to the $150k goal of land ownership (check out the previous update... Read more</p>
@@ -680,32 +693,32 @@ require 'dbFNS.php';
                                                                         </li>
                                                                         <li>
                                                                             <article>
-                                                                                <time datetime="2013-02-14">2013 - present</time>
-                                                                                <h4>New Freelancer</h4>
+                                                                                <h4>Funding Start Time</h4>
+                                                                                <h4><?php echo "$local_posttime" ?></h4>
                                                                                 <div class="text-box">
                                                                                     <div class="info-area">
                                                                                         <p>Thanks to our backers we’re cruising past our goal of 100k and are up to 115! Getting closer to the $150k goal of land ownership (check out the previous update... Read more</p>
                                                                                     </div>
                                                                                 </div>
                                                                             </article>
-                                                                            <article>
-                                                                                <time datetime="2013-02-14">2013 - present</time>
-                                                                                <h4>New Freelancer</h4>
-                                                                                <div class="text-box">
-                                                                                    <div class="info-area">
-                                                                                        <p>Thanks to our backers we’re cruising past our goal of 100k and are up to 115! Getting closer to the $150k goal of land ownership (check out the previous update... Read more</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </article>
-                                                                            <article>
-                                                                                <time datetime="2013-02-14">2013 - present</time>
-                                                                                <h4>New Freelancer</h4>
-                                                                                <div class="text-box">
-                                                                                    <div class="info-area">
-                                                                                        <p>Thanks to our backers we’re cruising past our goal of 100k and are up to 115! Getting closer to the $150k goal of land ownership (check out the previous update... Read more</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </article>
+<!--                                                                            <article>-->
+<!--                                                                                <time datetime="2013-02-14">2013 - present</time>-->
+<!--                                                                                <h4>New Freelancer</h4>-->
+<!--                                                                                <div class="text-box">-->
+<!--                                                                                    <div class="info-area">-->
+<!--                                                                                        <p>Thanks to our backers we’re cruising past our goal of 100k and are up to 115! Getting closer to the $150k goal of land ownership (check out the previous update... Read more</p>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </article>-->
+<!--                                                                            <article>-->
+<!--                                                                                <time datetime="2013-02-14">2013 - present</time>-->
+<!--                                                                                <h4>New Freelancer</h4>-->
+<!--                                                                                <div class="text-box">-->
+<!--                                                                                    <div class="info-area">-->
+<!--                                                                                        <p>Thanks to our backers we’re cruising past our goal of 100k and are up to 115! Getting closer to the $150k goal of land ownership (check out the previous update... Read more</p>-->
+<!--                                                                                    </div>-->
+<!--                                                                                </div>-->
+<!--                                                                            </article>-->
                                                                         </li>
                                                                     </ul>
                                                                 </div>

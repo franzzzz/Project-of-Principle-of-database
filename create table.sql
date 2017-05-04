@@ -11,6 +11,12 @@ drop table if exists `creditcard`;
 drop table if exists `project`;
 drop table if exists `user`;
 
+DROP TABLE IF EXISTS `likes`;
+create table likes (
+    `username` varchar(36) not null,
+    `pid` varchar(36) not null,
+    primary key (username,pid)
+);
 
 DROP TABLE IF EXISTS `user`;
 create table user (

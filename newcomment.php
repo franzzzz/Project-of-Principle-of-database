@@ -30,6 +30,6 @@
     if (!$result = @ mysqli_query($connection, $query))
         header("Location: 404.php");;
 
-    header("Location: detail.php");
+    header("Location: detail.php?pid_detail= $comment_pid");
 ?>
 
