@@ -180,7 +180,7 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
 
                                           $php_endtime_timestamp = strtotime($line_show_like_pro[7]);
                                           $endtime = date('m/d, Y', $php_endtime_timestamp);
-                                              //maxsum != 0
+                                          
                                           $funded_percent = floor(100*$line_show_like_pro[9]/$line_show_like_pro[6]);
                                           if($funded_percent == 0 && $line_show_like_pro[9] != 0){
                                             $funded_percent = 1;

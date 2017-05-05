@@ -28,7 +28,7 @@ $result_sum_donated = @ mysqli_query($connection, $query_sum_donated);
 $donated = mysqli_fetch_array($result_sum_donated)[0];
 if($donated == null) $donated = 0;
 
-$query_show_all_follow = "SELECT * FROM user join follow where follow.followedusername = user.username AND follow.fanusername = '{loginUsername}'";
+$query_show_all_follow = "SELECT * FROM user join follow where follow.followedusername = user.username AND follow.fanusername = '{$loginUsername}'";
 $result_show_all_follow = @ mysqli_query($connection, $query_show_all_follow);
 
 ?>
@@ -129,96 +129,100 @@ $result_show_all_follow = @ mysqli_query($connection, $query_show_all_follow);
       </div>
     </div>
   </div> -->
-  <!-- Main Content -->
-  <main id="main-content">
-    <div class="main-section">
-      <div class="page-section">
-        <div class="container">
-          <div class="row">
-            <div class="section-fullwidth">
-              <div class="cs-content-holder">
-                <div class="row">
-                <aside class="page-sidebar col-lg-3">
-                  <div class="widget cs_directory_categories">
-                    <div class="cs-search-area">
-                        <form method="post" action="searchResult.php">
 
-                            <fieldset>
-                              <label class="search">
-                                <input type="search" name="search_key" placeholder="Search Project">
-                              </label>
-                              <input type="submit" value="Search" >
-
-                            </fieldset>
-
-                          </form>
-                        </div>
-                      <div class="widget-section-title">
-                        <h4><i class="icon-globe4"></i>15 Diverse Categories</h4>
-                      </div>
-                      <ul class="menu">
-                        <li><a href="#"><i class="icon-user9 cscolor"></i>Art</a> <span>233</span></li>
-                        <li><a href="#"><i class="icon-heart11 cscolor"></i>Comics</a> <span>258</span></li>
-                        <li><a href="#"><i class="icon-brush2 cscolor"></i>Craft</a> <span>89</span></li>
-                        <li><a href="#"><i class="icon-circle-thin cscolor"></i>Dance</a> <span>1879</span></li>
-                        <li><a href="#"><i class="icon-key7 cscolor"></i>Design</a> <span>55</span></li>
-                        <li><a href="#"><i class="icon-sun4 cscolor"></i>Fashion</a> <span>12</span></li>
-                        <li><a href="#"><i class="icon-light-bulb cscolor"></i>Film &amp; Video</a><span>8</span></li>
-                      </ul>
-                    </div>
-                    <!-- <div class="widget_advertisment widget"> <img alt="" src="assets/extra-images/adv2.jpg"> </div> -->
-                  </aside>
-                <!-- Listing Default -->
-                  <div class="page-content col-lg-9">
-                    <div class="cs-members col-lg-12">
+<!-- Main Content -->
+            <main id="main-content">
+              <div class="main-section">
+                <div class="page-section">
+                  <div class="profile-pages">
+                    <div class="container">
                       <div class="row">
-                        <div class="title col-lg-12">
-                          <h2>Your Follows</h2>
-                        </div>
-                        <?php 
+                        <div class="section-fullwidth col-lg-12">
+                          <div class="cs-content-holder">
+                            <div class="row">
+                              <div class="project-holder">
+                                <div class="col-lg-12">
+                                  <div class="cs-auther">
+                                    <figure>
+                                      <a href="#"><img src="assets/extra-images/auther1.jpg" alt="#"></a>
+                                    </figure>
+                                    <div class="text">
+                                      <h3><?php echo $_SESSION["loginUsername"]; ?></h3>
+                                      <span><?php echo 'Member Since '.$createtime; ?></span>
+                                    </div>
+                                  </div>
+                                  <div class="right-sec">
+                                    <ul class="cs-donations">
+                                      <li>
+                                        <span>Donations</span>
+                                        <strong><?php echo "$ ".$donation ?></strong>
+                                      </li>
+                                      <li>
+                                        <span>Donated</span>
+                                        <strong><?php echo "$ ".$donated ?></strong>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="col-lg-12">
+                                  <div class="profile-block">
+                                    <ul class="scroll-nav">
+                                      <li><a href="home.php"><i class="icon-star-o"></i>Home</a></li>
+                                      <li><a href="project.php"><i class="icon-star-o"></i>My Project</a></li>
+                                      <li><a href="saved.php"><i class=" icon-save"></i>Saved project</a></li>
+                                      <li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
+                                      <li class="active"><a href="follow.php"><i class="icon-money"></i>Follow</a></li>
+                                      <li><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
+
+                                    </ul>
+                                    <div class="cs-profile-area">
+                                      <div class="cs-title no-border">
+                                        <h3>My donations</h3>
+                                      </div>
+                              <div class="cs-profile-holder">
+                                  <?php 
+                          if($result_show_all_follow==null) echo "You do not have any follow";
                           while($line_show_all_follow = mysqli_fetch_array($result_show_all_follow)){
-                            $php_jointime_timestamp = strtotime($result_show_all_follow[6]);
+                            $php_jointime_timestamp = strtotime($line_show_all_follow[6]);
                             $jointime = date('F Y', $php_jointime_timestamp);
 
-                            $query_count_backed = "";
+                            $query_count_backed = "SELECT count(distinct pid) From pledge Where username = '{$line_show_all_follow[0]}'";
+                            $result_count_backed = @ mysqli_query($connection, $query_count_backed);
+                            $count_backed = mysqli_fetch_array($result_count_backed)[0];
+
+                            $query_count_create = "SELECT count(distinct pid) From project Where username = '{$line_show_all_follow[0]}'";
+                            $result_count_create = @ mysqli_query($connection, $query_count_create);
+                            $count_create = mysqli_fetch_array($result_count_create)[0];
+
+                            echo "
+                              <div class=\"agentinfo-detail col-lg-12\">
+                                <div class=\"about-info\">
+                                  <figure>
+                                    <a href=\"#\"><img alt=\"\" src=\"assets/extra-images/Supporters1.jpg\"></a>
+                                  </figure>
+                                  <div class=\"agentdetail-info\">
+                                    <div class=\"left-info\">
+                                      <a style=\"display:none\" href=\"javascript:void(0)\">".$line_show_all_follow[0]."</a>
+                                      <h3>".$line_show_all_follow[0]."</h3>
+                                      <span class=\"by\">Joined ".$jointime."</span>
+                                      <span class=\"location\"><i class=\"cscolor icon-map-marker\"></i>".$line_show_all_follow[5]."</span>
+                                    </div>
+                                    <div class=\"right-info\">
+                                      <div class=\"backed\">
+                                        <a href=\"#\">Backed (".$count_backed.")</a>
+                                      </div>
+                                      <a href=\"#\" class=\"category-list\">Created (".$count_create.")</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ";
                           }
                         ?>
-                        <div class="agentinfo-detail col-lg-12">
-                          <div class="about-info">
-                            <figure>
-                              <a href="#"><img alt="" src="assets/extra-images/Supporters1.jpg"></a>
-                            </figure>
-                            <div class="agentdetail-info">
-                              <div class="left-info">
-                                <a style="display:none" href="javascript:void(0)">James Warsom</a>
-                                <h3>James Warsom</h3>
-                                <span class="by">Joined August 2015</span>
-                                <span class="location"><i class="cscolor icon-map-marker"></i>Newyork, United States</span>
                               </div>
-                              <div class="right-info">
-                                <div class="backed">
-                                  <a href="#">Backed (20)</a>
-                                </div>
-                                <a href="#" class="category-list">Created (5)</a>
-                              </div>
-                             </div>
+                            </div>
                           </div>
                         </div>
-                        
-                      </div>
-                    </div>
-                    <div class="col-lg-12">
-                      <nav class="pagination">
-                        <ul>
-                          <li class="pgprev"><a href="#"><i class="cscolor icon-angle-left"></i> Previous</a></li>
-                          <li><a href="active">1</a></li>
-                          <li><a class="#">2</a></li>
-                          <li><a href="#">3</a></li>
-                          <li><a href="#">4</a></li>
-                          <li><a href="#">5</a></li>
-                          <li class="pgnext"><a class="icon" href="#">Next <i class="cscolor icon-angle-right"></i></a></li>
-                        </ul>
-                      </nav>
                     </div>
                   </div>
                 </div>
@@ -226,10 +230,9 @@ $result_show_all_follow = @ mysqli_query($connection, $query_show_all_follow);
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
   </main>
-  <!--// Main Content //--> 
   
   <!--// Footer Widget //-->
   <footer id="footer-sec">
