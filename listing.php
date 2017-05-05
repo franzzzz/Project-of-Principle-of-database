@@ -83,7 +83,7 @@
                 <li><a href="site-map.html">Site Map</a></li>
                 <li><a href="result.html">Result</a></li>
                 <li><a href="donate.php">Donate</a></li>
-                <li><a href="user-detail2.html">user detail2</a></li>
+                <li><a href="viewOtherUser.php">user detail2</a></li>
               </ul>
             </li>
             <li>
@@ -160,28 +160,17 @@
 									<aside class="page-sidebar col-lg-3">
 										<div class="widget cs_directory_categories">
 										<div class="cs-search-area">
-												<form>
-													<fieldset>
-														<label class="search">
-															<input type="search" placeholder="Search Project">
-														</label>
-														
-														<div class="select-box">
-															<select>
-																<option>Location</option>
-																<option>Location</option>
-																<option>Location</option>
-															</select>
-														</div>
-														<div class="select-box">
-															<select>
-																<option>Location</option>
-																<option>Location</option>
-																<option>Location</option>
-															</select>
-														</div>
-													</fieldset>
-												</form>
+                                            <form method="post" action="searchResult.php">
+
+                                                <fieldset>
+                                                    <label class="search">
+                                                        <input type="search" name="search_key" placeholder="Search Project">
+                                                    </label>
+                                                    <input type="submit" value="Search" >
+
+                                                </fieldset>
+
+                                            </form>
 											</div>
 											<div class="widget-section-title">
 												<h4><i class="icon-globe4"></i>15 Diverse Categories</h4>

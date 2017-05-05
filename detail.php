@@ -140,7 +140,7 @@ $local_finaltime = $line_project_time[4];
                                     <li><a href="site-map.html">Site Map</a></li>
                                     <li><a href="result.html">Result</a></li>
                                     <li><a href="donate.php">Donate</a></li>
-                                    <li><a href="user-detail2.html">user detail2</a></li>
+                                    <li><a href="viewOtherUser.php">user detail2</a></li>
                                 </ul>
                             </li>
                             <li>
