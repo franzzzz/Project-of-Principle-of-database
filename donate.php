@@ -134,7 +134,7 @@
                 <li><a href="site-map.html">Site Map</a></li>
                 <li><a href="result.html">Result</a></li>
                 <li><a href="donate.php">Donate</a></li>
-                <li><a href="user-detail2.html">user detail2</a></li>
+                <li><a href="viewOtherUser.php">user detail2</a></li>
               </ul>
             </li>
             <li>
@@ -219,7 +219,7 @@
 											<div class="tab-content">
 												<div id="home" class="tab-pane active fade in" role="tabpanel">
 													<f class="donate-holder">
-                                                        <form method="post" action="donatePage2.php">
+                                                        <form method="POST" action="donatePage2.php">
                                                             <h3>Your Donation</h3>
                                                             <div class="cs-holder">
                                                                 <div class="slider-value">

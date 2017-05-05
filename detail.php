@@ -111,6 +111,7 @@ $local_finaltime = $line_project_time[4];
         <header id="main-header">
           <div class="container">
             <div class="main-head">
+<<<<<<< HEAD
               <div class="left-side">
                 <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
                 <nav class="navigation">
@@ -119,6 +120,86 @@ $local_finaltime = $line_project_time[4];
                     <li><a href="discover.php">Discover</a></li>
                 </ul>
             </nav>
+=======
+                <div class="left-side">
+                    <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
+                    <nav class="navigation">
+                        <ul>
+                            <li><a href="home.php">Home</a></li>
+                            <li><a href="#">Discover</a>
+                                <ul class="sub-dropdown">
+                                    <li><a href="listing-grid.html">Grid View</a></li>
+                                    <li><a href="listing.php">List view</a></li>
+                                    <li><a href="detail.html">Detail Page</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="creators.html">Creators</a></li>
+                            <li><a href="supporters.html">Supporters</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="sub-dropdown">
+                                    <li><a href="about.html">About us</a></li>
+                                    <li><a href="faq.html">FAQ’s</a></li>
+                                    <li><a href="contect.html">Contect</a></li>
+                                    <li><a href="sign.php">Create an Account</a></li>
+                                    <li><a href="sign.php">Sign In</a></li>
+                                    <li><a href="404.php">404 Page</a></li>
+                                    <li><a href="under.html">under-construction</a></li>
+                                    <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                                    <li><a href="pricing.html">Price &amp; Packges</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="site-map.html">Site Map</a></li>
+                                    <li><a href="result.html">Result</a></li>
+                                    <li><a href="donate.php">Donate</a></li>
+                                    <li><a href="viewOtherUser.php">user detail2</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">News</a>
+                                <ul class="sub-dropdown">
+                                    <li><a href="bloglrag.html">News Listing</a></li>
+                                    <li><a href="blogmedium.html">News Medium</a></li>
+                                    <li><a href="blogdetail.html">News Detail</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="right-side">
+                    <div class="cs-search-block">
+                        <form method="post" action="searchResult.php">
+                            <input type="text" id="s" name="search_key" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
+                            <label>
+                                <input type="submit" value="Search">
+                            </label>
+                        </form>
+                    </div>
+                    <div class="profile-view">
+                        <ul>
+                            <li>
+                                <img alt="#" src="assets/extra-images/user-img.jpg">
+                                <i class="icon-arrow-down8"></i>
+                                <div class="dropdown-area">
+                                    <!-- add a session to post value here -->
+                                    <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                                    <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                                    <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
+                                    <ul class="dropdown">
+                                        <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
+                                        <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                                        <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
+                                        <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
+                                        <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
+                                        <li><a href="create-new-cause.html"><i class="icon-plus6"></i>Create New</a></li>
+                                    </ul>
+                                    <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mob-nav"></div>
+>>>>>>> master
         </div>
         <div class="right-side">
             <div class="cs-search-block">

@@ -32,8 +32,6 @@ $result_sum_donated = @ mysqli_query($connection, $query_sum_donated);
 $donated = mysqli_fetch_array($result_sum_donated)[0];
 if($donated == null) $donated = 0;
   //all project you may like
-$query_show_like_pro = "SELECT * FROM project JOIN follow WHERE project.username = follow.followedusername AND fanusername = '{$loginUsername}'";
-$result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
 
 ?>
 
@@ -46,400 +44,480 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Crowdfunding</title>
 
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/css/bootstrap-theme.css" rel="stylesheet">
-<link href="assets/css/language-selector-remove-able-css.css" rel="stylesheet">
-<link href="assets/css/ui.multiselect.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-<link href="plugin.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
-<link href="assets/css/menu.css" rel="stylesheet">
-<link href="assets/css/color.css" rel="stylesheet">
-<link href="assets/css/iconmoon.css" rel="stylesheet">
-<link href="assets/css/themetypo.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-theme.css" rel="stylesheet">
+  <link href="assets/css/language-selector-remove-able-css.css" rel="stylesheet">
+  <link href="assets/css/ui.multiselect.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="plugin.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+  <link href="assets/css/menu.css" rel="stylesheet">
+  <link href="assets/css/color.css" rel="stylesheet">
+  <link href="assets/css/iconmoon.css" rel="stylesheet">
+  <link href="assets/css/themetypo.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    </head>
-    <body>
-      <div class="wrapper"> 
+<<<<<<< HEAD
+<![endif]-->
+</head>
+<body>
+  <div class="wrapper"> 
 
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <div class="main-head">
+          <div class="left-side">
+            <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
+            <nav class="navigation">
+              <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="discover.php">Discover</a></li>
+              </ul>
+            </nav>
+            </div>
+          <div class="right-side">
+            <div class="cs-search-block">
+              <form>
+                <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
+                <label>
+                  <input type="submit" value="Search">
+                </label>
+              </form>
+            </div>
+            <div class="profile-view">
+              <ul>
+                <li>
+                  <img alt="#" src="assets/extra-images/user-img.jpg">
+                  <i class="icon-arrow-down8"></i>
+                  <div class="dropdown-area">
+                    <!-- add a session to post value here -->
+                    <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                    <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                    <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
+                    <ul class="dropdown">
+                      <li><a href="home.php"><i class="icon-flag5"></i>Project you may like</a></li>
+                      <li><a href="project.php"><i class="icon-ticket6"></i>My project</a></li>
+                      <li><a href="saved.php"><i class="icon-file-text-o"></i>Saved project</a></li>
+                      <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
+                      <li><a href="follow.php"><i class="icon-pie2"></i>Follows</a></li>
+                      <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
+                    </ul>
+                    <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
+                  </div>
+                </li>
+              </ul>
+            </div> 
+            <div class="mob-nav"></div>
+          </div>
+        </header>
         <!-- Header -->
-        <header id="main-header">
-          <div class="container">
-            <div class="main-head">
-              <div class="left-side">
-                <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
-                <nav class="navigation">
-                  <ul>
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="discover.php">Discover</a></li>
-                  </ul>
-                </nav>
-              </div>
-              <div class="right-side">
-                <div class="cs-search-block">
-                  <form>
-                    <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
-                    <label>
-                      <input type="submit" value="Search">
-                    </label>
-                  </form>
-                </div>
-                <div class="profile-view">
-                  <ul>
-                    <li>
-                      <img alt="#" src="assets/extra-images/user-img.jpg">
-                      <i class="icon-arrow-down8"></i>
-                      <div class="dropdown-area">
-                        <!-- add a session to post value here -->
-                        <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
-                        <span> <?php echo 'Member Since '.$createtime; ?> </span>
-                        <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
-                        <ul class="dropdown">
-                          <li><a href="home.php"><i class="icon-flag5"></i>Project you may like</a></li>
-                          <li><a href="project.php"><i class="icon-ticket6"></i>My project</a></li>
-                          <li><a href="saved.php"><i class="icon-file-text-o"></i>Saved project</a></li>
-                          <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
-                          <li><a href="follow.php"><i class="icon-pie2"></i>Follows</a></li>
-                          <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
-                        </ul>
-                        <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
-                      </div>
-                    </li>
-                  </ul>
-                </div> 
-                <div class="mob-nav"></div>
-              </div>
-            </header>
-            <!-- Header -->
 
-            <!-- Main Content -->
-            <main id="main-content">
-              <div class="main-section">
-                <div class="page-section">
-                  <div class="profile-pages">
-                    <div class="container">
-                      <div class="row">
-                        <div class="section-fullwidth col-lg-12">
-                          <div class="cs-content-holder">
-                            <div class="row">
-                              <div class="project-holder">
-                                <div class="col-lg-12">
-                                  <div class="cs-auther">
-                                    <figure>
-                                      <a href="#"><img src="assets/extra-images/auther1.jpg" alt="#"></a>
-                                    </figure>
-                                    <div class="text">
-                                      <h3><?php echo $_SESSION["loginUsername"]; ?></h3>
-                                      <span><?php echo 'Member Since '.$createtime; ?></span>
-                                    </div>
-                                  </div>
-                                  <div class="right-sec">
-                                    <ul class="cs-donations">
-                                      <li>
-                                        <span>Donations</span>
-                                        <strong><?php echo "$ ".$donation ?></strong>
-                                      </li>
-                                      <li>
-                                        <span>Donated</span>
-                                        <strong><?php echo "$ ".$donated ?></strong>
-                                      </li>
-                                    </ul>
-                                  </div>
+        <!-- Main Content -->
+        <main id="main-content">
+          <div class="main-section">
+            <div class="page-section">
+              <div class="profile-pages">
+                <div class="container">
+                  <div class="row">
+                    <div class="section-fullwidth col-lg-12">
+                      <div class="cs-content-holder">
+                        <div class="row">
+                          <div class="project-holder">
+                            <div class="col-lg-12">
+                              <div class="cs-auther">
+                                <figure>
+                                  <a href="#"><img src="assets/extra-images/auther1.jpg" alt="#"></a>
+                                </figure>
+                                <div class="text">
+                                  <h3><?php echo $_SESSION["loginUsername"]; ?></h3>
+                                  <span><?php echo 'Member Since '.$createtime; ?></span>
                                 </div>
-                                <div class="col-lg-12">
-                                  <div class="profile-block">
-                                    <ul class="scroll-nav">
-                                      <li><a href="home.php"><i class="icon-star-o"></i>Home</a></li>
-                                      <li><a href="project.php"><i class="icon-star-o"></i>My Project</a></li>
-                                      <li><a href="saved.php"><i class=" icon-save"></i>Saved project</a></li>
-                                      <li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
-                                      <li><a href="follow.php"><i class="icon-money"></i>Follow</a></li>
-                                      <li class="active"><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
+                              </div>
+                              <div class="right-sec">
+                                <ul class="cs-donations">
+                                  <li>
+                                    <span>Donations</span>
+                                    <strong><?php echo "$ ".$donation ?></strong>
+                                  </li>
+                                  <li>
+                                    <span>Donated</span>
+                                    <strong><?php echo "$ ".$donated ?></strong>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="col-lg-12">
+                              <div class="profile-block">
+                                <ul class="scroll-nav">
+                                  <li><a href="home.php"><i class="icon-star-o"></i>Home</a></li>
+                                  <li><a href="project.php"><i class="icon-star-o"></i>My Project</a></li>
+                                  <li><a href="saved.php"><i class=" icon-save"></i>Saved project</a></li>
+                                  <li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
+                                  <li><a href="follow.php"><i class="icon-money"></i>Follow</a></li>
+                                  <li class="active"><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
 
-                                    </ul>
-                                    <div class="cs-profile-area">
-                                      <div class="cs-title no-border">
-                                        <h3>Create a new project!</h3>
-                                      </div>
-                                      <div class="cs-profile-holder">
-                                        <div class="gallery-area">
-                                         <ul class="cs-element-list has-border wout-label">
-                                          <li>
-                                            <div class="fields-area">
-                                             <div class="field-col col-md-12">
-                                               <ul class="galleryupload">
-                                                <li class="featured-image image-1">
-                                                 <div class="upload-file-container">
-                                                   <img src="assets/extra-images/gallry1.jpg" alt="#">								
-                                                   <a title="Delete image" class="delete" data-id="1" href="javascript:;"><i class="icon-times"></i></a>
-                                                 </div>
-                                               </li>
-                                               <li class="gallery-thumb">
-                                                 <div id="Crowdfunding_images_container">
-                                                  <ul class="Crowdfunding_images">
-                                                   <li class="image-2"><img src="assets/extra-images/gallry2.jpg" alt="#">
+                                </ul>
+                                <div class="cs-profile-area">
+                                  <div class="cs-title no-border">
+                                    <h3>Create a new project!</h3>
+                                  </div>
+                                  <div class="cs-profile-holder">
+                                    <form class="create-form" method="POST" action = "signup.php">
+                                      <div class="gallery-area">
+                                       <ul class="cs-element-list has-border wout-label">
+                                        <li>
+                                          <div class="fields-area">
+                                           <div class="field-col col-md-12">
+                                             <ul class="galleryupload">
+                                              <li class="featured-image image-1">
+                                               <div class="upload-file-container">
+                                                 <img src="assets/extra-images/gallry1.jpg" alt="#">								
+                                                 <a title="Delete image" class="delete" data-id="1" href="javascript:;"><i class="icon-times"></i></a>
+                                               </div>
+                                             </li>
+                                             <li class="gallery-thumb">
+                                               <div id="Crowdfunding_images_container">
+                                                <ul class="Crowdfunding_images">
+                                                 <li class="image-2"><img src="assets/extra-images/gallry2.jpg" alt="#">
+                                                  <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
+                                                  <li class="image-2"><img src="assets/extra-images/gallry3.jpg" alt="#">
                                                     <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
-                                                    <li class="image-2"><img src="assets/extra-images/gallry3.jpg" alt="#">
+                                                    <li class="image-2"><img src="assets/extra-images/gallry4.jpg" alt="#">
                                                       <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
-                                                      <li class="image-2"><img src="assets/extra-images/gallry4.jpg" alt="#">
+                                                      <li class="image-2"><img src="assets/extra-images/gallry5.jpg" alt="#">
                                                         <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
-                                                        <li class="image-2"><img src="assets/extra-images/gallry5.jpg" alt="#">
+                                                        <li class="image-2"><img src="assets/extra-images/gallry6.jpg" alt="#">
                                                           <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
-                                                          <li class="image-2"><img src="assets/extra-images/gallry6.jpg" alt="#">
+                                                          <li class="image-2"><img src="assets/extra-images/gallry7.jpg" alt="#">
                                                             <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
-                                                            <li class="image-2"><img src="assets/extra-images/gallry7.jpg" alt="#">
+                                                            <li class="image-2"><img src="assets/extra-images/gallry8.jpg" alt="#">
                                                               <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
-                                                              <li class="image-2"><img src="assets/extra-images/gallry8.jpg" alt="#">
-                                                                <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
-                                                                <li class="image-2">
-                                                                 <figure>
-                                                                   <img src="assets/extra-images/gallry9.jpg" alt="#">
-                                                                   <figcaption>
-                                                                    <input type="file" id="browse" name="fileupload" style="display: none" onChange="Handlechange();"/>
-                                                                    <input type="button" value="Upload More" id="fakeBrowse" onclick="HandleBrowseClick();"/>
-                                                                  </figcaption>
-                                                                </figure>
-                                                                <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
-                                                              </ul>
-                                                            </div>
-                                                          </li>
-                                                        </ul>
-                                                      </div>
+                                                              <li class="image-2">
+                                                               <figure>
+                                                                 <img src="assets/extra-images/gallry9.jpg" alt="#">
+                                                                 <figcaption>
+                                                                  <input type="file" id="browse" name="fileupload" style="display: none" onChange="Handlechange();"/>
+                                                                  <input type="button" value="Upload More" id="fakeBrowse" onclick="HandleBrowseClick();"/>
+                                                                </figcaption>
+                                                              </figure>
+                                                              <a title="Delete image" class="delete" data-id="2" href="javascript:;"><i class="icon-times"></i></a>							  															</li>
+                                                            </ul>
+                                                          </div>
+                                                        </li>
+                                                      </ul>
                                                     </div>
-                                                  </li>
-                                                </ul>
-                                              </div>
-                                              <ul class="cs-element-list has-border">
-                                               <li>
-                                                <label>project Title</label>
-                                                <div class="fields-area">
-                                                 <div class="field-col col-md-12">
-                                                  <input type="text">
-                                                  <span class="char-remain">Strong orca harshly exuberantly oh bird wherever </span>
-                                                </div>
-                                              </div>
-                                            </li>
-                                            <li>
-                                              <label>project Description</label>
+                                                  </div>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                            <ul class="cs-element-list has-border">
+                                             <li>
+                                              <label>project Title</label>
                                               <div class="fields-area">
                                                <div class="field-col col-md-12">
-                                                <textarea></textarea>
+                                                <input type="text">
+                                                <span class="char-remain">Strong orca harshly exuberantly oh bird wherever </span>
                                               </div>
                                             </div>
                                           </li>
-                                          <li class="multiselect-holder">
-                                            <label>Catergories</label>
+                                          <li>
+                                            <label>project Description</label>
                                             <div class="fields-area">
-                                             <div class="field-col col-md-6">
-                                              <select id="categories" class="multiselect" multiple="multiple" name="countries[]">
-                                               <option value="AFG">Afghanistan</option>
-                                               <option value="ALB">Albania</option>
-                                               <option value="DZA">Algeria</option>
-                                               <option value="AND">Andorra</option>
-                                               <option value="ARG">Argentina</option>
-                                               <option value="ARM">Armenia</option>
-                                               <option value="ABW">Aruba</option>
-                                               <option value="AUS">Australia</option>
-                                               <option value="AUT" selected="selected">Austria</option>
+                                             <div class="field-col col-md-12">
+                                              <textarea></textarea>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="multiselect-holder">
+                                          <label>Catergories</label>
+                                          <div class="fields-area">
+                                           <div class="field-col col-md-6">
+                                            <select id="categories" class="multiselect" multiple="multiple" name="countries[]">
+                                             <option value="AFG">Afghanistan</option>
+                                             <option value="ALB">Albania</option>
+                                             <option value="DZA">Algeria</option>
+                                             <option value="AND">Andorra</option>
+                                             <option value="ARG">Argentina</option>
+                                             <option value="ARM">Armenia</option>
+                                             <option value="ABW">Aruba</option>
+                                             <option value="AUS">Australia</option>
+                                             <option value="AUT" selected="selected">Austria</option>
 
-                                               <option value="AZE">Azerbaijan</option>
-                                               <option value="BGD">Bangladesh</option>
-                                               <option value="BLR">Belarus</option>
-                                               <option value="BEL">Belgium</option>
-                                               <option value="BIH">Bosnia and Herzegovina</option>
-                                               <option value="BRA">Brazil</option>
-                                               <option value="BRN">Brunei</option>
-                                               <option value="BGR">Bulgaria</option>
-                                               <option value="CAN">Canada</option>
+                                             <option value="AZE">Azerbaijan</option>
+                                             <option value="BGD">Bangladesh</option>
+                                             <option value="BLR">Belarus</option>
+                                             <option value="BEL">Belgium</option>
+                                             <option value="BIH">Bosnia and Herzegovina</option>
+                                             <option value="BRA">Brazil</option>
+                                             <option value="BRN">Brunei</option>
+                                             <option value="BGR">Bulgaria</option>
+                                             <option value="CAN">Canada</option>
 
-                                               <option value="CHN">China</option>
-                                               <option value="COL">Colombia</option>
-                                               <option value="HRV">Croatia</option>
-                                               <option value="CYP">Cyprus</option>
-                                               <option value="CZE">Czech Republic</option>
-                                               <option value="DNK">Denmark</option>
-                                               <option value="EGY">Egypt</option>
-                                               <option value="EST">Estonia</option>
-                                               <option value="FIN">Finland</option>
+                                             <option value="CHN">China</option>
+                                             <option value="COL">Colombia</option>
+                                             <option value="HRV">Croatia</option>
+                                             <option value="CYP">Cyprus</option>
+                                             <option value="CZE">Czech Republic</option>
+                                             <option value="DNK">Denmark</option>
+                                             <option value="EGY">Egypt</option>
+                                             <option value="EST">Estonia</option>
+                                             <option value="FIN">Finland</option>
 
-                                               <option value="FRA">France</option>
-                                               <option value="GEO">Georgia</option>
-                                               <option value="DEU" selected="selected">Germany</option>
-                                               <option value="GRC">Greece</option>
-                                               <option value="HKG">Hong Kong</option>
-                                               <option value="HUN">Hungary</option>
-                                               <option value="ISL">Iceland</option>
-                                               <option value="IND">India</option>
-                                               <option value="IDN">Indonesia</option>
+                                             <option value="FRA">France</option>
+                                             <option value="GEO">Georgia</option>
+                                             <option value="DEU" selected="selected">Germany</option>
+                                             <option value="GRC">Greece</option>
+                                             <option value="HKG">Hong Kong</option>
+                                             <option value="HUN">Hungary</option>
+                                             <option value="ISL">Iceland</option>
+                                             <option value="IND">India</option>
+                                             <option value="IDN">Indonesia</option>
 
-                                               <option value="IRN">Iran</option>
-                                               <option value="IRL">Ireland</option>
-                                               <option value="ISR">Israel</option>
-                                               <option value="ITA">Italy</option>
-                                               <option value="JPN">Japan</option>
-                                               <option value="JOR">Jordan</option>
-                                               <option value="KAZ">Kazakhstan</option>
-                                               <option value="KWT">Kuwait</option>
-                                               <option value="KGZ">Kyrgyzstan</option>
+                                             <option value="IRN">Iran</option>
+                                             <option value="IRL">Ireland</option>
+                                             <option value="ISR">Israel</option>
+                                             <option value="ITA">Italy</option>
+                                             <option value="JPN">Japan</option>
+                                             <option value="JOR">Jordan</option>
+                                             <option value="KAZ">Kazakhstan</option>
+                                             <option value="KWT">Kuwait</option>
+                                             <option value="KGZ">Kyrgyzstan</option>
 
-                                               <option value="LVA">Latvia</option>
-                                               <option value="LBN">Lebanon</option>
-                                               <option value="LIE">Liechtenstein</option>
-                                               <option value="LTU">Lithuania</option>
-                                               <option value="LUX">Luxembourg</option>
-                                               <option value="MAC">Macau</option>
-                                               <option value="MKD">Macedonia</option>
-                                               <option value="MYS">Malaysia</option>
-                                               <option value="MLT">Malta</option>
+                                             <option value="LVA">Latvia</option>
+                                             <option value="LBN">Lebanon</option>
+                                             <option value="LIE">Liechtenstein</option>
+                                             <option value="LTU">Lithuania</option>
+                                             <option value="LUX">Luxembourg</option>
+                                             <option value="MAC">Macau</option>
+                                             <option value="MKD">Macedonia</option>
+                                             <option value="MYS">Malaysia</option>
+                                             <option value="MLT">Malta</option>
 
-                                               <option value="MEX">Mexico</option>
-                                               <option value="MDA">Moldova</option>
-                                               <option value="MNG">Mongolia</option>
-                                               <option value="NLD" selected="selected">Netherlands</option>
-                                               <option value="NZL">New Zealand</option>
-                                               <option value="NGA">Nigeria</option>
-                                               <option value="NOR">Norway</option>
-                                               <option value="PER">Peru</option>
-                                               <option value="PHL">Philippines</option>
+                                             <option value="MEX">Mexico</option>
+                                             <option value="MDA">Moldova</option>
+                                             <option value="MNG">Mongolia</option>
+                                             <option value="NLD" selected="selected">Netherlands</option>
+                                             <option value="NZL">New Zealand</option>
+                                             <option value="NGA">Nigeria</option>
+                                             <option value="NOR">Norway</option>
+                                             <option value="PER">Peru</option>
+                                             <option value="PHL">Philippines</option>
 
-                                               <option value="POL">Poland</option>
-                                               <option value="PRT">Portugal</option>
-                                               <option value="QAT">Qatar</option>
-                                               <option value="ROU">Romania</option>
-                                               <option value="RUS">Russia</option>
-                                               <option value="SMR">San Marino</option>
-                                               <option value="SAU">Saudi Arabia</option>
-                                               <option value="CSG">Serbia and Montenegro</option>
-                                               <option value="SGP">Singapore</option>
+                                             <option value="POL">Poland</option>
+                                             <option value="PRT">Portugal</option>
+                                             <option value="QAT">Qatar</option>
+                                             <option value="ROU">Romania</option>
+                                             <option value="RUS">Russia</option>
+                                             <option value="SMR">San Marino</option>
+                                             <option value="SAU">Saudi Arabia</option>
+                                             <option value="CSG">Serbia and Montenegro</option>
+                                             <option value="SGP">Singapore</option>
 
-                                               <option value="SVK">Slovakia</option>
-                                               <option value="SVN">Slovenia</option>
-                                               <option value="ZAF">South Africa</option>
-                                               <option value="KOR">South Korea</option>
-                                               <option value="ESP">Spain</option>
-                                               <option value="LKA">Sri Lanka</option>
-                                               <option value="SWE">Sweden</option>
-                                               <option value="CHE">Switzerland</option>
-                                               <option value="SYR">Syria</option>
+                                             <option value="SVK">Slovakia</option>
+                                             <option value="SVN">Slovenia</option>
+                                             <option value="ZAF">South Africa</option>
+                                             <option value="KOR">South Korea</option>
+                                             <option value="ESP">Spain</option>
+                                             <option value="LKA">Sri Lanka</option>
+                                             <option value="SWE">Sweden</option>
+                                             <option value="CHE">Switzerland</option>
+                                             <option value="SYR">Syria</option>
 
-                                               <option value="TWN">Taiwan</option>
-                                               <option value="TJK">Tajikistan</option>
-                                               <option value="THA">Thailand</option>
-                                               <option value="TUR">Turkey</option>
-                                               <option value="TKM">Turkmenistan</option>
-                                               <option value="UKR">Ukraine</option>
-                                               <option value="ARE">United Arab Emirates</option>
-                                               <option value="GBR">United Kingdom</option>
-                                               <option value="USA" selected="selected">United States</option>
+                                             <option value="TWN">Taiwan</option>
+                                             <option value="TJK">Tajikistan</option>
+                                             <option value="THA">Thailand</option>
+                                             <option value="TUR">Turkey</option>
+                                             <option value="TKM">Turkmenistan</option>
+                                             <option value="UKR">Ukraine</option>
+                                             <option value="ARE">United Arab Emirates</option>
+                                             <option value="GBR">United Kingdom</option>
+                                             <option value="USA" selected="selected">United States</option>
 
-                                               <option value="UZB">Uzbekistan</option>
-                                               <option value="VAT">Vatican City</option>
-                                               <option value="VNM">Vietnam</option>
-                                             </select>	
-                                           </div>
+                                             <option value="UZB">Uzbekistan</option>
+                                             <option value="VAT">Vatican City</option>
+                                             <option value="VNM">Vietnam</option>
+                                           </select>	
                                          </div>
-                                       </li>
-                                     </ul>
-                                     <ul class="cs-element-list has-border">
-                                       <li>
-                                        <label>Prospective amount</label>
-                                        <div class="fields-area">
-                                         <div class="field-col col-md-6">
-                                          <input type="text">
-                                        </div>
-                                        <div class="field-col col-md-2">
-                                          <div class="select-holder">
-                                           <select>
-                                            <option>$</option>
-                                            <option>¥</option>
-                                          </select>
-                                        </div>
+                                       </div>
+                                     </li>
+                                   </ul>
+                                   <ul class="cs-element-list has-border">
+                                     <li>
+                                      <label>Prospective amount</label>
+                                      <div class="fields-area">
+                                       <div class="field-col col-md-6">
+                                        <input type="text">
                                       </div>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <label>Deadline</label>
-                                    <div class="fields-area">
-                                     <div class="field-col col-md-2">
-                                      <input type="text" placeholder="D D">
-                                    </div>
-                                    <div class="field-col col-md-2">
-                                      <input type="text" placeholder="M M">
-                                    </div>
-                                    <div class="field-col col-md-3">
-                                      <input type="text" placeholder="Y Y Y Y">
+                                      <div class="field-col col-md-2">
+                                        <div class="select-holder">
+                                         <select>
+                                          <option>$</option>
+                                          <option>¥</option>
+                                        </select>
+                                      </div>
                                     </div>
                                   </div>
                                 </li>
                                 <li>
-                                 <label>Add Tags</label>
-                                 <div class="fields-area">
-                                  <div class="field-col col-md-6">
-                                    <span class="icon-input">
-                                     <a href="#" id="csload_list"><i class="icon-plus3"></i></a>
-                                     <input id="csappend" placeholder="Type text and Press Enter" type="text" class="text-input">
-                                   </span>
-                                   <ul class="cs-tags-selection">
+                                  <label>Deadline</label>
+                                  <div class="fields-area">
+                                   <div class="field-col col-md-2">
+                                    <input type="text" placeholder="D D">
+                                  </div>
+                                  <div class="field-col col-md-2">
+                                    <input type="text" placeholder="M M">
+                                  </div>
+                                  <div class="field-col col-md-3">
+                                    <input type="text" placeholder="Y Y Y Y">
+                                  </div>
+                                </div>
+                              </li>
+                              <li>
+                               <label>Add Tags</label>
+                               <div class="fields-area">
+                                <div class="field-col col-md-6">
+                                  <span class="icon-input">
+                                   <a href="#" id="csload_list"><i class="icon-plus3"></i></a>
+                                   <input id="csappend" placeholder="Type text and Press Enter" type="text" class="text-input">
+                                 </span>
+                                 <ul class="cs-tags-selection">
 
-                                   </ul>
-                                 </div>
+                                 </ul>
                                </div>
-                             </li>
-                           </ul>
-                           <ul class="cs-element-list has-border paypal">
-                             <li>
-                              <label>Paypal Setting</label>
-                              <div class="fields-area">
-                               <div class="field-col col-md-6">
-                                <input type="email">
-                                <span class="char-remain">Strong orca harshly exuberantly oh bird wherever </span>
-                              </div>
+                             </div>
+                           </li>
+                         </ul>
+                         <ul class="cs-element-list has-border paypal">
+                           <li>
+                            <label>Paypal Setting</label>
+                            <div class="fields-area">
+                             <div class="field-col col-md-6">
+                              <input type="email">
+                              <span class="char-remain">Strong orca harshly exuberantly oh bird wherever </span>
                             </div>
-                          </li>
-                        </ul>
-                        <ul class="cs-element-list term-condition-area">
-                         <li>
-                          <label>Terms &amp;<br> Conditions</label>
-                          <div class="fields-area">
-                           <div class="field-col col-md-12">
-                            <p>Asome decently militantly versus that a enormous less treacherous genially well upon until fishy audaciously where fabulously underneath toucan armadillo far toward illustratively flawlessly shark much a emoted hey tersely pointedly much that hey quetzal up trenchant abundant made alas wildebeest overate overhung during busily burst as jeez much beproject more added on some thrust out.</p>
-                            <div class="checkbox-area">
-                             <input type="checkbox" id="conditions">
-                             <label for="conditions">Accept <a href="#">terms and conditions</a></label>
-                           </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <ul class="cs-element-list term-condition-area">
+                       <li>
+                        <label>Terms &amp;<br> Conditions</label>
+                        <div class="fields-area">
+                         <div class="field-col col-md-12">
+                          <p>Asome decently militantly versus that a enormous less treacherous genially well upon until fishy audaciously where fabulously underneath toucan armadillo far toward illustratively flawlessly shark much a emoted hey tersely pointedly much that hey quetzal up trenchant abundant made alas wildebeest overate overhung during busily burst as jeez much beproject more added on some thrust out.</p>
+                          <div class="checkbox-area">
+                           <input type="checkbox" id="conditions">
+                           <label for="conditions">Accept <a href="#">terms and conditions</a></label>
                          </div>
                        </div>
-                     </li>
-                   </ul>
-                   <ul class="cs-element-list cs-submit-form">
-                     <li>
-                      <div class="fields-area">
-                       <div class="field-col col-md-4">
-                        <input class="csbg-color cs-btn" type="submit" value="Create new project">
+                     </div>
+                   </li>
+                 </ul>
+                 <ul class="cs-element-list cs-submit-form">
+                   <li>
+                    <div class="fields-area">
+                     <div class="field-col col-md-4">
+                      <input class="csbg-color cs-btn" type="submit" value="Create new project">
+                    </div>
+                  </div>
+                </li>
+                =======
+                <![endif]-->
+              </head>
+              <body>
+                <div class="wrapper"> 
+
+                 <!-- Header -->
+                 <header id="main-header">
+                  <div class="container">
+                    <div class="main-head">
+                      <div class="left-side">
+                        <div class="logo"><a href="discover.php"><img src="assets/images/logo.png" alt=""></a></div>
+                        <nav class="navigation">
+                          <ul>
+                            <li><a href="discover.php">Home</a></li>
+                            <li><a href="#">Discover</a>
+                              <ul class="sub-dropdown">
+                                <li><a href="listing-grid.html">Grid View</a></li>
+                                <li><a href="listing.php">List view</a></li>
+                                <li><a href="detail.php">Detail Page</a></li>
+                              </ul>
+                            </li>
+                            <li><a href="creators.html">Creators</a></li>
+                            <li><a href="supporters.html">Supporters</a></li>
+                            <li><a href="#">Pages</a>
+                              <ul class="sub-dropdown">
+                                <li><a href="about.html">About us</a></li>
+                                <li><a href="faq.html">FAQ’s</a></li>
+                                <li><a href="contect.html">Contect</a></li>
+                                <li><a href="sign.php">Create an Account</a></li>
+                                <li><a href="sign.php">Sign In</a></li>
+                                <li><a href="404.php">404 Page</a></li>
+                                <li><a href="under.html">under-construction</a></li>
+                                <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                                <li><a href="pricing.html">Price &amp; Packges</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="site-map.html">Site Map</a></li>
+                                <li><a href="result.html">Result</a></li>
+                                <li><a href="donate.php">Donate</a></li>
+                                <li><a href="viewOtherUser.php">user detail2</a></li>
+                              </ul>
+                            </li>
+                            <li>
+                              <a href="#">News</a>
+                              <ul class="sub-dropdown">
+                               <li><a href="bloglrag.html">News Listing</a></li>
+                               <li><a href="blogmedium.html">News Medium</a></li>
+                               <li><a href="blogdetail.php">News Detail</a></li>
+                             </ul>
+                           </li>
+                         </ul>
+                       </nav>
+                     </div>
+                     <div class="right-side">
+                      <div class="cs-search-block">
+                        <form>
+                          <input type="text" id="s" name="s" value="Search Project" onfocus="if(this.value =='Search Project') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Search Project'; }" class="form-control">
+                          <label>
+                            <input type="submit" value="Search">
+                          </label>
+                        </form>
+                      </div>
+                      <div class="profile-view">
+                        <ul>
+                          <li>
+                            <img alt="#" src="assets/extra-images/user-img.jpg">
+                            <i class="icon-arrow-down8"></i>
+                            <div class="dropdown-area">
+                              <h5>Mark Benson</h5>
+                              <span>Member Since May 20, 2014</span>
+                              <ul class="dropdown">
+                                <li><a href="home.php"><i class="icon-flag5"></i>My project</a></li>
+                                <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
+                                <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
+                                <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
+                                <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
+                                <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
+                                >>>>>>> master
+                              </ul>
+                            </div>
+                          </div>
+                        </form>
                       </div>
                     </div>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </main>
 <!--// Main Content //--> 
 

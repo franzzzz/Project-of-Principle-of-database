@@ -80,6 +80,7 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
                   <ul>
                     <li><a href="home.php">Home</a></li>
                     <li><a href="discover.php">Discover</a></li>
+
                   </ul>
                 </nav>
               </div>

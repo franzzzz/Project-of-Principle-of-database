@@ -109,7 +109,7 @@
                                     <li><a href="site-map.html">Site Map</a></li>
                                     <li><a href="result.html">Result</a></li>
                                     <li><a href="donate.php">Donate</a></li>
-                                    <li><a href="user-detail2.html">user detail2</a></li>
+                                    <li><a href="viewOtherUser.php">user detail2</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -241,27 +241,27 @@
                                                     }
 
                                                     echo "
-                            <article class=\"col-lg-4 col-md-4 col-sm-6\">
-                              <div class=\"directory-section\">
-                                <div class=\"cs_thumbsection\">
-                                  <figure><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."'\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"\"></a></figure>
-                                </div>
-                                <div class=\"content_info\">
-                                  <div class=\"title\">
-                                    <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."'\">".$line_show_all_pro[0]."</a></h3>
-                                    <span class=\"addr\">".$line_show_all_pro[1]."</span> </div>
-                                  <div class=\"dr_info\">
-                                    <ul>
-                                      <li> <i class=\"cscolor icon-target5\"></i> $".$line_show_all_pro[2]." goal </li>
-                                      <li> <i class=\"cscolor icon-clock7\"></i> ".$endtime." </li>
-                                    </ul>
-                                    <span class=\"bar\"><span style=\"width:".$funded_percent."%;\"></span></span>
-                                    <div class=\"detail\"> <span class=\"fund\">".$funded_percent."% Funded</span> <a href=\"#\" class=\"star icon-star\"></a> </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </article>
-                            ";
+                                                        <article class=\"col-lg-4 col-md-4 col-sm-6\">
+                                                          <div class=\"directory-section\">
+                                                            <div class=\"cs_thumbsection\">
+                                                              <figure><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."'\"><img src=\"assets/extra-images/listing-grid-1.jpg\" alt=\"\"></a></figure>
+                                                            </div>
+                                                            <div class=\"content_info\">
+                                                              <div class=\"title\">
+                                                                <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_all_pro[5]."'\">".$line_show_all_pro[0]."</a></h3>
+                                                                <span class=\"addr\">".$line_show_all_pro[1]."</span> </div>
+                                                              <div class=\"dr_info\">
+                                                                <ul>
+                                                                  <li> <i class=\"cscolor icon-target5\"></i> $".$line_show_all_pro[2]." goal </li>
+                                                                  <li> <i class=\"cscolor icon-clock7\"></i> ".$endtime." </li>
+                                                                </ul>
+                                                                <span class=\"bar\"><span style=\"width:".$funded_percent."%;\"></span></span>
+                                                                <div class=\"detail\"> <span class=\"fund\">".$funded_percent."% Funded</span> <a href=\"#\" class=\"star icon-star\"></a> </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </article>
+                                                        ";
                                                 }
                                                 ?>
                                                 <!--                         <form role="form" method="POST" id="getpid" action="detail.php">
