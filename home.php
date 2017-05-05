@@ -26,10 +26,11 @@ $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
 $query_sum_donation = "SELECT sum(moneysum) FROM Project WHERE username = '{$loginUsername}'";
 $result_sum_donation = @ mysqli_query($connection, $query_sum_donation);
 $donation = mysqli_fetch_array($result_sum_donation)[0];
+if($donation == null) $donation=0;
 $query_sum_donated = "SELECT sum(amount) FROM Pledge WHERE username = '{$loginUsername}'";
 $result_sum_donated = @ mysqli_query($connection, $query_sum_donated);
 $donated = mysqli_fetch_array($result_sum_donated)[0];
-
+if($donated == null) $donated = 0;
   //all project you may like
 $query_show_like_pro = "SELECT * FROM project JOIN follow WHERE project.username = follow.followedusername AND fanusername = '{$loginUsername}'";
 $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
@@ -74,45 +75,11 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
           <div class="container">
             <div class="main-head">
               <div class="left-side">
-                <div class="logo"><a href="discover.php"><img src="assets/images/logo.png" alt=""></a></div>
+                <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
                 <nav class="navigation">
                   <ul>
                     <li><a href="discover.php">Home</a></li>
-                    <li><a href="#">Discover</a>
-                      <ul class="sub-dropdown">
-                        <li><a href="listing-grid.html">Grid View</a></li>
-                        <li><a href="listing.php">List view</a></li>
-                        <li><a href="detail.php">Detail Page</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="creators.html">Creators</a></li>
-                    <li><a href="supporters.html">Supporters</a></li>
-                    <li><a href="#">Pages</a>
-                      <ul class="sub-dropdown">
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="faq.html">FAQ’s</a></li>
-                        <li><a href="contect.html">Contect</a></li>
-                        <li><a href="sign.php">Create an Account</a></li>
-                        <li><a href="sign.php">Sign In</a></li>
-                        <li><a href="404.php">404 Page</a></li>
-                        <li><a href="under.html">under-construction</a></li>
-                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
-                        <li><a href="pricing.html">Price &amp; Packges</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="site-map.html">Site Map</a></li>
-                        <li><a href="result.html">Result</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="user-detail2.html">user detail2</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">News</a>
-                      <ul class="sub-dropdown">
-                        <li><a href="bloglrag.html">News Listing</a></li>
-                        <li><a href="blogmedium.html">News Medium</a></li>
-                        <li><a href="blogdetail.php">News Detail</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="discover.php">Discover</a></li>
                   </ul>
                 </nav>
               </div>
@@ -126,28 +93,28 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
                   </form>
                 </div>
                 <div class="profile-view">
-                  <ul>
-                    <li>
-                      <img alt="#" src="assets/extra-images/user-img.jpg">
-                      <i class="icon-arrow-down8"></i>
-                      <div class="dropdown-area">
-                        <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
-                        <span> <?php echo 'Member Since '.$createtime; ?> </span>
-                        <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
-                        <ul class="dropdown">
-                          <li><a href="home.php"><i class="icon-flag5"></i>My project</a></li>
-                          <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
-                          <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
-                          <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
-                          <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
-                          <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
-                        </ul>
-                        <a class="sign-btn" href="#"><i class="icon-logout"></i>Sign Out</a>
-                      </div>
-                    </li>
-                  </ul>
-                </div> 
+          <ul>
+            <li>
+              <img alt="#" src="assets/extra-images/user-img.jpg">
+              <i class="icon-arrow-down8"></i>
+              <div class="dropdown-area">
+              <!-- add a session to post value here -->
+                <h5> <?php echo $_SESSION["loginUsername"]; ?> </h5>
+                <span> <?php echo 'Member Since '.$createtime; ?> </span>
+                <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
+                <ul class="dropdown">
+                  <li><a href="home.php"><i class="icon-flag5"></i>Project you may like</a></li>
+                  <li><a href="project.php"><i class="icon-ticket6"></i>My project</a></li>
+                  <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
+                  <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
+                  <li><a href="follow.php"><i class="icon-pie2"></i>Follows</a></li>
+                  <li><a href="create-new-project.php"><i class="icon-plus6"></i>Create New</a></li>
+                </ul>
+                <a class="sign-btn" href="#" onclick="window.location.href='sign.php'"><i class="icon-logout"></i>Sign Out</a>
               </div>
+            </li>
+          </ul>
+        </div> 
               <div class="mob-nav"></div>
             </div>
           </header>
@@ -195,7 +162,7 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
                                     <li><a href="saved.html"><i class=" icon-save"></i>Saved project</a></li>
                                     <li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
                                     <li><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
-                                    <li><a href="donation.html"><i class="icon-sign-in"></i>Sign Out</a></li>
+                                    
                                   </ul>
                                   <div class="cs-profile-area">
                                     <div class="cs-title no-border">
@@ -204,7 +171,7 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
                                     <div class="cs-profile-holder">
                                       <div class="cs-ads-area">
                                        <?php
-                                            while($line_show_like_pro = mysqli_fetch_array($result_show_like_pro, MYSQLI_NUM)){
+                                            while($line_show_like_pro = mysqli_fetch_array($result_show_like_pro)){
                                               $query_count_like = "SELECT count(username) From likes Group by pid having pid = '{$line_show_like_pro[0]}'";
                                               $result_count_like = @ mysqli_query($connection, $query_count_like);
                                               $count_like = mysqli_fetch_array($result_count_like)[0];
@@ -212,12 +179,14 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
                                               $php_endtime_timestamp = strtotime($line_show_like_pro[7]);
                                               $endtime = date('m/d, Y', $php_endtime_timestamp);
                                               //maxsum != 0
-                                              $funded_percent = floor(100*$line_show_all_pro[9]/$line_show_all_pro[6]);
-                                              if($funded_percent == 0 && $line_show_all_pro[9] != 0){
+                                              $funded_percent = floor(100*$line_show_like_pro[9]/$line_show_like_pro[6]);
+                                              if($funded_percent == 0 && $line_show_like_pro[9] != 0){
                                                 $funded_percent = 1;
                                               } 
 
-                                                                                           
+                                              $query_count_pldge = "SELECT count(*) From pledge WHERE pid = '{$line_show_like_pro[0]}'";
+                                              $result_count_pldge = @ mysqli_query($connection, $query_count_pldge); 
+                                              $count_pldge = mysqli_fetch_array($result_count_pldge)[0];                                            
                                               echo "
                                                 <article>
                                                   <div class=\"post-main\">
@@ -243,7 +212,7 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
                                                     </div>
                                                   </div>
                                                   <div class=\"edit-area\">
-                                                    <a href=\"#\" class=\"coll\">6 Donations Collected</a>
+                                                    <a href=\"#\" class=\"coll\">".$count_pldge." Donations Collected</a>
                                                     <div class=\"cs-profile-holder\">
                                                       <div class=\"cs-table-holder\">
                                                         <table>
@@ -252,25 +221,31 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
                                                               <th>#</th>
                                                               <th>Name</th>
                                                               <th>Date</th>
-                                                              <th>Transaction ID</th>
+                                                              <th>Status</th>
                                                               <th>Amount</th>
                                                             </tr>
                                                           </thead>
                                                           <tbody>
-                                                            <tr>
-                                                              <td>1</td>
-                                                              <td>Vauxhall corsa excellent condition service</td>
-                                                              <td>23-12-2013</td>
-                                                              <td>AB1352CC</td>
-                                                              <td>$22.00</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td>2</td>
-                                                              <td>Vauxhall corsa excellent condition service</td>
-                                                              <td>23-12-2013</td>
-                                                              <td>AB1352CC</td>
-                                                              <td>$22.00</td>
-                                                            </tr>
+                                                          ";
+                                                          $query_show_all_pledge = "SELECT * From pledge WHERE pid = '{$line_show_like_pro[0]}'";
+                                                          $result_show_all_pledge = @ mysqli_query($connection, $query_show_all_pledge); 
+                                                          $count_show_all_pledge = 0;
+                                                          while($line_show_all_pledge = mysqli_fetch_array($result_show_all_pledge)){
+                                                            $count_show_all_pledge+=1;
+                                                            echo "
+                                                              <tr>
+                                                                <td>".$count_show_all_pledge."</td>
+                                                                <td>".$line_show_all_pledge[3]."</td>
+                                                                <td>".$line_show_all_pledge[2]."</td>
+                                                                ";
+                                                            if($line_show_all_pledge[5] == 0) echo "<td>pending</td>";
+                                                                else echo"<td>excuted</td>";
+                                                            echo "
+                                                                <td>$".$line_show_all_pledge[4]."</td>
+                                                              </tr>
+                                                            ";
+                                                          }
+                                                          echo "
                                                           </tbody>
                                                         </table>
                                                       </div>
