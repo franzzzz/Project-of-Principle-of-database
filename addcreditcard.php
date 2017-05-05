@@ -239,33 +239,7 @@ if(!$result_cardnumber = @ mysqli_query($connection, $query_cardnumber))
                                                                                         }
                                                                                         ?>
                                                                                     </select>
-
-
                                                                                 </li>
-
-                                                                                <!--                                                                                    <form class="signup-form" method="POST" action = "signup.php">-->
-                                                                                <!---->
-                                                                                <!--                                                                                        <li class="col-lg-6 col-md-6 col-sm-6">-->
-                                                                                <!--                                                                                            <label>new card number</label>-->
-                                                                                <!--                                                                                            <input type="varchar(16)" placeholder="" name="newCardNumber">-->
-                                                                                <!--                                                                                        </li>-->
-                                                                                <!--                                                                                        <li class="col-lg-6 col-md-6 col-sm-6">-->
-                                                                                <!--                                                                                            <label>name on card</label>-->
-                                                                                <!--                                                                                            <input type="varchar(36)" placeholder="" name="nameOnCard">-->
-                                                                                <!--                                                                                        </li>-->
-                                                                                <!--                                                                                        <li class="col-lg-6 col-md-6 col-sm-6">-->
-                                                                                <!--                                                                                            <label>CVV</label>-->
-                                                                                <!--                                                                                            <input type="int(11)" placeholder="" name="CVV">-->
-                                                                                <!--                                                                                        </li>-->
-                                                                                <!---->
-                                                                                <!---->
-                                                                                <!--                                                                                        <li class="col-lg-12">-->
-                                                                                <!--                                                                                            <input class="cs-bgcolor" type="submit" value="Create Account">-->
-                                                                                <!--                                                                                        </li>-->
-                                                                                <!---->
-                                                                                <!--                                                                                    </form>-->
-
-
 
 
                                                                                 <?php
