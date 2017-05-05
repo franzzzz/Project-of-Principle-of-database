@@ -32,8 +32,8 @@ $result_sum_donated = @ mysqli_query($connection, $query_sum_donated);
 $donated = mysqli_fetch_array($result_sum_donated)[0];
 if($donated == null) $donated = 0;
   //all project you may like
-$query_show_my_pro = "SELECT * FROM project WHERE username = '{$loginUsername}'";
-$result_show_my_pro = @ mysqli_query($connection, $query_show_my_pro);
+$query_show_save_pro = "SELECT * FROM project JOIN likes WHERE project.pid = likes.pid AND likes.username = '{$loginUsername}'";
+$result_show_save_pro = @ mysqli_query($connection, $query_show_save_pro);
 
 ?>
 
@@ -78,7 +78,7 @@ $result_show_my_pro = @ mysqli_query($connection, $query_show_my_pro);
                 <div class="logo"><a href="home.php"><img src="assets/images/logo.png" alt=""></a></div>
                 <nav class="navigation">
                   <ul>
-                    <li><a href="discover.php">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a href="discover.php">Discover</a></li>
                   </ul>
                 </nav>
@@ -158,33 +158,34 @@ $result_show_my_pro = @ mysqli_query($connection, $query_show_my_pro);
                                   <div class="profile-block">
                                     <ul class="scroll-nav">
                                       <li><a href="home.php"><i class="icon-star-o"></i>Home</a></li>
-                                      <li class="active"><a href="project.php"><i class="icon-star-o"></i>My Project</a></li>
-                                      <li><a href="saved.php"><i class=" icon-save"></i>Saved project</a></li>
+                                      <li><a href="project.php"><i class="icon-star-o"></i>My Project</a></li>
+                                      <li class="active"><a href="saved.php"><i class=" icon-save"></i>Saved project</a></li>
                                       <li><a href="my-donation.php"><i class="icon-money"></i>My Donation</a></li>
                                       <li><a href="follow.php"><i class="icon-money"></i>Follow</a></li>
                                       <li><a href="create-new-project.php"><i class="icon-gear"></i>Create New</a></li>
-                                      
+
                                     </ul>
                                     <div class="cs-profile-area">
                                       <div class="cs-title no-border">
-                                        <h3>My Project</h3>
+                                        <h3>projects you likes</h3>
                                       </div>
                                       <div class="cs-profile-holder">
                                         <div class="cs-ads-area">
                                          <?php
-                                         while($line_show_my_pro = mysqli_fetch_array($result_show_my_pro)){
-                                          $query_count_like = "SELECT count(username) From likes Group by pid having pid = '{$line_show_my_pro[0]}'";
+                                         while($line_show_save_pro = mysqli_fetch_array($result_show_save_pro)){
+                                          $query_count_like = "SELECT count(username) From likes Group by pid having pid = '{$line_show_save_pro[0]}'";
                                           $result_count_like = @ mysqli_query($connection, $query_count_like);
                                           $count_like = mysqli_fetch_array($result_count_like)[0];
-                                          
-                                          $php_endtime_timestamp = strtotime($line_show_my_pro[7]);
+
+                                          $php_endtime_timestamp = strtotime($line_show_save_pro[7]);
                                           $endtime = date('m/d, Y', $php_endtime_timestamp);
-                                          $funded_percent = floor(100*$line_show_my_pro[9]/$line_show_my_pro[6]);
-                                          if($funded_percent == 0 && $line_show_my_pro[9] != 0){
+                                              //maxsum != 0
+                                          $funded_percent = floor(100*$line_show_save_pro[9]/$line_show_save_pro[6]);
+                                          if($funded_percent == 0 && $line_show_save_pro[9] != 0){
                                             $funded_percent = 1;
                                           } 
 
-                                          $query_count_pldge = "SELECT count(*) From pledge WHERE pid = '{$line_show_my_pro[0]}'";
+                                          $query_count_pldge = "SELECT count(*) From pledge WHERE pid = '{$line_show_save_pro[0]}'";
                                           $result_count_pldge = @ mysqli_query($connection, $query_count_pldge); 
                                           $count_pldge = mysqli_fetch_array($result_count_pldge)[0];                                            
                                           echo "
@@ -200,11 +201,11 @@ $result_show_my_pro = @ mysqli_query($connection, $query_show_my_pro);
                                                   <a href=\"#\" class=\"del icon-trash-o\"></a>
                                                 </div>  
                                                 <div class=\"text\">
-                                                  <h3><a href=\"#\">".$line_show_my_pro[2]."</a></h3>
-                                                  <span class=\"loc\">".$line_show_my_pro[3]."</span>
+                                                  <h3><a href=\"#\">".$line_show_save_pro[2]."</a></h3>
+                                                  <span class=\"loc\">".$line_show_save_pro[3]."</span>
                                                   <ul class=\"post-details\">
                                                     <li>".$funded_percent."% Funded</li>
-                                                    <li><i class=\"cscolor icon-target5\"></i> $ ".$line_show_my_pro[6]." goal</li>
+                                                    <li><i class=\"cscolor icon-target5\"></i> $ ".$line_show_save_pro[6]." goal</li>
                                                     <li><i class=\"cscolor icon-clock7\"></i> ".$endtime." </li>
                                                   </ul>
                                                   <span class=\"bar\"><span style=\"width:".$funded_percent."%;\"></span></span>
@@ -227,7 +228,7 @@ $result_show_my_pro = @ mysqli_query($connection, $query_show_my_pro);
                                                     </thead>
                                                     <tbody>
                                                       ";
-                                                      $query_show_all_pledge = "SELECT * From pledge WHERE pid = '{$line_show_my_pro[0]}'";
+                                                      $query_show_all_pledge = "SELECT * From pledge WHERE pid = '{$line_show_save_pro[0]}'";
                                                       $result_show_all_pledge = @ mysqli_query($connection, $query_show_all_pledge); 
                                                       $count_show_all_pledge = 0;
                                                       while($line_show_all_pledge = mysqli_fetch_array($result_show_all_pledge)){
@@ -255,7 +256,6 @@ $result_show_my_pro = @ mysqli_query($connection, $query_show_my_pro);
                                           ";
                                         }
                                         ?>
-                                        
                                       </div>
                                     </div>
                                   </div>

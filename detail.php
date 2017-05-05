@@ -175,7 +175,7 @@ $local_finaltime = $line_project_time[4];
                                     <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                                     <ul class="dropdown">
                                         <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
-                                        <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                                        <li><a href="saved.php"><i class="icon-file-text-o"></i>Saved Causes</a></li>
                                         <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                                         <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                                         <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
@@ -586,7 +586,7 @@ $local_finaltime = $line_project_time[4];
                                                                                             <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                                                                                             <ul class="dropdown">
                                                                                                 <li><a href="causes.html"><i class="icon-flag5"></i>My Causes</a></li>
-                                                                                                <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved Causes</a></li>
+                                                                                                <li><a href="saved.php"><i class="icon-file-text-o"></i>Saved Causes</a></li>
                                                                                                 <li><a href="my-donation.php"><i class="icon-file-text-o"></i>My Donations</a></li>
                                                                                                 <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
                                                                                                 <li><a href="profilesetting.html"><i class="icon-pie2"></i>Profile Settings</a></li>
