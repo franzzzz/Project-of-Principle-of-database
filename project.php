@@ -193,7 +193,7 @@ $result_show_my_pro = @ mysqli_query($connection, $query_show_my_pro);
                                             <div class=\"post-main\">
                                               <a href=\"#\" class=\"cs-fav-btn\"></a>
                                               <figure>
-                                                <a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_my_pro[0]."'\"><img alt=\"\" src=\"assets/extra-images/img.jpg\"></a>
+                                                <a href=\"#\"><img alt=\"\" src=\"assets/extra-images/img.jpg\"></a>
                                               </figure>
                                               <div class=\"detail-area\">
                                                 <div class=\"ads-title\">
@@ -201,7 +201,7 @@ $result_show_my_pro = @ mysqli_query($connection, $query_show_my_pro);
                                                   <a href=\"#\" class=\"del icon-trash-o\"></a>
                                                 </div>  
                                                 <div class=\"text\">
-                                                  <h3><a href=\"#\" onclick=\"window.location.href='detail.php?pid_detail=".$line_show_my_pro[0]."'\">".$line_show_my_pro[2]."</a></h3>
+                                                  <h3><a href=\"#\">".$line_show_my_pro[2]."</a></h3>
                                                   <span class=\"loc\">".$line_show_my_pro[3]."</span>
                                                   <ul class=\"post-details\">
                                                     <li>".$funded_percent."% Funded</li>
