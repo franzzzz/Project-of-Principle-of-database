@@ -203,12 +203,84 @@ $result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
                                     </div>
                                     <div class="cs-profile-holder">
                                       <div class="cs-ads-area">
-                                        <?php
-                                            while($line_show_like_pro = mysqli_fetch_array($result_show_like_pro)){
-                                              $query_count_like = "SELECT "
-                                              echo "";
+                                       <?php
+                                            while($line_show_like_pro = mysqli_fetch_array($result_show_like_pro, MYSQLI_NUM)){
+                                              $query_count_like = "SELECT count(username) From likes Group by pid having pid = '{$line_show_like_pro[0]}'";
+                                              $result_count_like = @ mysqli_query($connection, $query_count_like);
+                                              $count_like = mysqli_fetch_array($result_count_like)[0];
+                                              
+                                              $php_endtime_timestamp = strtotime($line_show_like_pro[7]);
+                                              $endtime = date('m/d, Y', $php_endtime_timestamp);
+                                              //maxsum != 0
+                                              $funded_percent = floor(100*$line_show_all_pro[9]/$line_show_all_pro[6]);
+                                              if($funded_percent == 0 && $line_show_all_pro[9] != 0){
+                                                $funded_percent = 1;
+                                              } 
+
+                                                                                           
+                                              echo "
+                                                <article>
+                                                  <div class=\"post-main\">
+                                                    <a href=\"#\" class=\"cs-fav-btn\"></a>
+                                                    <figure>
+                                                      <a href=\"#\"><img alt=\"\" src=\"assets/extra-images/img.jpg\"></a>
+                                                    </figure>
+                                                    <div class=\"detail-area\">
+                                                      <div class=\"ads-title\">
+                                                          <a href=\"#\" class=\"fav-btn\"><i class=\"icon-star-o\"></i><span>".$count_like."</span></a>
+                                                          <a href=\"#\" class=\"del icon-trash-o\"></a>
+                                                        </div>  
+                                                        <div class=\"text\">
+                                                          <h3><a href=\"#\">".$line_show_like_pro[2]."</a></h3>
+                                                          <span class=\"loc\">".$line_show_like_pro[3]."</span>
+                                                          <ul class=\"post-details\">
+                                                            <li>".$funded_percent."% Funded</li>
+                                                            <li><i class=\"cscolor icon-target5\"></i> $ ".$line_show_like_pro[6]." goal</li>
+                                                            <li><i class=\"cscolor icon-clock7\"></i> ".$endtime." </li>
+                                                          </ul>
+                                                          <span class=\"bar\"><span style=\"width:".$funded_percent."%;\"></span></span>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class=\"edit-area\">
+                                                    <a href=\"#\" class=\"coll\">6 Donations Collected</a>
+                                                    <div class=\"cs-profile-holder\">
+                                                      <div class=\"cs-table-holder\">
+                                                        <table>
+                                                          <thead>
+                                                            <tr>
+                                                              <th>#</th>
+                                                              <th>Name</th>
+                                                              <th>Date</th>
+                                                              <th>Transaction ID</th>
+                                                              <th>Amount</th>
+                                                            </tr>
+                                                          </thead>
+                                                          <tbody>
+                                                            <tr>
+                                                              <td>1</td>
+                                                              <td>Vauxhall corsa excellent condition service</td>
+                                                              <td>23-12-2013</td>
+                                                              <td>AB1352CC</td>
+                                                              <td>$22.00</td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>2</td>
+                                                              <td>Vauxhall corsa excellent condition service</td>
+                                                              <td>23-12-2013</td>
+                                                              <td>AB1352CC</td>
+                                                              <td>$22.00</td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </article>
+                                              ";
                                             }
                                         ?>
+                                     
 
                                         <article>
                                           <div class="post-main">
