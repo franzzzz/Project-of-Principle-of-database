@@ -191,24 +191,30 @@
                         </form>
                       </div>
 											<div class="widget-section-title">
-												<h4><i class="icon-globe4"></i>15 Diverse Categories</h4>
+												<h4><i class="icon-globe4"></i>All Diverse Tags</h4>
 											</div>
 											<ul class="menu">
-												<li><a href="#"><i class="icon-user9 cscolor"></i>Art</a> <span>233</span></li>
-												<li><a href="#"><i class="icon-heart11 cscolor"></i>Comics</a> <span>258</span></li>
-												<li><a href="#"><i class="icon-brush2 cscolor"></i>Craft</a> <span>89</span></li>
-												<li><a href="#"><i class="icon-circle-thin cscolor"></i>Dance</a> <span>1879</span></li>
-												<li><a href="#"><i class="icon-key7 cscolor"></i>Design</a> <span>55</span></li>
-												<li><a href="#"><i class="icon-sun4 cscolor"></i>Fashion</a> <span>12</span></li>
-												<li><a href="#"><i class="icon-light-bulb cscolor"></i>Film &amp; Video</a><span>8</span></li>
-												<li><a href="#"><i class="icon-clipboard6 cscolor"></i>Food</a> <span>10</span></li>
-												<li><a href="#"><i class="icon-archive2 cscolor"></i>Games</a> <span>56</span></li>
-												<li><a href="#"><i class="icon-pie2 cscolor"></i>Journalism</a> <span>233</span></li>
-												<li><a href="#"><i class="icon-lock6 cscolor"></i>Music</a> <span>258</span></li>
-												<li><a href="#"><i class="icon-upload10 cscolor"></i>Photography</a> <span>1879</span></li>
-												<li><a href="#"><i class="icon-archive3 cscolor"></i>Publishing</a> <span>55</span></li>
-												<li><a href="#"><i class="icon-sound4 cscolor"></i>Technology</a> <span>89</span></li>
-												<li><a href="#"><i class="icon-evernote cscolor"></i>Theatre</a> <span>13</span></li>
+
+
+
+												<li><a href="searchTagResult.php?tag=Art"><i class="icon-user9 cscolor"></i>Art</a></li>
+												<li><a href="searchTagResult.php?tag=Comics"><i class="icon-heart11 cscolor"></i>Comics</a> </li>
+												<li><a href="searchTagResult.php?tag=Craft"><i class="icon-brush2 cscolor"></i>Craft</a> </li>
+												<li><a href="searchTagResult.php?tag=Dance"><i class="icon-circle-thin cscolor"></i>Dance</a> </li>
+												<li><a href="searchTagResult.php?tag=Design"><i class="icon-key7 cscolor"></i>Design</a> </li>
+												<li><a href="searchTagResult.php?tag=Fashion"><i class="icon-sun4 cscolor"></i>Fashion</a> </li>
+												<li><a href="searchTagResult.php?tag=Film"><i class="icon-light-bulb cscolor"></i>Film</a></li>
+												<li><a href="searchTagResult.php?tag=Food"><i class="icon-clipboard6 cscolor"></i>Food</a> </li>
+												<li><a href="searchTagResult.php?tag=Games"><i class="icon-archive2 cscolor"></i>Games</a> </li>
+												<li><a href="searchTagResult.php?tag=Journalism"><i class="icon-pie2 cscolor"></i>Journalism</a> </li>
+												<li><a href="searchTagResult.php?tag=Music"><i class="icon-lock6 cscolor"></i>Music</a> </li>
+												<li><a href="searchTagResult.php?tag=Photography"><i class="icon-upload10 cscolor"></i>Photography</a> </li>
+												<li><a href="searchTagResult.php?tag=Publishing"><i class="icon-archive3 cscolor"></i>Publishing</a> </li>
+												<li><a href="searchTagResult.php?tag=Technology"><i class="icon-sound4 cscolor"></i>Technology</a> </li>
+												<li><a href="searchTagResult.php?tag=Theatre"><i class="icon-evernote cscolor"></i>Theatre</a> </li>
+
+
+
 											</ul>
 										</div>
 										<div class="widget widget_advertisment"> <img src="assets/extra-images/adv2.jpg" alt=""> </div>
