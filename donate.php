@@ -219,7 +219,7 @@
 											<div class="tab-content">
 												<div id="home" class="tab-pane active fade in" role="tabpanel">
 													<f class="donate-holder">
-                                                        <form method="post" action="donatePage2.php">
+                                                        <form method="POST" action="donatePage2.php">
                                                             <h3>Your Donation</h3>
                                                             <div class="cs-holder">
                                                                 <div class="slider-value">

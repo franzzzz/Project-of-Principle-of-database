@@ -14,8 +14,15 @@ $createtime = $_SESSION["loginCreateTime"];
 //show the specific  project here
 $local_pid_detail = $_SESSION["pid_detail"];
 
-$donate_amount  = $_POST["donate_amount"];
-$_SESSION["donate_amount"] = $donate_amount;
+if (isset($_POST['donate_amount'])) {
+    $donate_amount = $_POST['donate_amount'];
+    $_SESSION["donate_amount"] = $donate_amount;
+} else {
+    $donate_amount = $_SESSION["donate_amount"];
+}
+
+
+
 
 $local_pname=$_SESSION["pname"];
 
@@ -184,6 +191,40 @@ if(!$result_cardnumber = @ mysqli_query($connection, $query_cardnumber))
 
                                                         <div id="profile" class="tab-pane fade in" role="tabpanel">
                                                             <div class="pyment-area">
+
+
+                                                                <form class="signup-form" method="POST" action = "addcreditcard.php">
+                                                                    <ul class="row">
+                                                                        <li class="col-lg-6 col-md-6 col-sm-6">
+                                                                            <label>new card number: </label>
+                                                                            <input type="varchar(16)" placeholder="" name="newCardNumber">
+                                                                        </li>
+                                                                        <li class="col-lg-6 col-md-6 col-sm-6">
+                                                                            <label>name on card: </label>
+                                                                            <input type="varchar(36)" placeholder="" name="nameOnCard">
+                                                                        </li>
+                                                                        <li class="col-lg-6 col-md-6 col-sm-6">
+                                                                            <label>CVV</label>
+                                                                            <input type="int(11)" placeholder="" name="CVV">
+                                                                        </li>
+
+                                                                        <div class="cs-holder">
+                                                                            <div class="infotext">
+                                                                                <p>Can add a new card or use added card.</p>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="cs-holder">
+                                                                            <input type="submit" value="Add new credit card">
+                                                                        </div>
+
+                                                                    </ul>
+                                                                </form>
+
+
+
+
+                                                                <?php echo "<br>"; ?>
                                                                 <div class="donate-holder">
 
                                                                     <form method="post" action="donatePage3.php">
@@ -199,27 +240,6 @@ if(!$result_cardnumber = @ mysqli_query($connection, $query_cardnumber))
                                                                                 <input type="text" value= "<?php echo "$".$donate_amount; ?>">
                                                                             </div>
                                                                         </div>
-                                                                        <div class="select-payments">
-                                                                            <ul class="cs-gateway-wrap">
-
-
-                                                                                <li>
-                                                                                    <!--
-                                                                                     <div class="radio-image-wrapper">-->
-                                                                                    <!--                                                                                    <input type="radio" id="cs_paypal_gateway" value="cs_paypal_gateway" name="cs_payment_gateway" checked="checked" class="cs-gateway-calculation">-->
-                                                                                    <!--                                                                                    <label for="cs_paypal_gateway">-->
-                                                                                    <!--																				<span><img alt="#" src="assets/extra-images/pyment1.png">-->
-                                                                                    <!--																				</span>-->
-                                                                                    <!--                                                                                    </label>-->
-                                                                                    <!--                                                                                </div>-->
-                                                                                    <!--                                                                                <div class="radio-image-wrapper"><input type="radio" id="cs_authorizedotnet_gateway" value="cs_authorizedotnet_gateway" name="cs_payment_gateway" class="cs-gateway-calculation"><label for="cs_authorizedotnet_gateway"><span><img alt="#" src="assets/extra-images/pyment2.png">-->
-                                                                                    <!--																				</span> </label>-->
-                                                                                    <!--                                                                                </div>-->
-                                                                                    <!--                                                                                <div class="radio-image-wrapper"><input type="radio" id="cs_pre_bank_transfer" value="cs_pre_bank_transfer" name="cs_payment_gateway" class="cs-gateway-calculation"><label for="cs_pre_bank_transfer"><span><img alt="#" src="assets/extra-images/pyment3.png">-->
-                                                                                    <!--																				</span> </label></div>-->
-                                                                                    <!--                                                                                <div class="radio-image-wrapper"><input type="radio" id="cs_skrill_gateway" value="cs_skrill_gateway" name="cs_payment_gateway" class="cs-gateway-calculation"><label for="cs_skrill_gateway"><span><img alt="#" src="assets/extra-images/pyment4.png">-->
-                                                                                    <!--																				</span> </label>-->
-                                                                                    <!--                                                                                </div>-->
 
                                                                                 <li class="col-lg-6 col-md-6 col-sm-6">
                                                                                     <label>Please choose one creditcard:</label>
@@ -240,41 +260,6 @@ if(!$result_cardnumber = @ mysqli_query($connection, $query_cardnumber))
                                                                                         ?>
                                                                                     </select>
                                                                                 </li>
-
-
-                                                                                <?php
-
-                                                                                $line_cardnumber = mysqli_fetch_array($result_cardnumber, MYSQLI_NUM);
-
-                                                                                while ($line_cardnumber = mysqli_fetch_array($result_cardnumber, MYSQLI_NUM) ){
-
-
-                                                                                    echo "    
-                                                                                            <article class=\"col-md-12\">
-                                                                                            <span class=\"number\">".$counter_pledger."</span>
-                                                                                            <figure>
-                                                                                                <a href=\"#\"><img alt=\"#\" src=\"assets/extra-images/pic.png\"></a> 
-                                                                                            </figure>
-                                                                                            <div class=\"text\">
-                                                                                                <h4><a href=\"#\">".$pledge_username."</a></h4>
-                                                                                            </div>
-                                                                                            <div class=\"time-sec\">
-                                                                                                <time datetime=\"2013-02-14\">".$pledge_time."</time>
-                                                                                            </div>
-                                                                                            <span class=\"amount\">"."$".$pledge_amount."</span>
-                                                                                            </article>                                          
-                                                                                        ";
-
-                                                                                }
-                                                                                ?>
-
-
-
-
-
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
                                                                         <div class="cs-holder">
                                                                             <div class="infotext">
                                                                                 <p>Please choose one of your credit card for this payment </p>
