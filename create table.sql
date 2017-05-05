@@ -1,6 +1,7 @@
 #drop table if exists `projgroup`;
 #drop table if exists `statusrecord`;
 drop table if exists `follow`;
+DROP TABLE IF EXISTS `likes`;
 drop table if exists `comments`;
 drop table if exists `pledge`;
 drop table if exists `payhistory`;
@@ -11,12 +12,6 @@ drop table if exists `creditcard`;
 drop table if exists `project`;
 drop table if exists `user`;
 
-DROP TABLE IF EXISTS `likes`;
-create table likes (
-    `username` varchar(36) not null,
-    `pid` varchar(36) not null,
-    primary key (username,pid)
-);
 
 DROP TABLE IF EXISTS `user`;
 create table user (
@@ -73,6 +68,19 @@ insert into `project` values ('4', 'B', 'Basic Battle Behaving', 'BbBbBb123:./fs
 insert into `project` values ('5', 'C', 'Cat Catching', 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC', '2015-06-03', '0', '10000', '2018-01-03', '2019-01-03', '0', 'funding',null);
 insert into `project` values ('6', 'H', 'House HoldingHHHHHHHHHHHHHHHHHHHHHHH', 'HHHHHHH', '2017-03-03 12:04:23', '0', '10000', '2017-04-03 12:04:23', '2019-01-03 12:04:23', '0', 'working',null);
 insert into `project` values ('7', 'H', 'House Holding', 'HHHHHHHHHHH', '2017-03-03 12:04:23', '0', '10000', '2017-04-03 12:04:23', '2019-01-03 12:04:23', '0', 'uncomplete', '2017-04-04');
+
+DROP TABLE IF EXISTS `likes`;
+create table likes (
+    `username` varchar(36) not null,
+    `pid` int not null,
+    primary key (username,pid),
+    constraint `likes_ibfk_1` foreign key (`username`) references `user` (`username`),
+    constraint `likes_ibfk_2` foreign key (`pid`) references `project` (`pid`)
+);
+
+insert into `likes` values ('A', '1');
+insert into `likes` values ('B', '2');
+insert into `likes` values ('C', '3');
 
 
 DROP TABLE IF exists `follow`;
