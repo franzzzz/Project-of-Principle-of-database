@@ -31,6 +31,8 @@ $result_sum_donated = @ mysqli_query($connection, $query_sum_donated);
 $donated = mysqli_fetch_array($result_sum_donated)[0];
 
   //all project you may like
+$query_show_like_pro = "SELECT * FROM project JOIN follow WHERE project.username = follow.followedusername AND fanusername = '{$loginUsername}'";
+$result_show_like_pro = @ mysqli_query($connection, $query_show_like_pro);
   
 ?>
 
@@ -202,7 +204,10 @@ $donated = mysqli_fetch_array($result_sum_donated)[0];
                                     <div class="cs-profile-holder">
                                       <div class="cs-ads-area">
                                         <?php
-
+                                            while($line_show_like_pro = mysqli_fetch_array($result_show_like_pro)){
+                                              $query_count_like = "SELECT "
+                                              echo "";
+                                            }
                                         ?>
 
                                         <article>
@@ -213,7 +218,7 @@ $donated = mysqli_fetch_array($result_sum_donated)[0];
                                             </figure>
                                             <div class="detail-area">
                                               <div class="ads-title">
-                                                <div class="ads-btn">
+                                                <!-- <div class="ads-btn"> -->
                                                   <a href="#" class="fav-btn"><i class="icon-star-o"></i><span>22</span></a>
                                                   <a href="#" class="del icon-trash-o"></a>
                                                 </div>  
@@ -227,7 +232,7 @@ $donated = mysqli_fetch_array($result_sum_donated)[0];
                                                   </ul>
                                                   <span class="bar"><span style="width:84%;"></span></span>
                                                 </div>
-                                              </div>
+                                              <!-- </div> -->
                                             </div>
                                           </div>
                                           <div class="edit-area">
@@ -265,6 +270,7 @@ $donated = mysqli_fetch_array($result_sum_donated)[0];
                                             </div>
                                           </div>
                                         </article>
+
                                       </div>
                                     </div>
                                   </div>
