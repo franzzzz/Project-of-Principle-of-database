@@ -30,7 +30,7 @@ $query = "INSERT INTO `creditcard`(cardnumber,nameoncard,cvv,username)VALUES ('{
 
 // Execute the query
 if (!$result = @ mysqli_query($connection, $query))
-    header("Location: 404.php");;
+    header("Location: 404.php");
 
 header("Location: donatePage2.php?donate_amount=".$_POST['donate_amount']);
 ?>
