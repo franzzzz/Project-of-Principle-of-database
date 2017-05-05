@@ -16,6 +16,10 @@
   $restday = floor((time()-$php_createtime_timestamp)/3600);
   $createtime = date('F d, Y', $php_createtime_timestamp);
 
+  //show all project here
+  $query_show_all_pro = "SELECT pname, username, maxfund, endtime, moneysum FROM project WHERE status = 'funding'";
+  $result_show_all_pro = @ mysqli_query($connection, $query_show_all_pro);
+
 ?>
 
 <html lang="en">
@@ -97,7 +101,7 @@
                 <span> <?php echo 'Member Since '.$createtime; ?> </span>
                 <span> <?php echo $restday.'days ago.  Great!'; ?> </span>
                 <ul class="dropdown">
-                  <li><a href="project.php"><i class="icon-flag5"></i>My project</a></li>
+                  <li><a href="home.php"><i class="icon-flag5"></i>My project</a></li>
                   <li><a href="saved.html"><i class="icon-file-text-o"></i>Saved project</a></li>
                   <li><a href="my-donation.html"><i class="icon-file-text-o"></i>My Donations</a></li>
                   <li><a href="donation.html"><i class="icon-ticket6"></i>Donations</a></li>
