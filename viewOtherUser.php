@@ -400,7 +400,7 @@
 												</div>
 												<div id="comments" class="tab-pane fade in" role="tabpanel">
 													<div id="comment">
-													  <div class="cs-section-title"><h2>324 Comments</h2></div>
+													  <div class="cs-section-title"><h2>His Comments History</h2></div>
 													  <!-- Ul Start -->
 													  <ul>
 
